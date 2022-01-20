@@ -1,0 +1,68 @@
+@use 'src/styles/vars';
+
+body {
+  background-color : #0ac3a7!important;
+  padding-top: 2rem; 
+}
+
+.link {
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: 700;
+  color: #fffdd8; 
+}
+
+#logo-navbar{
+    width: max(40%, 250px);
+    align-items: center;
+    fill : #fffdd8;
+}
+
+#mainSignIn{
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: 400;
+}
+
+
+#box{
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: 400;
+}
+
+#email {
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: 400;
+  background-color: #fffdd8;
+  border-radius: 4px;
+  
+}
+
+#password {
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: 400;
+  background-color: #fffdd8;
+  border-radius: 4px;
+}
+
+#lockAvatar {
+  background-color: #0CAD93;
+}
+
+#connexionButton {
+  background-color:  #234b78; 
+  color: #fffdd8;
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: 500;
+  width: 100%;
+  font-size: smaller;
+}
+
+#typographyTitle {
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: 700;
+  color: #fffdd8; 
+}
+
+#copyrightTypo{
+  font-family: 'brandon-grotesque', sans-serif;
+  color: #fffdd8;
+}

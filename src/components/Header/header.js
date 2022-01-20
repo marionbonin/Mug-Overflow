@@ -1,13 +1,13 @@
 // == Import
-import './styles.css';
-import ResponsiveAppBar from 'Navbar/navbar';
-
+import './style.scss';
+import ResponsiveAppBarTop from './NavbarTop/navbar';
+import ResponsiveAppBar from './NavbarBottom/navbar';
 
 // == Composant
 const Header = () => (
   <div className="app">
+    <ResponsiveAppBarTop />
     <ResponsiveAppBar />
-
   </div>
 );
 
