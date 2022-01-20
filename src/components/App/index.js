@@ -1,12 +1,14 @@
 // == Import
-import reactLogo from './react-logo.svg';
 import './styles.css';
+import Button from '@mui/material/Button';
+import ResponsiveAppBar from '../Header/Navbar/navbar';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <img src={reactLogo} alt="react logo" />
+    <ResponsiveAppBar />
     <h1>Composant : App</h1>
+    {/* <Button id="button" variant="contained">Contained</Button> */}
   </div>
 );
 
