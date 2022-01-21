@@ -2,24 +2,29 @@
 
 body {
   background-color : #0ac3a7!important;
-  padding-top: 2rem; 
+}
+
+
+#mainSignIn {
+  min-height: 85vh;
+  // margin-bottom: 20vh;
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: 400;
+  border: red 3px solid;
 }
 
 .link {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 700;
-  color: #fffdd8; 
+  color: vars.$darkBlue; 
+  padding-bottom: 1rem;
 }
 
 #logo-navbar{
-    width: max(40%, 250px);
-    align-items: center;
-    fill : #fffdd8;
-}
-
-#mainSignIn{
-  font-family: 'brandon-grotesque', sans-serif;
-  font-weight: 400;
+  padding-top: 2rem; 
+  width: max(100%, 250px);
+  align-items: center;
+  fill : #fffdd8;
 }
 
 
@@ -48,7 +53,7 @@ body {
 }
 
 #connexionButton {
-  background-color:  #234b78; 
+  background-color: vars.$darkBlue; 
   color: #fffdd8;
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 500;

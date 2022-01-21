@@ -58,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
-  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+  const settings = ['Profil', 'Mon compte', 'Logout'];
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleOpenNavMenu = (event) => {

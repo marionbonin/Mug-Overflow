@@ -1,13 +1,17 @@
 // == Import
-import './styles.css';
+import './styles.scss';
 import Header from '../Header/header';
 import SignIn from '../Login/login';
+import Footer from '../Footer/footer';
 
 // == Composant
 const App = () => (
   <div className="app">
     {/* <Header /> */}
-    <SignIn />
+    <SignIn key="1" />
+    <SignIn key="2" />
+    <SignIn key="3" />
+    <Footer />
     {/* <Button id="button" variant="contained">Contained</Button> */}
   </div>
 );

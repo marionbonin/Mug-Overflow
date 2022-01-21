@@ -13,19 +13,6 @@ import logo from 'src/assets/images/logo-mugoverflow.svg';
 
 import './style.scss';
 
-function Copyright(props) {
-  return (
-    <Typography id="copyrightTypo" variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Mug OverFlow
-      </Link>{' '}
-      {new Date().getFullYear()}
-      '.'
-    </Typography>
-  );
-}
-
 const theme = createTheme();
 
 export default function SignIn() {
@@ -41,8 +28,8 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme} maxWidth="sm">
-      <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
       <Container id="mainSignIn" component="main" maxWidth="xs">
+        <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
         <CssBaseline />
         <Box
           sx={{
@@ -99,20 +86,26 @@ export default function SignIn() {
               <Link
                 className="link"
                 href="#"
-                sx={{ mt: 2, mb: 1.5 }}
+                sx={{
+                  mt: 2,
+                  mb: 1.5,
+                  color: '#234b78',
+                }}
               >
                 Mot de passe oublié ?
               </Link>
               <Link
                 className="link"
                 href="#"
+                sx={{
+                  color: '#234b78',
+                }}
               >
                 Pas de compte pas de mug !
               </Link>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
