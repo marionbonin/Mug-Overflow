@@ -29,7 +29,7 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar id="navbar" position="static">
-      <Container maxWidth="xl">
+      <Container id="navbar-menu">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton

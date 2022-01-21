@@ -7,10 +7,8 @@ import Footer from '../Footer/footer';
 // == Composant
 const App = () => (
   <div className="app">
-    {/* <Header /> */}
-    <SignIn key="1" />
-    <SignIn key="2" />
-    <SignIn key="3" />
+    <Header />
+    <SignIn />
     <Footer />
     {/* <Button id="button" variant="contained">Contained</Button> */}
   </div>

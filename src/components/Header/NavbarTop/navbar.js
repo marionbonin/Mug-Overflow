@@ -74,10 +74,15 @@ export default function SearchAppBar() {
     setAnchorElUser(null);
   };
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box
+      id="top-menu-box"
+    >
+      <AppBar
+        position="static"
+        id="top-menu-appbar"
+      >
         <Toolbar
-          id="toolbar"
+          id="top-menu-toolbar"
         >
           <Search>
             <SearchIconWrapper>
@@ -88,6 +93,7 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+
           <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

@@ -1,11 +1,21 @@
 @use 'src/styles/vars';
 
 
-#toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: vars.$darkBackgroundGreen;
+#top-menu-box {
+    background-color: vars.$darkBackgroundGreen;
+  #top-menu-appbar {
+    background-color: vars.$darkBackgroundGreen;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    box-shadow: none;
+    #top-menu-toolbar {
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+  }
+
   #logo-navbar {
     width: 200px;
     align-items: center;
