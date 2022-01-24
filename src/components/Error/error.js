@@ -1,7 +1,7 @@
+import Box from '@mui/material/Box';
 import Page from '../Page/page';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
-import Box from '@mui/material/Box';
 
 import './style.scss';
 

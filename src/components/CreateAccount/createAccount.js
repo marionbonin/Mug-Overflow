@@ -9,7 +9,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
 import Footer from '../Footer/footer';
 
-
 import './style.scss';
 
 function Copyright(props) {
