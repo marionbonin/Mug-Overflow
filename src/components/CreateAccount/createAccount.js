@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
+import Footer from '../Footer/footer';
 
 import './style.scss';
 
@@ -28,7 +29,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function AccountCreation() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -59,6 +60,22 @@ export default function SignIn() {
             Connecte-toi à la boutique officielle O'Clock
           </Typography>
           <Box id="box" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="first-name"
+              label="Prénom"
+              id="first-name"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="last-name"
+              label="Nom"
+              id="last-name"
+            />
             <TextField
               margin="normal"
               required
@@ -68,6 +85,14 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="promo"
+              label="Promo"
+              id="promo"
             />
             <TextField
               margin="normal"
@@ -95,7 +120,7 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Se connecter
+              Créer son compte 
             </Button>
             <Grid
               container
@@ -130,6 +155,7 @@ export default function SignIn() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
+      <Footer />
     </ThemeProvider>
   );
 }
