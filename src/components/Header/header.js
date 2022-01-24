@@ -1,14 +1,15 @@
 // == Import
-import './style.scss';
 import ResponsiveAppBarTop from './NavbarTop/navbar';
 import ResponsiveAppBar from './NavbarBottom/navbar';
 
+import './style.scss';
+
 // == Composant
 const Header = () => (
-  <div className="app">
+  <header id="header-container">
     <ResponsiveAppBarTop />
     <ResponsiveAppBar />
-  </div>
+  </header>
 );
 
 // == Export

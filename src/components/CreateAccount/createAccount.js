@@ -1,15 +1,14 @@
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
+import Footer from '../Footer/footer';
+
 
 import './style.scss';
 
@@ -43,7 +42,8 @@ export default function AccountCreation() {
     <ThemeProvider theme={theme} maxWidth="sm">
       <Container id="mainSignIn" component="main" maxWidth="xs">
         <CssBaseline />
-        <Box id="mainBox"
+        <Box
+          id="mainBox"
           sx={{
             marginTop: 8,
             display: 'flex',
@@ -97,7 +97,7 @@ export default function AccountCreation() {
               label="Mot de passe"
               type="password"
               id="password"
-              autoComplete="current-password"
+              autoComplete="new-password"
             />
             <TextField
               margin="normal"
@@ -107,6 +107,7 @@ export default function AccountCreation() {
               label="Confirmez votre mot de passe"
               type="password"
               id="password-verify"
+              autoComplete="new-password"
             />
             <Button
               id="connexionButton"
@@ -119,19 +120,20 @@ export default function AccountCreation() {
             </Button>
 
             <Link
-                className="link"
-                href="#"
-                sx={{
-                  color: '#234b78',
-                }}
-              >
-                Déjà inscrit? Connecte-toi !
-              </Link>
+              className="link"
+              href="connexion"
+              sx={{
+                color: '#234b78',
+              }}
+            >
+              Déjà inscrit? Connecte-toi !
+            </Link>
 
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
+      <Footer />
     </ThemeProvider>
   );
 }

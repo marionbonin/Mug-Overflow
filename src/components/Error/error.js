@@ -1,0 +1,21 @@
+import Page from '../Page/page';
+import Header from '../Header/header';
+import Footer from '../Footer/footer';
+import Box from '@mui/material/Box';
+
+import './style.scss';
+
+export default function Error() {
+  return (
+    <>
+      <Header />
+      <Page>
+        <Box className="boxErrorPage">
+          <h1> Error 404 </h1>
+          <h2>Mug not found </h2>
+        </Box>
+      </Page>
+      <Footer />
+    </>
+  );
+}

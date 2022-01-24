@@ -1,11 +1,9 @@
 // == Import
-import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import Header from '../Header/header';
+import {Routes, Route} from 'react-router-dom';
 import Login from '../Login/login';
-import Footer from '../Footer/footer';
 import CreateAccount from '../CreateAccount/createAccount';
-
+import Home from '../Home/home';
+import Error from '../Error/error';
 
 import './styles.scss';
 
@@ -15,7 +13,8 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/connexion" element={<Login />} />
-      <Route path="/creation-de-compte" element={<CreateAccount />} />  
+      <Route path="/inscription" element={<CreateAccount />} />
+      <Route path="/*" element={<Error />} />
     </Routes>
   </div>
 );
