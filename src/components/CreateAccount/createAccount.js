@@ -57,7 +57,7 @@ export default function AccountCreation() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography id="typographyTitle" component="h1" variant="h5">
-            Connecte-toi à la boutique officielle O'Clock
+            On n'attend plus que toi ! 
           </Typography>
           <Box id="box" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -80,19 +80,19 @@ export default function AccountCreation() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email"
-              name="email"
-              autoComplete="email"
-              autoFocus
+              name="promo"
+              label="Promo"
+              id="promo"
             />
             <TextField
               margin="normal"
               required
               fullWidth
-              name="promo"
-              label="Promo"
-              id="promo"
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              autoFocus
             />
             <TextField
               margin="normal"
@@ -122,35 +122,6 @@ export default function AccountCreation() {
             >
               Créer son compte 
             </Button>
-            <Grid
-              container
-              sx={
-                {
-                  display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center',
-                }
-              }
-            >
-              <Link
-                className="link"
-                href="#"
-                sx={{
-                  mt: 2,
-                  mb: 1.5,
-                  color: '#234b78',
-                }}
-              >
-                Mot de passe oublié ?
-              </Link>
-              <Link
-                className="link"
-                href="#"
-                sx={{
-                  color: '#234b78',
-                }}
-              >
-                Pas de compte pas de mug !
-              </Link>
-            </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
