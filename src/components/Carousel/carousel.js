@@ -1,13 +1,12 @@
 import { Carousel } from 'react-responsive-carousel';
 import Container from '@mui/material/Container';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import logoOclock from 'src/assets/images/logo-oclock.svg';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import logoOclock from 'src/assets/images/logo-oclock.svg';
+// import MediaCard from '../ProductCard/productCard';
 
 import './style.scss';
-
-
 
 export default function CarouselElement() {
   const theme = useTheme();
@@ -23,6 +22,7 @@ export default function CarouselElement() {
         className="carouselBreak"
         centerMode={smallerThanSm ? 'false' : 'true'}
         centerSlidePercentage={smallerThanSm ? '100' : '33.3'}
+
       >
         <div>
           <img src={logoOclock} alt="logo O'clock" id="logo-footer" />
