@@ -42,7 +42,6 @@ export default function AccountCreation() {
 
   return (
     <ThemeProvider theme={theme} maxWidth="sm">
-      <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
       <Container id="mainSignIn" component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -53,6 +52,7 @@ export default function AccountCreation() {
             alignItems: 'center',
           }}
         >
+          <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
           <Avatar id="lockAvatar" sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
@@ -60,7 +60,7 @@ export default function AccountCreation() {
             Connecte-toi à la boutique officielle O'Clock
           </Typography>
           <Box id="box" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
+            <TextField
               margin="normal"
               required
               fullWidth
@@ -120,7 +120,7 @@ export default function AccountCreation() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Créer son compte 
+              Créer son compte
             </Button>
             <Grid
               container
@@ -155,7 +155,6 @@ export default function AccountCreation() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
-      <Footer />
     </ThemeProvider>
   );
 }

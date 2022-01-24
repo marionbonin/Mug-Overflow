@@ -8,10 +8,10 @@ import CreateAccount from '../CreateAccount/createAccount';
 // == Composant
 const App = () => (
   <div className="app">
-    <Header />
-    <SignIn />
-    <Footer />
+    {/* <Header /> */}
+    {/* <SignIn /> */}
     <CreateAccount />
+    <Footer />
     {/* <Button id="button" variant="contained">Contained</Button> */}
   </div>
 );
