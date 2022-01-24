@@ -15,7 +15,7 @@ import './style.scss';
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -54,7 +54,6 @@ export default function SignIn() {
               label="Email"
               name="email"
               autoComplete="email"
-              autoFocus
             />
             <TextField
               margin="normal"

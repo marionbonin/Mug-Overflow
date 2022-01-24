@@ -44,7 +44,7 @@ export default function AccountCreation() {
     <ThemeProvider theme={theme} maxWidth="sm">
       <Container id="mainSignIn" component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
+        <Box id="mainBox"
           sx={{
             marginTop: 8,
             display: 'flex',
@@ -53,9 +53,6 @@ export default function AccountCreation() {
           }}
         >
           <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
-          <Avatar id="lockAvatar" sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography id="typographyTitle" component="h1" variant="h5">
             On n'attend plus que toi ! 
           </Typography>
@@ -92,7 +89,6 @@ export default function AccountCreation() {
               label="Email"
               name="email"
               autoComplete="email"
-              autoFocus
             />
             <TextField
               margin="normal"
@@ -122,6 +118,17 @@ export default function AccountCreation() {
             >
               Créer son compte
             </Button>
+
+            <Link
+                className="link"
+                href="#"
+                sx={{
+                  color: '#234b78',
+                }}
+              >
+                Déjà inscrit? Connecte-toi !
+              </Link>
+
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
