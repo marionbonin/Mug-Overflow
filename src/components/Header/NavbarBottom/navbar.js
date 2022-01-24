@@ -70,6 +70,7 @@ const ResponsiveAppBar = () => {
           <Box id="menu-appbar" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
+                id="navButtons"
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block'}}

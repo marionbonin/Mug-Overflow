@@ -1,10 +1,35 @@
 @use 'src/styles/vars';
 
 .carousel {
-    border: 1px red solid;
+    // border: 1px red solid;
 }
 
 #categoryTitle {
   padding: 1em;
   font-weight: 500;
+}
+
+// Carousel slider element
+.carousel-slider {
+  display:flex;
+  align-items: center!important;
+}
+
+// carousel arrows
+.control-next, .control-prev {
+    background-color: vars.$darkGrey!important;
+    border-radius: 0;
+    opacity: 0.4!important;
+    padding-top: 60px!important;
+    padding-bottom: 60px!important;
+    // J'ai retiré la position relative pour laisser la "absolute" par défaut
+    // J'ai juste mis un top à 25% sachant qu'il était à 0% 
+    height: 50%!important;
+    // position: relative!important;
+    top: 25%!important;
+    // bottom: 50%!important;
+}
+
+.carousel-status {
+  display: none;
 }

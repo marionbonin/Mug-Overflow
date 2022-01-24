@@ -1,6 +1,19 @@
+@use 'src/styles/vars';
+
+#navButtons {
+  height: 64px;
+  border-radius: 0;
+  color: vars.$lightYellow;
+  &:hover {
+    border-bottom: 4px solid vars.$orangeYellow;
+    transition: none;
+    background-color: transparent;
+    // position: relative;
+  }
+}
 
 #navbar{
-  width:100%;
+  height:100%;
   background-color: #008571;
   color: #fffdd8;
   box-shadow: none;

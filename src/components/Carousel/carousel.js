@@ -3,7 +3,9 @@ import Container from '@mui/material/Container';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import logoOclock from 'src/assets/images/logo-oclock.svg';
+
+import Card from '../ProductCard/productCard';
+
 // import MediaCard from '../ProductCard/productCard';
 
 import './style.scss';
@@ -11,7 +13,25 @@ import './style.scss';
 export default function CarouselElement() {
   const theme = useTheme();
   const smallerThanSm = useMediaQuery(theme.breakpoints.down('sm'));
-  // console.log(smallerThanSm);
+  const smallerThanMd = useMediaQuery(theme.breakpoints.down('md'));
+  const largerThanMd = useMediaQuery(theme.breakpoints.up('md'));
+
+  // Retirer % au besoin si ca skip une card
+  let centerSlidePercentageRatio = '50.05%';
+
+  if (smallerThanSm) {
+    centerSlidePercentageRatio = '100';
+  }
+  else if (smallerThanMd) {
+    centerSlidePercentageRatio = '50';
+  }
+  else if (largerThanMd) {
+    centerSlidePercentageRatio = '33.3';
+  }
+
+  console.log(smallerThanSm);
+  console.log(centerSlidePercentageRatio);
+
   return (
     <Container>
       <h2 id="categoryTitle">catégorie à dynamiser</h2>
@@ -21,29 +41,14 @@ export default function CarouselElement() {
       */
         className="carouselBreak"
         centerMode={smallerThanSm ? 'false' : 'true'}
-        centerSlidePercentage={smallerThanSm ? '100' : '33.3'}
-
+        centerSlidePercentage={centerSlidePercentageRatio}
+        infiniteLoop="true"
       >
-        <div>
-          <img src={logoOclock} alt="logo O'clock" id="logo-footer" />
-          <p className="legend">Legend 1</p>
-        </div>
-        <div>
-          <img src={logoOclock} alt="logo O'clock" id="logo-footer" />
-          <p className="legend">Legend 2</p>
-        </div>
-        <div>
-          <img src={logoOclock} alt="logo O'clock" id="logo-footer" />
-          <p className="legend">Legend 3</p>
-        </div>
-        <div>
-          <img src={logoOclock} alt="logo O'clock" id="logo-footer" />
-          <p className="legend">Legend 4</p>
-        </div>
-        <div>
-          <img src={logoOclock} alt="logo O'clock" id="logo-footer" />
-          <p className="legend">Legend 5</p>
-        </div>
+        <Card key="1" />
+        <Card key="2" />
+        <Card key="3" />
+        <Card key="4" />
+        <Card key="5" />
       </Carousel>
     </Container>
   );
