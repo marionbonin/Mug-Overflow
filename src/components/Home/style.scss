@@ -1,0 +1,43 @@
+@use 'src/styles/vars';
+
+#page-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  
+
+  
+  #infoDisclaimer{
+    font-family: 'brandon-grotesque', sans-serif;
+    font-weight: 600;
+    color: vars.$backgroundGrey; 
+    background-color: vars.$lightYellow;
+    border : 1px, solid, vars.$orangeYellow;
+    border-radius : 2px;
+    line-height: normal;
+    padding: 1em;
+    margin: 0.5em;
+  }
+}
+
+#easter-home {
+  span {
+    position: absolute;
+    opacity: 0%;
+    width: 0%;
+  }
+
+  &:hover {
+    span {
+      position: static;
+      opacity: 100%;
+      width: 100%;
+      transition: width 1000ms, opacity 1000ms;
+    }
+  }
+}
+
+
