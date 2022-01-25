@@ -1,16 +1,20 @@
 @use 'src/styles/vars';
 
 h1{
-  font-weight: 700; 
-  color:vars.$darkGrey;
+  color:#ffff;
+  margin-bottom: 1rem;
+  // .faq-text-title {
+  //   // color: vars.$veryDarkBackgroundGreen;
+  // }
 }
 
 .MuiAccordionSummary-root {
-    background-color: vars.$lightYellow!important;
+  background-color: vars.$lightYellow!important;
+  
 }
 
 .MuiAccordionSummary-content {
-  height: 2.2em;
+  min-height: 2.2em;
 } 
 
 #container-accordion{
@@ -22,21 +26,16 @@ h1{
 }
 
 .faq-accordion-text {
-  width: 100%;
   font-family: "brandon-grotesque",sans-serif!important;
+  text-align: left;
   &.question {
+    align-self: center;
     font-weight: bold;
-    text-align: left;
     width: 70%;
+    // border: 1px solid red;
   }
-  // &.answer {
-
-  // }
 }
 
-h1 {
-  margin-bottom: 1rem;
-}
 .faq-animate {
   position: absolute;
   right: 1%;
@@ -46,8 +45,13 @@ h1 {
   height: 40px;
   width: 40px;
   background-repeat: no-repeat;
+  transition: 200ms;
+  &:hover {
+    transform: rotate(30deg);
+    transition: 100ms;
+  }
   &.rotate {
-    transition: 200ms;
+    // transition: 200ms;
     // transform: rotate(90deg);
     background-image: url(/src/assets/images/split-mug.svg);
     height: 80px;
@@ -63,6 +67,9 @@ h1 {
     }
     @media (min-width: 900px) { 
       left: 95%;
+    }
+    &:hover {
+      transform: rotate(0deg);
     }
   }
 }

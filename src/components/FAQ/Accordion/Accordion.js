@@ -17,7 +17,7 @@ export default function ControlledAccordions() {
 
   return (
     <div id="container-accordion">
-      <h1> What the FAQ ?! </h1>
+      <h1> What the FAQ ?!</h1>
       {/* Accordion panel 1 */}
       <Accordion className="faq-accordeon" expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
@@ -33,7 +33,7 @@ export default function ControlledAccordions() {
           <Typography
             className="faq-accordion-text answer"
           >
-            Oui, si tu l'achète maintenant.
+            Oui, si tu l'achètes maintenant.
             Double tes chances en envoyant des sous sur notre cagnotte leetchi!
           </Typography>
         </AccordionDetails>
