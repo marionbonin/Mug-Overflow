@@ -97,7 +97,7 @@ export default function Footer() {
             >
               <Link href="#" px={3}> Mentions légales </Link>
               <Link href="#" px={3}> CGV </Link>
-              <Link href="#" px={3}> FAQ </Link>
+              <Link href="/faq" px={3}> FAQ </Link>
             </Grid>
           </Grid>
         </Container>

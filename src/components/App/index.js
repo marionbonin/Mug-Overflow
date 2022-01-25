@@ -4,6 +4,7 @@ import Login from '../Login/login';
 import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';
 import Error from '../Error/error';
+import FAQ from '../FAQ/faq';
 import ProductCard from '../ProductCard/productCard';
 
 import './styles.scss';
@@ -51,6 +52,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<CreateAccount />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/*" element={<Error />} />
         <Route path="/card" element={<ProductCard />} />
       </Routes>

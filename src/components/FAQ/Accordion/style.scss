@@ -1,0 +1,69 @@
+@use 'src/styles/vars';
+
+h1{
+  font-weight: 700; 
+  color:vars.$darkGrey;
+}
+
+.MuiAccordionSummary-root {
+    background-color: vars.$lightYellow!important;
+}
+
+.MuiAccordionSummary-content {
+  height: 2.2em;
+} 
+
+#container-accordion{
+  padding: 2em;
+}
+
+.faq-accordion {
+  background-color: vars.$lightYellow;
+}
+
+.faq-accordion-text {
+  width: 100%;
+  font-family: "brandon-grotesque",sans-serif!important;
+  &.question {
+    font-weight: bold;
+    text-align: left;
+    width: 70%;
+  }
+  // &.answer {
+
+  // }
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+.faq-animate {
+  position: absolute;
+  right: 1%;
+  // bottom: 3%;
+  display: inline;
+  background-image: url(/src/assets/images/mug-to-split.svg);
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+  &.rotate {
+    transition: 200ms;
+    // transform: rotate(90deg);
+    background-image: url(/src/assets/images/split-mug.svg);
+    height: 80px;
+    width: 80px;
+    overflow: visible;
+
+    // manual handle of breakpoints 
+    @media (min-width: 0px){ 
+      left: 75%;
+    }
+    @media (min-width: 500px) { 
+      left: 90%;
+    }
+    @media (min-width: 900px) { 
+      left: 95%;
+    }
+  }
+}
+

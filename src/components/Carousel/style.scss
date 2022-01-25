@@ -38,3 +38,11 @@
   display: flex;
 }
 
+.carousel .control-dots {
+  bottom: 0px;
+  margin: 0px 0;
+}
+.dot {
+  background-color: vars.$orangeYellow!important;
+  box-shadow: none!important;
+}
