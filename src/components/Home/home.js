@@ -19,7 +19,7 @@ export default function Home() {
             <h2 id="easter-home">La boutique<span> (presque) </span> officielle des mugs O'Clock </h2>
           </div>
           <Box
-            id="infoDisclaimer"
+            id="info-disclaimer"
             sx={{ width: { xs: '90%', md: '50%', lg: '40%' } }}
           >
             <p>
@@ -33,15 +33,24 @@ export default function Home() {
               En savoir plus
             </Link>
           </Box>
-          <CarouselElement
-            key="1"
-          />
-          <CarouselElement
-            key="2"
-          />
+          <Box className="carousel-box">
+            <CarouselElement
+              key="1"
+            />
+          </Box>
+          <Box className="carousel-color carousel-box">
+            <CarouselElement
+              key="2"
+            />
+          </Box>
+          <Box className="carousel-box">
+            <CarouselElement
+              key="3"
+            />
+          </Box>
         </div>
       </Page>
       <Footer />
     </>
-  )
+  );
 }

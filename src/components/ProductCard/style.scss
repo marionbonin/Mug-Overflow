@@ -6,7 +6,7 @@
   // .cardMugMedia {
   //   // height: 345px;
   // }
-  .cardContent{
+  .card-content{
     font-family: "brandon-grotesque",sans-serif;
     font-weight: 400;
     display: flex;
@@ -15,18 +15,18 @@
     align-items: flex-start;
    
 
-    .cardMugProps { 
+    .card-mug-props { 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         //border: 1px solid red;
 
-        .cardMugName {
+        .card-mug-name {
         font-size: 2rem;
         font-weight: 500;
         margin-bottom: 5px;
         }
-        .cardMugCateg {
+        .card-mug-categ {
         font-size: 1.5rem;
         }
     }
@@ -38,7 +38,7 @@
     padding: 0;
     a {
       text-decoration: none;
-      #cardButton {
+      #card-button {
           background-color: vars.$orangeYellow;
           color: vars.$backgroundGrey; 
           border-radius: 20px;

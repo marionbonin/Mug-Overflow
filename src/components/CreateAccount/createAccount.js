@@ -39,10 +39,10 @@ export default function AccountCreation() {
 
   return (
     <ThemeProvider theme={theme} maxWidth="sm">
-      <Container id="mainSignIn" component="main" maxWidth="xs">
+      <Container id="main-sign-in" component="main" maxWidth="xs">
         <CssBaseline />
         <Box
-          id="mainBox"
+          id="main-box"
           sx={{
             marginTop: 8,
             display: 'flex',
@@ -52,7 +52,7 @@ export default function AccountCreation() {
         >
           <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
           <Typography id="typographyTitle" component="h1" variant="h5">
-            On n'attend plus que toi ! 
+            On n'attend plus que toi !
           </Typography>
           <Box id="box" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField

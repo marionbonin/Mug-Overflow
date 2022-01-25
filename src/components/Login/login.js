@@ -29,7 +29,7 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={theme} maxWidth="sm">
-      <Container id="mainSignIn" component="main" maxWidth="xs">
+      <Container id="main-sign-in" component="main" maxWidth="xs">
         <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
         <CssBaseline />
         <Box
@@ -40,10 +40,10 @@ export default function Login() {
             alignItems: 'center',
           }}
         >
-          <Avatar id="lockAvatar" sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar id="lock-avatar" sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography id="typographyTitle" component="h1" variant="h5">
+          <Typography id="typography-title" component="h1" variant="h5">
             Connecte-toi à la boutique officielle O'Clock
           </Typography>
           <Box id="box" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -67,7 +67,7 @@ export default function Login() {
               autoComplete="current-password"
             />
             <Button
-              id="connexionButton"
+              id="connexion-button"
               type="submit"
               fullWidth
               variant="contained"

@@ -10,7 +10,7 @@ export default function Error() {
     <>
       <Header />
       <Page>
-        <Box className="boxErrorPage">
+        <Box className="box-error-page">
           <h1> Error 404 </h1>
           <h2>Mug not found </h2>
         </Box>

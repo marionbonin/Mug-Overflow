@@ -1,5 +1,5 @@
 // == Import
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Login from '../Login/login';
 import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';

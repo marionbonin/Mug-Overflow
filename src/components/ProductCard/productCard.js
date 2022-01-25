@@ -24,12 +24,12 @@ export default function MediaCard() {
         alt="photo du produit"
       />
       <CardContent>
-        <Box className="cardContent">
-          <div className="cardMugProps">
-            <div className="cardMugName">
+        <Box className="card-content">
+          <div className="card-mug-props">
+            <div className="card-mug-name">
               Nom du Mug
             </div>
-            <div className="cardMugCateg">
+            <div className="card-mug-categ">
               Catégorie
             </div>
           </div>
@@ -43,7 +43,7 @@ export default function MediaCard() {
           to=""
         >
           <Button
-            id="cardButton"
+            id="card-button"
             type="button"
             fullWidth
             variant="contained"

@@ -29,12 +29,12 @@ export default function CarouselElement() {
     centerSlidePercentageRatio = '33.3';
   }
 
-  console.log(smallerThanSm);
-  console.log(centerSlidePercentageRatio);
+  // console.log(smallerThanSm);
+  // console.log(centerSlidePercentageRatio);
 
   return (
     <Container>
-      <h2 id="categoryTitle">catégorie à dynamiser</h2>
+      <h2 id="category-title">catégorie à dynamiser</h2>
       <Carousel
       /* to display more than 1 card in the carousel:
       edit centerSlidePercentage prop to 33.3 and set centerMode prop as "true"
@@ -44,11 +44,11 @@ export default function CarouselElement() {
         centerSlidePercentage={centerSlidePercentageRatio}
         infiniteLoop="true"
       >
-        <Card key="1" />
-        <Card key="2" />
-        <Card key="3" />
-        <Card key="4" />
-        <Card key="5" />
+        <Card key="1" className="carousel-white" />
+        <Card key="2" className="carousel-color" />
+        <Card key="3" className="carousel-white" />
+        <Card key="4" className="carousel-color" />
+        <Card key="5" className="carousel-white" />
       </Carousel>
     </Container>
   );

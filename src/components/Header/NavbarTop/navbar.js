@@ -60,10 +60,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function SearchAppBar() {
   const settings = ['Profil', 'Mon compte', 'Logout'];
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+  // I put this part as a comment, because I deleted most of this unused code and want to keep
+  // a trace of what was here.
+  // const [anchorElNav, setAnchorElNav] = React.useState(null);
+  // const handleOpenNavMenu = (event) => {
+  //   setAnchorElNav(event.currentTarget);
+  // };
+  const [setAnchorElNav] = React.useState(null);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -89,7 +92,7 @@ export default function SearchAppBar() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Rechercer..."
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>

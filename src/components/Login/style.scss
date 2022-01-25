@@ -5,7 +5,7 @@ body {
 }
 
 
-#mainSignIn {
+#main-sign-in {
   min-height: 85vh;
   // margin-bottom: 20vh;
   font-family: 'brandon-grotesque', sans-serif;
@@ -47,11 +47,11 @@ body {
   border-radius: 4px;
 }
 
-#lockAvatar {
+#lock-avatar {
   background-color: #0CAD93;
 }
 
-#connexionButton {
+#connexion-button {
   background-color: vars.$darkBlue; 
   color: #fffdd8;
   font-family: 'brandon-grotesque', sans-serif;
@@ -60,13 +60,8 @@ body {
   font-size: smaller;
 }
 
-#typographyTitle {
+#typography-title {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 700;
   color: #fffdd8; 
-}
-
-#copyrightTypo{
-  font-family: 'brandon-grotesque', sans-serif;
-  color: #fffdd8;
 }

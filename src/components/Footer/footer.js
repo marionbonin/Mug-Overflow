@@ -12,7 +12,7 @@ import './style.scss';
 
 function Copyright(props) {
   return (
-    <Typography id="copyrightTypo" variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography id="copyright-typo" variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Mug OverFlow
@@ -40,7 +40,7 @@ export default function Footer() {
               item
               xs={12}
               sm={4}
-              sx= {
+              sx={
                 {
                   justifyContent: { xs: 'center', sm: 'flex-start' },
                 }
@@ -87,7 +87,7 @@ export default function Footer() {
               item
               xs={12}
               sm={4}
-              id="footerLinks"
+              id="footer-links"
               sx={
                 {
                   flexDirection: { xs: 'column', sm: 'row' },

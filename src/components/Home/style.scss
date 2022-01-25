@@ -13,7 +13,7 @@
     color: vars.$darkBackgroundGreen;
   }
   
-  #infoDisclaimer{
+  #info-disclaimer{
     font-family: 'brandon-grotesque', sans-serif;
     font-weight: 600;
     color: vars.$backgroundGrey; 
@@ -43,5 +43,11 @@
 
 }
 
+.carousel-color {
+  background-color: vars.$darkBackgroundGreen;
+  color: vars.$lightYellow;
+}
 
-
+.carousel-box {
+  width: 100%;
+}
