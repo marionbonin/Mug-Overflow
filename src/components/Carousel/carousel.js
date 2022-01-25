@@ -39,10 +39,11 @@ export default function CarouselElement() {
       /* to display more than 1 card in the carousel:
       edit centerSlidePercentage prop to 33.3 and set centerMode prop as "true"
       */
-        className="carouselBreak"
+        className="carousel-break"
         centerMode={smallerThanSm ? 'false' : 'true'}
         centerSlidePercentage={centerSlidePercentageRatio}
         infiniteLoop="true"
+        showThumbs={false}
       >
         <Card key="1" className="carousel-white" />
         <Card key="2" className="carousel-color" />

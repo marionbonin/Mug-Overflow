@@ -1,48 +1,66 @@
 @use 'src/styles/vars';
 
-.mug-card {
+#mug-card {
+  padding: 0;
   margin: 2rem;
-  // margin-right: 4rem;
-  // .cardMugMedia {
-  //   // height: 345px;
-  // }
+  width: 220px;
+  height: 320px; 
+  border-radius: 16px;
+  align-self: center;
+
+  img {
+    height: 60%;
+    padding: 2px;
+  }
+
+.MuiCardContent-root  {
+  padding: 8px;
+
   .card-content{
     font-family: "brandon-grotesque",sans-serif;
     font-weight: 400;
     display: flex;
     justify-content: space-between;
-    //border: 1px green solid;
     align-items: flex-start;
-   
+    // border: 1px solid green;
 
+    
     .card-mug-props { 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        //border: 1px solid red;
+        // border: 1px solid red;
 
         .card-mug-name {
-        font-size: 2rem;
         font-weight: 500;
         margin-bottom: 5px;
         }
-        .card-mug-categ {
-        font-size: 1.5rem;
-        }
+        // .card-mug-categ {
+        // // font-size: 1.5rem;
+        // }
     }
+
+    .favourite-button {
+      padding: 0;
+    }
+
+    
   }
+} 
+
   .MuiCardActions-root {
-    //border: 1px solid blue; 
+    // border: 1px solid blue; 
     display: flex;
-    justify-content: space-around;
-    padding: 0;
+    justify-content: center;
+    padding: 6%;
+    align-items:center;
     a {
       text-decoration: none;
       #card-button {
           background-color: vars.$orangeYellow;
           color: vars.$backgroundGrey; 
           border-radius: 20px;
-          margin: 1em;
+          margin: 0;
       }
     }
   }

@@ -14,8 +14,8 @@ import './style.scss';
 export default function MediaCard() {
   return (
     <Card
-      sx={{ maxWidth: 345, borderRadius: 4 }}
-      className="mug-card"
+      // sx={{ borderRadius: 4 }}
+      id="mug-card"
     >
       <CardMedia
         component="img"
@@ -33,7 +33,10 @@ export default function MediaCard() {
               Catégorie
             </div>
           </div>
-          <IconButton aria-label="add to favorites">
+          <IconButton
+            aria-label="add to favorites"
+            className="favourite-button"
+          >
             <FavoriteIcon />
           </IconButton>
         </Box>

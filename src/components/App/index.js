@@ -9,17 +9,54 @@ import ProductCard from '../ProductCard/productCard';
 import './styles.scss';
 
 // == Composant
-const App = () => (
-  <div className="app">
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/connexion" element={<Login />} />
-      <Route path="/inscription" element={<CreateAccount />} />
-      <Route path="/*" element={<Error />} />
-      <Route path="/card" element={<ProductCard />} />
-    </Routes>
-  </div>
-);
+function App() {
+  //   const routes = [{
+  //     path: '/',
+  //     component: Home,
+  //   }, {
+  //     path: '/connexion',
+  //     component: Login,
+  //   }, {
+  //     path: '/inscription',
+  //     component: CreateAccount,
+  //   }, {
+  //     path: '/card',
+  //     component: ProductCard,
+  //   }, {
+  //     path: '/*',
+  //     component: Error,
+  //   },
+  //   ];
+
+  //   function routeComponents() {
+  //     const mappedRoutes = routes.map(
+  //       ({ path, component }, key) => <Route exact path={path} element={component} key={key} />,
+  //     );
+  //     console.log(mappedRoutes);
+  //     return (mappedRoutes);
+  //   }
+
+  //   console.log(routeComponents());
+
+  //   return (
+  //     <div className="app">
+  //       <Routes>
+  //         {routeComponents.props.element}
+  //       </Routes>
+  //     </div>
+  //   );
+  return (
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/connexion" element={<Login />} />
+        <Route path="/inscription" element={<CreateAccount />} />
+        <Route path="/*" element={<Error />} />
+        <Route path="/card" element={<ProductCard />} />
+      </Routes>
+    </div>
+  );
+}
 
 // == Export
 export default App;

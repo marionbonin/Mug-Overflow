@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
+import Link from '@mui/material/Link';
 import SearchIcon from '@mui/icons-material/Search';
 import Tooltip from '@mui/material/Tooltip';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
@@ -96,8 +97,9 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-
-          <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
+          <Link href="/">
+            <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
+          </Link>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

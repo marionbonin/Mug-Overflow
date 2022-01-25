@@ -8,22 +8,40 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import MenuItem from '@mui/material/MenuItem';
 
 import './style.scss';
 
-const pages = ['Accueil', 'Catégories', 'Concept', 'Contact'];
+const pages = [
+  {
+    path: '/',
+    name: 'Accueil',
+  },
+  {
+    path: '/categories',
+    name: 'Catégories',
+  },
+  {
+    path: '/concept',
+    name: 'Concept',
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+  },
+];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+const handleOpenNavMenu = (event) => {
+  setAnchorElNav(event.currentTarget);
+};
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+const handleCloseNavMenu = () => {
+  setAnchorElNav(null);
+};
 
   return (
     <AppBar id="navbar" position="static">
@@ -57,24 +75,47 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map(({ name, path }) => (
+                <MenuItem
+                  key={name}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Link
+                    href={path}
+                    key={name}
+                    underline="none"
+                  >
+                    <Typography
+                      textAlign="center"
+                      key={name}
+                    >
+                      {name}
+                    </Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
-          <Box id="menu-appbar" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                id="nav-buttons"
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+          <Box
+            id="menu-appbar"
+            sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
+          >
+            {pages.map(({ name, path }) => (
+              <Link
+                href={path}
+                key={name}
+                underline="none"
               >
-                {page}
-              </Button>
+                <Button
+                  id="nav-buttons"
+                  key={name}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {name}
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
