@@ -6,46 +6,12 @@ import Home from '../Home/home';
 import Error from '../Error/error';
 import FAQ from '../FAQ/faq';
 import ProductCard from '../ProductCard/productCard';
+import Product from '../Product/product';
 
 import './styles.scss';
 
 // == Composant
 function App() {
-  //   const routes = [{
-  //     path: '/',
-  //     component: Home,
-  //   }, {
-  //     path: '/connexion',
-  //     component: Login,
-  //   }, {
-  //     path: '/inscription',
-  //     component: CreateAccount,
-  //   }, {
-  //     path: '/card',
-  //     component: ProductCard,
-  //   }, {
-  //     path: '/*',
-  //     component: Error,
-  //   },
-  //   ];
-
-  //   function routeComponents() {
-  //     const mappedRoutes = routes.map(
-  //       ({ path, component }, key) => <Route exact path={path} element={component} key={key} />,
-  //     );
-  //     console.log(mappedRoutes);
-  //     return (mappedRoutes);
-  //   }
-
-  //   console.log(routeComponents());
-
-  //   return (
-  //     <div className="app">
-  //       <Routes>
-  //         {routeComponents.props.element}
-  //       </Routes>
-  //     </div>
-  //   );
   return (
     <div className="app">
       <Routes>
@@ -55,6 +21,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/*" element={<Error />} />
         <Route path="/card" element={<ProductCard />} />
+        <Route path="/produit" element={<Product />} />
       </Routes>
     </div>
   );
