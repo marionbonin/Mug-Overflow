@@ -4,10 +4,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import logoOclock from 'src/assets/images/logo-oclock.svg';
-import logoInsta from 'src/assets/images/logo-insta.png';
-import logoFB from 'src/assets/images/logo-FB.png';
-import logoTikTok from 'src/assets/images/logo-tiktok.png';
-import logoGmail from 'src/assets/images/logo-gmail.png';
+import logoInsta from 'src/assets/images/logos-social/logo-insta.png';
+import logoFB from 'src/assets/images/logos-social/logo-FB.png';
+import logoTikTok from 'src/assets/images/logos-social/logo-tiktok.png';
+import logoGmail from 'src/assets/images/logos-social/logo-gmail.png';
 import './style.scss';
 
 function Copyright(props) {
