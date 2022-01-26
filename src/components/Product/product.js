@@ -4,6 +4,7 @@ import Footer from '../Footer/footer';
 import CarouselElement from '../Carousel/carousel';
 import Page from '../Page/page';
 import Button from '@mui/material/Button';
+import FeedbackCard from './FeedbackCard/feedbackCard';
 
 import './style.scss';
 
@@ -13,9 +14,13 @@ export default function Product() {
       <Header />
       <Page>
         <ActiveLastBreadcrumb />
-        <div>(Détails produit)
-          <div>Nom du Produit (titre)</div>
-          <div>Description</div>
+        <div>
+          <h1>Nom du Produit (titre)</h1>
+          <div>
+            Pour tous ceux qui cherchent la petite bête ! Le mug Keep Calm and var_dump();
+            est disponible pour les amoureux de PHP !
+            Alors, plutôt #TeamBackeux ou #TeamFront? Choisir ce mug, c'est choisir son camp.
+          </div>
           <div><CarouselElement /></div>
           <div id="download-buttons">
             <Button variant="contained">Télécharger le recto</Button>
@@ -23,7 +28,7 @@ export default function Product() {
             <Button variant="contained">Direction l'imprimeur !</Button>
           </div>
         </div>
-        <div>Avis utilisateurs</div>
+        <div><FeedbackCard /></div>
       </Page>
       <Footer />
     </>

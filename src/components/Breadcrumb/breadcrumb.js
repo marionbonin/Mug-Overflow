@@ -2,6 +2,8 @@ import * as React from 'react';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 
+import './style.scss';
+
 function handleClick(event) {
   event.preventDefault();
   console.info('You clicked a breadcrumb.');
@@ -10,7 +12,7 @@ function handleClick(event) {
 export default function ActiveLastBreadcrumb() {
   return (
     <div role="presentation" onClick={handleClick}>
-      <Breadcrumbs aria-label="breadcrumb">
+      <Breadcrumbs aria-label="breadcrumb" id="breadcrumb-global">
         <Link underline="hover" color="inherit" href="/">
           Accueil
         </Link>
