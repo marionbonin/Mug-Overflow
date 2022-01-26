@@ -1,0 +1,86 @@
+@use 'src/styles/vars';
+
+
+#product-details {
+  background-color: white;
+  margin-top: 60px;
+  min-height: 80vh;
+
+  .product-title-box {
+    
+    .product-title {
+      display: inline-block;
+      color: vars.$lightYellow;
+      background-color: vars.$veryDarkBackgroundGreen;
+      position: relative;
+      bottom: 2rem;
+      text-transform: uppercase;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 100%;
+    }
+  }
+  .product-description {
+    display: inline-block;
+    width: 70%;
+  }
+
+  #product-actions{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-around;
+    //border: 1px solid black;
+
+    #download-buttons {
+      display: flex;
+      flex-direction: column;
+      max-width: 50%;
+      border: 1px solid black;
+      padding: 10px;
+  
+      .MuiButton-root{
+        margin: 0.5em;
+      }
+  }
+  }
+}
+
+#feedbacks-container{
+  background-color: vars.$darkBackgroundGreen;
+  display: flex;
+  justify-content: center;
+
+  // .feedbacks-title {
+
+  // }
+
+  #feedbacks-content{
+    width: 80%;
+    margin: 1em;
+
+    #user-feedback-icon{
+      height: 2em;
+      width: 2em;
+      color: vars.$orangeYellow;
+    }
+
+    #feedback-author{
+      font-size: 1.5em;
+      margin:0.3em;
+    }
+    
+    #user-promo{
+      font-size: 1em;
+      margin: 0.5em;
+    }
+
+    #feedback-message{
+      font-size: 2em;
+      font-weight: 400;
+      font-style: italic; 
+    }
+
+  }
+}
