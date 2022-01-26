@@ -3,8 +3,6 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
-import CoffeeIcon from '@mui/icons-material/Coffee';
-import mugToSplit from 'src/assets/images/mug-to-split.svg';
 
 import './style.scss';
 

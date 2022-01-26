@@ -18,11 +18,21 @@
       padding-left: 2rem;
       padding-right: 2rem;
       max-width: 100%;
+
+      @media (min-width: 0px){ 
+        font-size: 2rem;
+      }
+      @media (min-width: 900px){ 
+        font-size: 4rem;
+      }
     }
   }
   .product-description {
     display: inline-block;
     width: 70%;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    line-height: 1.3em ;
   }
 
   #product-actions{
@@ -31,34 +41,63 @@
     flex-direction: row;
     align-items: center; 
     justify-content: space-around;
-    //border: 1px solid black;
-
-    #download-buttons {
+    //border: 1px red solid;
+    max-width: 100%;
+        
+    #buttons-group {
       display: flex;
       flex-direction: column;
-      max-width: 50%;
-      border: 1px solid black;
+      min-width: 40%;
+      // border: 1px solid black;
       padding: 10px;
-  
-      .MuiButton-root{
-        margin: 0.5em;
+      justify-content: center;
+
+      // selecting all direct children elements: 2 buttons & 1 link
+      & > * {
+        margin: 0.8em;
+        font-family: "brandon-grotesque",sans-serif;
+        width: 100%;
       }
+
+      // no links for these, only button tags
+      #download-recto, #download-verso {
+        background-color: vars.$orangeYellow;
+        color: vars.$darkGrey;
+      }
+      
+      a {
+        text-decoration: none;
+        text-transform: none;
+        // button tag is inside the link tag
+        #send-to-printer {
+          font-family: "brandon-grotesque",sans-serif;
+          width: 100%;
+          background-color: vars.$darkBlue;
+        }
+      }
+      
+    }
   }
   }
-}
+
 
 #feedbacks-container{
   background-color: vars.$darkBackgroundGreen;
   display: flex;
   justify-content: center;
 
-  // .feedbacks-title {
-
-  // }
+  .feedbacks-title {
+    @media (min-width: 0px){ 
+      font-size: 2rem;
+    }
+    @media (min-width: 900px){ 
+      font-size: 4rem;
+    }
+  }
 
   #feedbacks-content{
     width: 80%;
-    margin: 1em;
+    margin: 1.5em;
 
     #user-feedback-icon{
       height: 2em;
@@ -80,6 +119,12 @@
       font-size: 2em;
       font-weight: 400;
       font-style: italic; 
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      @media (min-width: 600px){ 
+        max-width: 50%;
+      }
     }
 
   }

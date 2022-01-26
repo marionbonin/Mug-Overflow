@@ -5,50 +5,51 @@ import backMockup from 'src/assets/images/mug-mockups/mug_solo_back_logo_oclock.
 
 import './style.scss';
 
-
- export default function ProductCarousel() {
- const data = [
+export default function ProductCarousel() {
+  const data = [
     {
       image: frontMockup,
-      caption: "Recto"
+      caption: 'Recto',
     },
     {
       image: backMockup,
-      caption: "Verso"
+      caption: 'Verso',
     },
     {
       image: frontBackMockup,
-      caption: "Recto & verso"
+      caption: 'Recto verso',
     },
   ];
 
   const captionStyle = {
     fontSize: '2em',
     fontWeight: 'bold',
-  }
-  
+    paddingTop: '20px',
+    display: 'none',
+  };
+
   const slideNumberStyle = {
     fontSize: '20px',
     fontWeight: 'bold',
-  }
+  };
   return (
-    <div className="product-carousel-parent">
-      <div style={{ textAlign: "center" }}>
+    <div className="product-carousel-container">
+      <div style={{ textAlign: 'center' }}>
         <div>
-          <Carousel 
+          <Carousel
             data={data}
             time={10000}
             captionStyle={captionStyle}
-            slideNumber={true}
+            slideNumber
             slideNumberStyle={slideNumberStyle}
             captionPosition="bottom"
-            automatic={true}
-            dots={true}
+            automatic // ={true} but ommited with Eslint
+            dots
             pauseIconColor="white"
             pauseIconSize="40px"
             slideBackgroundColor="darkgrey"
             slideImageFit="cover"
-            thumbnails={true}
+            thumbnails
             thumbnailWidth="100px"
             className="product-carousel"
           />

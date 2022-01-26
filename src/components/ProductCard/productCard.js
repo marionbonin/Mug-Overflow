@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Link from '@mui/material/Link';
-import logoOclock from 'src/assets/images/logo-oclock.svg';
+import frontMockup from 'src/assets/images/mug-mockups/CSS_IS_AWESOME_front.png';
 
 import './style.scss';
 
@@ -20,17 +20,17 @@ export default function MediaCard() {
       <CardMedia
         component="img"
         className="cardMugMedia"
-        image={logoOclock}
+        image={frontMockup}
         alt="photo du produit"
       />
       <CardContent>
         <Box className="card-content">
           <div className="card-mug-props">
             <div className="card-mug-name">
-              Nom du Mug
+              CSS IS AWESOME
             </div>
             <div className="card-mug-categ">
-              Catégorie
+              CSS
             </div>
           </div>
           <IconButton
