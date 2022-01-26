@@ -24,14 +24,14 @@
 #navbar{
   height:100%;
   background-color: vars.$veryDarkBackgroundGreen;
-  color: #fffdd8;
+  color: vars.$lightYellow;
   box-shadow: none;
 }
 
 
 
 #menu-appbar {
-  color: #fffdd8;
+  color: vars.$lightYellow;
   justify-content: space-between;
   button {
     font-family: "brandon-grotesque";
