@@ -1,7 +1,33 @@
 @use 'src/styles/vars';
 
-h1 {
-  color:#ffff;
-  margin-bottom: 1rem;
-  
+#cgu-content{
+  display: block;
+  margin: auto;
+  @media (min-width: 0px){ 
+    max-width: 90%;
+  }
+  @media (min-width: 600px) { 
+    max-width: 80%;
+  }
+  text-align: left;
+  padding: 20px 0;
+  font-size: 1.2rem;
+
+
+  .cgu-title {
+    color: vars.$lightYellow;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .cgu-p  {
+    line-height: 1.5;
+  }
+
+  .cgu-date  {
+    margin: 20px 0;
+    font-style: italic;
+    text-align: right;
+  }
 }
+
