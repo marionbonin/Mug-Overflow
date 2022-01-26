@@ -33,9 +33,9 @@ export default function Footer() {
       >
         {/* Footer container - max width = "Large" breakpoint */}
         <Container maxWidth="xl">
-          {/* 3 colums container */}
+          {/* 3 columns container */}
           <Grid container>
-            {/* First column - display 12/12 on mobile, 4/12 or 1/3 of the page on other devices */}
+            {/* First column - social media links - display 12/12 on mobile, 4/12 or 1/3 of the page on other devices */}
             <Grid
               item
               xs={12}
@@ -43,55 +43,66 @@ export default function Footer() {
               sx={
                 {
                   justifyContent: { xs: 'center', sm: 'flex-start' },
+                  order: { xs: 3, sm: 1 },
                 }
               }
-              id="footer-social"
+              id="social-container"
             >
               <a href="#">
                 <img
-                  className="footer-social-icon"
+                  className="social-icon"
                   src={logoFB}
                   alt="logo FB"
                 />
               </a>
               <a href="#">
                 <img
-                  className="footer-social-icon"
+                  className="social-icon"
                   src={logoInsta}
                   alt="logo insta"
                 />
               </a>
               <a href="#">
                 <img
-                  className="footer-social-icon"
+                  className="social-icon"
                   src={logoTikTok}
                   alt="logo TikTok"
                 />
               </a>
               <a href="#">
                 <img
-                  className="footer-social-icon"
+                  className="social-icon"
                   src={logoGmail}
                   alt="logo Gmail"
                 />
               </a>
             </Grid>
 
-            {/* Seconde colone du footer */}
-            <Grid item xs={12} sm={4}>
-              <img src={logoOclock} alt="logo O'clock" id="logo-footer" />
+            {/* 2nd column - Oclock logo */}
+            <Grid 
+              item xs={12} sm={4}
+              id="logo-container"
+              sx={
+                {
+                  order: { xs: 1, sm: 2 },
+                }
+              }
+              >
+              <img src={logoOclock} alt="logo O'clock" id="logo-image" />
             </Grid>
 
-            {/* Troisième tiers du footer */}
+            {/* 3rd column - page links */}
             <Grid
               item
               xs={12}
               sm={4}
-              id="footer-links"
+              id="page-links-container"
               sx={
                 {
                   flexDirection: { xs: 'column', sm: 'row' },
                   justifyContent: { xs: 'center', sm: 'space-between' },
+                  order: { xs: 2, sm: 3 },
+
                 }
               }
             >
