@@ -7,8 +7,17 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
   padding: 10px;
+  font-weight: 600;
+  @media (min-width: 0px){ 
+    font-size: 2.5rem;
+    margin: 20px;
+
+  }
+  @media (min-width: 900px){ 
+    font-size: 3.5rem;
+    margin: 50px;
+  }
 }
 
 h2 {
