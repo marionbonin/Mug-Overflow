@@ -1,5 +1,8 @@
 @use 'src/styles/vars';
 
+#breadcrumb-global {
+  margin-left: 32px;
+}
 
 #product-details {
   background-color: white;
@@ -31,7 +34,7 @@
     display: inline-block;
     width: 70%;
     font-size: 1.4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     line-height: 1.3em ;
   }
 
@@ -75,57 +78,62 @@
           background-color: vars.$darkBlue;
         }
       }
-      
     }
   }
   }
 
 
-#feedbacks-container{
+#feedbacks-container {
   background-color: vars.$darkBackgroundGreen;
-  display: flex;
-  justify-content: center;
+  padding-bottom: 20px;
 
-  .feedbacks-title {
-    @media (min-width: 0px){ 
-      font-size: 2rem;
-    }
-    @media (min-width: 900px){ 
-      font-size: 4rem;
-    }
-  }
+  #feedback-container{
+    display: flex;
+    justify-content: center;
 
-  #feedbacks-content{
-    width: 80%;
-    margin: 1.5em;
+    #feedback-content{
+      width: 80%;
+      margin: 1.5em;
 
-    #user-feedback-icon{
-      height: 2em;
-      width: 2em;
-      color: vars.$orangeYellow;
-    }
+      .feedback-title {
+        color: white;
+        font-size: 2rem;
+        font-style: normal;
+        margin-bottom: 20px;
+      }
 
-    #feedback-author{
-      font-size: 1.5em;
-      margin:0.3em;
-    }
+      #user-feedback-icon{
+        height: 2em;
+        width: 2em;
+        color: vars.$orangeYellow;
+      }
+
+      #feedback-author{
+        font-size: 1.5em;
+        margin: 0.3em;
+        font-weight: 600;
+        color: vars.$darkGrey;
+      }
     
-    #user-promo{
-      font-size: 1em;
-      margin: 0.5em;
-    }
+      #user-promo{
+        font-size: 1.2em;
+        margin: 0.5em;
+        color: vars.$lightYellow;
+      }
 
-    #feedback-message{
-      font-size: 2em;
-      font-weight: 400;
-      font-style: italic; 
-      max-width: 80%;
-      margin-left: auto;
-      margin-right: auto;
-      @media (min-width: 600px){ 
-        max-width: 50%;
+      #feedback-message{
+        color: vars.$darkGrey;
+        font-size: 1.8em;
+        font-weight: 400;
+        font-style: italic; 
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        @media (min-width: 600px){ 
+          max-width: 50%;
+        }
       }
     }
-
   }
 }
+

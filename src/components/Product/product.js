@@ -71,7 +71,10 @@ export default function Product() {
                 >
                   Télécharger le verso
                 </Button>
-                <Link href="https://www.vistaprint.fr/cadeaux-photo/mugs-personnalises?xnav=__undefined_tile-shell_0_A0Y">
+                <Link
+                  href="https://www.vistaprint.fr/cadeaux-photo/mugs-personnalises?xnav=__undefined_tile-shell_0_A0Y"
+                  target="_blank"
+                >
                   <Button
                     variant="contained"
                     id="send-to-printer"
@@ -83,23 +86,25 @@ export default function Product() {
             </div>
           </div>
         </div>
-        <Container id="feedbacks-container" key="1">
-          <div id="feedbacks-content">
-            <h1 className="feedbacks-title"> Ils ont commandé ce mug (ou pas)... </h1>
-            <FaceIcon id="user-feedback-icon" />
-            <p id="feedback-author"> John D'Oeuf </p>
-            <p id="user-promo"> Promo Sion </p>
-            <p id="feedback-message"> "J'adore les mugs, dans 20 ou 30 ans, y'en aura plus." </p>
-          </div>
-        </Container>
-        <Container id="feedbacks-container" key="2">
-          <div id="feedbacks-content">
-            <FaceIcon id="user-feedback-icon" />
-            <p id="feedback-author"> Anne Anas </p>
-            <p id="user-promo"> Promo Tusse </p>
-            <p id="feedback-message"> " Depuis que j'ai ce mug, je n'ai plus aucun bug. Et j'apprends encore plus vite" </p>
-          </div>
-        </Container>
+        <div id="feedbacks-container">
+          <Container id="feedback-container" key="1">
+            <div id="feedback-content">
+              <h2 className="feedback-title"> Ils ont commandé ce mug (ou pas)... </h2>
+              <FaceIcon id="user-feedback-icon" />
+              <p id="feedback-author"> John D'Oeuf </p>
+              <p id="user-promo"> Promo Sion </p>
+              <p id="feedback-message"> "J'adore les mugs, dans 20 ou 30 ans, y'en aura plus." </p>
+            </div>
+          </Container>
+          <Container id="feedback-container" key="2">
+            <div id="feedback-content">
+              <FaceIcon id="user-feedback-icon" />
+              <p id="feedback-author"> Anne Anas </p>
+              <p id="user-promo"> Promo Tusse </p>
+              <p id="feedback-message"> " Depuis que j'ai ce mug, je n'ai plus aucun bug. Et j'apprends encore plus vite" </p>
+            </div>
+          </Container>
+        </div>
       </Page>
       <Footer />
     </>

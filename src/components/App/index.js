@@ -5,7 +5,7 @@ import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';
 import Error from '../Error/error';
 import FAQ from '../FAQ/faq';
-import ProductCard from '../ProductCard/productCard';
+// import Concept from '../Concept/concept';
 import Product from '../Product/product';
 
 import './styles.scss';
@@ -19,9 +19,9 @@ function App() {
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<CreateAccount />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/*" element={<Error />} />
-        <Route path="/card" element={<ProductCard />} />
+        {/* <Route path="/concept" element={<Concept />} /> */}
         <Route path="/produit" element={<Product />} />
+        <Route path="/*" element={<Error />} />
       </Routes>
     </div>
   );
