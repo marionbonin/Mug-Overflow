@@ -1,10 +1,15 @@
 import mug from 'src/assets/images/mug-concept.svg';
 import printer from 'src/assets/images/printer-concept.svg';
+import Andrei from 'src/assets/images/trombi/mug_trombinoscope_Andrei.png';
+import Marion from 'src/assets/images/trombi/mug_trombinoscope_Marion.png';
+import Nicolas from 'src/assets/images/trombi/mug_trombinoscope_Nicolas.png';
+import ErwanAlbert from 'src/assets/images/trombi/mug_trombinoscope_Erwan_Albert.png';
 import Header from '../Header/header';
 import Page from '../Page/page';
 import Footer from '../Footer/footer';
 
 import './style.scss';
+import { Link } from '@mui/material';
 
 export default function Product() {
   return (
@@ -65,25 +70,46 @@ export default function Product() {
         <p className="concept-text">
           Comme une image vaut mieux qu'un long discours, peut-on dire que cette partie vaut cinq
           longs discours? Vous êtes gâtés !
-          {/* Insérer 5 mockup de mug avec nos trombines */}
-          <br />image 1 trombine de l'équipe
-          <br />image 2 trombine de l'équipe
-          <br />image 3 trombine de l'équipe
-          <br />image 4 trombine de l'équipe
-          <br />image 5 trombine de l'équipe
         </p>
+        <img src={Andrei} alt="trombinoscope andrei" className="trombi-concept" />
+        <img src={Marion} alt="trombinoscope marion" className="trombi-concept" />
+        <img src={ErwanAlbert} alt="trombinoscope Erwan & Albert" className="trombi-concept" />
+        <img src={Nicolas} alt="trombinoscope Nicolas" className="trombi-concept" />
         <h2 className="concept-question">
           C'est bien gentil, mais... C'est pour qui?
         </h2>
         <p className="concept-text">
-          C'est pour toi, pour lui, pour tous ceux qui le veuuulent (il est tard je finirais 
-          demain ca sent les burgers)
+          Pour les étudiants, futurs étudiants, alumnis, et le staff O'clock. C'est un projet fait
+          pour O'Clock, par O'Clock (enfin, par nous). Du coup pas de conquête du marché
+          international du Mug et ses grandes sociétés. Juste, toi, nous, ton mug, et un bon café.
         </p>
         <h2 className="concept-question">
           Et ça coute combien?
         </h2>
+
+        <h3 className="concept-price">
+          13,5€!
+        </h3>
+
         <p className="concept-text">
-          Le prix blablabla
+          Ce prix, ce n'est pas nous qui le fixons. Il inclut 7,99€ de mug, et 5,39€ de livraison
+          (ca pique un peu, je vous l'accorde), ce qui nous donne un prix exact de 13,38€.
+        </p>
+        <p className="concept-text">
+          Et comme vous avez pu le voir en naviguant, il s'agit d'une pseudo-boutique, et non d'un
+          e-shop. Déjà, parceque n'avons pas encore les moyens de développer un e-shop propre,
+          et surtout parceque nous ne cherchons pas à développer une activité lucrative.
+          On cherche avant tout à se faire plaisir, à vous faire plaisir, et s'exercer à pratiquer
+          ce qui en quelques mois est devenue pour chacun une passion.
+        </p>
+        <p className="concept-text">
+          Si besoin est de le préciser, nous n'avons aucun accord commercial ou autre avec
+          VistaPrint. Le bouton sur les pages produit vous redirige vers eux, mais une fois vos
+          visuels téléchargés, vous pouvez aller les faire imprimer où bon vous semble!
+          Après tout, on est développeurs, pas policiers.
+        </p>
+        <p className="concept-text">
+          Bon shopping!
         </p>
       </Page>
       <Footer />

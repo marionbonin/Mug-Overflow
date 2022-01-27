@@ -37,8 +37,23 @@
   font-size: 3rem;
 }
 
+.concept-price {
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: vars.$darkRed;
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+
 .svg-concept {
   max-height: 15vh;
   margin: 2rem;
   color: blue;
 }
+
+.trombi-concept {
+  max-height: 20vh;
+  color: blue;
+}
+
