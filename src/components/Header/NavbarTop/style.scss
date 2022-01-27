@@ -2,9 +2,11 @@
 
 
 #top-menu-box {
-    padding-top: 10px;
+    @media (max-width: 600px){ 
+      padding-top: 10px;
+    }
     background-color: vars.$darkBackgroundGreen;
-  
+    
     #top-menu-appbar {
     background-color: vars.$darkBackgroundGreen;
     margin-left: auto;

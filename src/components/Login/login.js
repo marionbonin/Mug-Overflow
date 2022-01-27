@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeValue } from '../../actions/user';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
+import { changeValue, submitLogin } from '../../actions/user';
 import Footer from '../Footer/footer';
 
 import './style.scss';
@@ -21,30 +21,37 @@ import './style.scss';
 const theme = createTheme();
 
 export default function Login() {
-  // function that is triggered when form is sent.
-  // It just prevent the reload for now.
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
-  // we get the initial value of email from the state
+  // we get the initial email & password values from the state
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
-  console.log(`premiere value: ${emailValue}`);
 
   const dispatch = useDispatch();
 
+  // function that is triggered when form is sent.
+  // It just prevents the reload for now.
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+    // eslint-disable-next-line no-console
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+    dispatch(submitLogin());
+  };
+
   const handleChange = (event) => {
     // check if we successfully targetting the right field + the right entered data
-    console.log(`nom du champ: ${event.target.name}, nouvelle valeur: ${event.target.value}`);
+    console.log(`Le champ ${event.target.name} vient de recevoir la nouvelle valeur : ${event.target.value}`);
 
     // dispatch action
-    //console.log(event.target.value);
     dispatch(changeValue(event.target.name, event.target.value));
 
-    //console.log(event.target.value);
-    // the output should be the updated email value from state
-    console.log(`updated value: ${emailValue}`);
+    // the output should be the updated values from state
+    // Small lag so the console.log don't update the last character. No worries
+    // he does fully update the store
+    console.log(`Store updated values: ${emailValue} / ${passwordValue}`);
   };
 
   return (

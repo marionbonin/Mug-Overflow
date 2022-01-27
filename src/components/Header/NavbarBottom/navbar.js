@@ -35,13 +35,13 @@ const pages = [
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-const handleOpenNavMenu = (event) => {
-  setAnchorElNav(event.currentTarget);
-};
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-const handleCloseNavMenu = () => {
-  setAnchorElNav(null);
-};
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   return (
     <AppBar id="navbar" position="static">

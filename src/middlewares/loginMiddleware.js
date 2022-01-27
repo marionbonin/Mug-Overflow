@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { UPDATE_LOGIN_FIELD, saveUserData } from '../actions/user';
+import { SUBMIT_LOGIN } from '../actions/user';
 
 const loginMiddleware = (store) => (next) => (action) => {
-  // console.log('authMiddleware', action);
+  if (action.type === SUBMIT_LOGIN) {
+    console.log('form submitted');
+  }
 
   // On réagit à une action SUBMIT_LOGIN en faisant appel à l'API
 
