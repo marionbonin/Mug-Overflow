@@ -43,7 +43,7 @@ export default function Login() {
 
   const handleChange = (event) => {
     // check if we successfully targetting the right field + the right entered data
-    console.log(`Le champ ${event.target.name} vient de recevoir la nouvelle valeur : ${event.target.value}`);
+    // console.log(`Le champ ${event.target.name} vient de recevoir la nouvelle valeur : ${event.target.value}`);
 
     // dispatch action
     dispatch(changeValue(event.target.name, event.target.value));
@@ -51,7 +51,7 @@ export default function Login() {
     // the output should be the updated values from state
     // Small lag so the console.log don't update the last character. No worries
     // he does fully update the store
-    console.log(`Store updated values: ${emailValue} / ${passwordValue}`);
+    // console.log(`Store updated values: ${emailValue} / ${passwordValue}`);
   };
 
   return (

@@ -13,7 +13,7 @@ const reducer = (state = initialState, action = {}) => {
     // ici, nos propres actions pour tout reprendre au fur et à mesure
 
     case CHANGE_VALUE:
-      console.log(action.identifier);
+      // console.log(action.identifier);
 
       return {
         ...state,
