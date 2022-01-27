@@ -1,0 +1,59 @@
+@use 'src/styles/vars';
+
+.concept-title {
+  color: vars.$lightYellow;
+  font-size: 3rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+}
+
+.concept-subtitle, .concept-question {
+  color: vars.$backgroundGrey;
+  font-style: normal;
+  font-weight: 600;
+  padding-bottom: 0;
+}
+
+.concept-subsubtitle {
+  color: vars.$backgroundGrey;
+  font-style: italic;
+}
+
+.concept-question {
+  margin: 1rem;
+}
+
+.concept-text {
+  color: vars.$backgroundGrey;
+  line-height: 1.3;
+  padding-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.concept-quote {
+  padding-bottom: 1rem;
+  font-weight: lighter;
+  // font-style: italic;
+  font-size: 3rem;
+}
+
+.concept-price {
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: vars.$darkRed;
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+
+.svg-concept {
+  max-height: 15vh;
+  margin: 2rem;
+  color: blue;
+}
+
+.trombi-concept {
+  max-height: 20vh;
+  color: blue;
+}
+
