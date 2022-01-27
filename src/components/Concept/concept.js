@@ -33,7 +33,7 @@ export default function Product() {
           ou plusieurs, et à leur goût : un mug qui reflète encore davantage leur techno de
           prédilection, les punchlines entendues en cours, leur appartenance à leur promo...
         </p>
-        <h2 className="concept-question">
+        <h2 className="concept-question" id="what-is-it">
           Et du coup... C'est quoi?
         </h2>
         <p className="concept-text">
@@ -64,7 +64,7 @@ export default function Product() {
           passer par un service de POD, le futur de l'impression personnalisée, et vous proposer les
           mêmes mugs, mais à un bien meilleur prix!
         </p>
-        <h2 className="concept-question">
+        <h2 className="concept-question" id="who-is-it">
           Ok mais... Qui est derrière tout ça?!
         </h2>
         <p className="concept-text">
@@ -75,7 +75,7 @@ export default function Product() {
         <img src={Marion} alt="trombinoscope marion" className="trombi-concept" />
         <img src={ErwanAlbert} alt="trombinoscope Erwan & Albert" className="trombi-concept" />
         <img src={Nicolas} alt="trombinoscope Nicolas" className="trombi-concept" />
-        <h2 className="concept-question">
+        <h2 className="concept-question" id="who-is-this-for">
           C'est bien gentil, mais... C'est pour qui?
         </h2>
         <p className="concept-text">
@@ -83,7 +83,7 @@ export default function Product() {
           pour O'Clock, par O'Clock (enfin, par nous). Du coup pas de conquête du marché
           international du Mug et ses grandes sociétés. Juste, toi, nous, ton mug, et un bon café.
         </p>
-        <h2 className="concept-question">
+        <h2 className="concept-question" id="how-much">
           Et ça coute combien?
         </h2>
 

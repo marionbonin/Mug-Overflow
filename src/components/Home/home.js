@@ -23,14 +23,15 @@ export default function Home() {
             sx={{ width: { xs: '90%', md: '60%', lg: '50%' }}}
           >
             <p>
-              Tous les mugs sont au prix unitaire de <span className="disclaimer-bold">12€</span>.
+              Tous les mugs sont au prix unitaire de <span className="disclaimer-bold">13,5€</span>.
             </p>
             <p>
               Sélectionnez, personnalisez,
               et recevez le mug de vos rêves directement chez vous !
             </p>
-            <Link   
+            <Link
               className="disclaimer-bold"
+              href="/concept#how-much"
             >
               En savoir plus
             </Link>

@@ -79,7 +79,7 @@ export default function Footer() {
             </Grid>
 
             {/* 2nd column - Oclock logo */}
-            <Grid 
+            <Grid
               item xs={12} sm={4}
               id="logo-container"
               sx={
@@ -87,7 +87,7 @@ export default function Footer() {
                   order: { xs: 1, sm: 2 },
                 }
               }
-              >
+            >
               <img src={logoOclock} alt="logo O'clock" id="logo-image" />
             </Grid>
 
@@ -107,7 +107,7 @@ export default function Footer() {
               }
             >
               <Link href="/mentions-legales" px={3}> Mentions légales </Link>
-              <Link href="#" px={3}> CGV </Link>
+              <Link href="/cgu" px={3}> CGU </Link>
               <Link href="/faq" px={3}> FAQ </Link>
             </Grid>
           </Grid>
