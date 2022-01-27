@@ -1,0 +1,22 @@
+@use 'src/styles/vars';
+
+
+#notice-container {
+
+  background-color: white;
+  padding: 0.5em;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+  #notice-title{
+    background-color: vars.$darkBackgroundGreen;
+    width: 60%;
+    margin:0.3em;
+  }
+
+  .notice {
+    margin-bottom: 2em;
+  }
+}
+

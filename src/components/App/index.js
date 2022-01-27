@@ -5,6 +5,7 @@ import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';
 import Error from '../Error/error';
 import FAQ from '../FAQ/faq';
+import LegalNotice from '../MentionsLegales/mentionsLegales';
 // import Concept from '../Concept/concept';
 import Contact from '../Contact/contact';
 import Product from '../Product/product';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         {/* <Route path="/concept" element={<Concept />} /> */}
         <Route path="/produit" element={<Product />} />
+        <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </div>
