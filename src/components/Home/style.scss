@@ -9,20 +9,23 @@
   background-color: white;
   
   h1 {
-    font-weight: 400;
     color: vars.$darkBackgroundGreen;
   }
   
   #info-disclaimer{
     font-family: 'brandon-grotesque', sans-serif;
-    font-weight: 600;
-    color: vars.$backgroundGrey; 
+    font-weight: 400;
+    color: vars.$darkGrey; 
     background-color: vars.$lightYellow;
     border : 1px, solid, vars.$orangeYellow;
-    border-radius : 2px;
+    border-radius : 5px;
     line-height: normal;
     padding: 1em;
     margin: 0.5em;
+
+    .disclaimer-bold {
+      font-weight: 600;
+    }
   }
 
   #easter-home {

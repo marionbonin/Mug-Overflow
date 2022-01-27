@@ -7,7 +7,11 @@ import Error from '../Error/error';
 import FAQ from '../FAQ/faq';
 import LegalNotice from '../MentionsLegales/mentionsLegales';
 // import Concept from '../Concept/concept';
+
+// import CGU from '../CGU/cgu';
+
 import Contact from '../Contact/contact';
+
 import Product from '../Product/product';
 
 import './styles.scss';
@@ -22,6 +26,8 @@ function App() {
         <Route path="/inscription" element={<CreateAccount />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/CGU" element={<CGU />} />
+        
         {/* <Route path="/concept" element={<Concept />} /> */}
         <Route path="/produit" element={<Product />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />

@@ -22,11 +22,12 @@
       padding-right: 2rem;
       max-width: 100%;
 
+      // per all h1 (see main index.scss)
       @media (min-width: 0px){ 
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       @media (min-width: 900px){ 
-        font-size: 4rem;
+        font-size: 3rem;
       }
     }
   }
