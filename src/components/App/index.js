@@ -6,6 +6,7 @@ import Home from '../Home/home';
 import Error from '../Error/error';
 import FAQ from '../FAQ/faq';
 // import Concept from '../Concept/concept';
+import Contact from '../Contact/contact';
 import Product from '../Product/product';
 
 import './styles.scss';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<CreateAccount />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
         {/* <Route path="/concept" element={<Concept />} /> */}
         <Route path="/produit" element={<Product />} />
