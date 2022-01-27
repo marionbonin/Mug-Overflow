@@ -11,6 +11,7 @@ import CGU from '../CGU/cgu';
 import Contact from '../Contact/contact';
 import Concept from '../Concept/concept';
 import Product from '../Product/product';
+import Category from '../Categories/categories';
 
 import './styles.scss';
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/CGU" element={<CGU />} />
         {/* <Route path="/concept" element={<Concept />} /> */}
         <Route path="/concept" element={<Concept />} />
+        <Route path="/categories" element={<Category />} />
         <Route path="/produit" element={<Product />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/*" element={<Error />} />

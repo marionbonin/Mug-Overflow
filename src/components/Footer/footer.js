@@ -2,7 +2,8 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
+// import LinkMUI from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import logoOclock from 'src/assets/images/logo-oclock.svg';
 import logoInsta from 'src/assets/images/logos-social/logo-insta.png';
 import logoFB from 'src/assets/images/logos-social/logo-FB.png';
@@ -14,9 +15,9 @@ function Copyright(props) {
   return (
     <Typography id="copyright-typo" variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <a href="https://oclock.com/">
         Mug OverFlow
-      </Link>{' '}
+      </a>{' '}
       {new Date().getFullYear()}
       .
     </Typography>
@@ -35,7 +36,8 @@ export default function Footer() {
         <Container maxWidth="xl">
           {/* 3 columns container */}
           <Grid container>
-            {/* First column - social media links - display 12/12 on mobile, 4/12 or 1/3 of the page on other devices */}
+            {/* First column - social media links -
+            display 12/12 on mobile, 4/12 or 1/3 of the page on other devices */}
             <Grid
               item
               xs={12}
@@ -80,7 +82,9 @@ export default function Footer() {
 
             {/* 2nd column - Oclock logo */}
             <Grid
-              item xs={12} sm={4}
+              item
+              xs={12}
+              sm={4}
               id="logo-container"
               sx={
                 {
@@ -106,9 +110,9 @@ export default function Footer() {
                 }
               }
             >
-              <Link to="/mentions-legales" px={3}> Mentions légales </Link>
-              <Link to="/cgu" px={3}> CGU </Link>
-              <Link to="/faq" px={3}> FAQ </Link>
+              <Link to="/mentions-legales"> Mentions légales </Link>
+              <Link to="/cgu"> CGU </Link>
+              <Link to="/faq"> FAQ </Link>
             </Grid>
           </Grid>
         </Container>

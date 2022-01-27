@@ -17,8 +17,8 @@ export default function LegalNotice() {
           </div>
           <h2> Éditeur du Site </h2>
           <p className="notice"> Mug Overflow, une entreprise à votre écoute au capital de 0€. </p>
-          <h2> Hébérgement </h2>
-          <p className="notice"> M-O est pour le moment hébérgé dans vos coeurs... (et surtout sur nos VMs) </p>
+          <h2> Hébergement </h2>
+          <p className="notice"> M-O est pour le moment hébergé dans vos coeurs... (et surtout sur nos VMs) </p>
           <h2> Développement </h2>
           <p className="notice"> Notre site est developpé par une équipe géniale composée de deux backeux et trois
             fronteux. RDV sur la page Concept pour plus de détails.

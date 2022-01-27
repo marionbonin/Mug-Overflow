@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import Tooltip from '@mui/material/Tooltip';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
@@ -91,8 +91,8 @@ export default function SearchAppBar() {
           <Search
             sx={{
               order: { xs: 3, sm: 1 },
-              mt:  {xs: '20px', sm: 0 },
-              mb:  {xs: '20px', sm: 0 }, 
+              mt: { xs: '20px', sm: 0 },
+              mb: { xs: '20px', sm: 0 },
             }}
           >
             <SearchIconWrapper>
@@ -104,19 +104,25 @@ export default function SearchAppBar() {
             />
           </Search>
           <Link
-            href="/"
-            sx={{order: { xs: 1, sm: 2 }}}
+            to="/"
+            // sx={{ order: { xs: 1, sm: 2 } }}
+            id="link-logo-image"
           >
             <img src={logo} alt="logo Mug Overflow" id="logo-image" />
           </Link>
           <Box
             sx={{
               flexGrow: 0,
-              order: { xs: 2, sm: 3 }
-              }}>
+              order: { xs: 2, sm: 3 },
+            }}
+          >
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="" />
+                <Avatar
+                  alt="Remy Sharp"
+                  src=""
+                  sx={{ color: '#0CAD93', backgroundColor: 'white' }}
+                />
               </IconButton>
             </Tooltip>
             <Menu

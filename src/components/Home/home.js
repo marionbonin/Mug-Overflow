@@ -1,4 +1,5 @@
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import Box from '@mui/material/Box';
 import Page from '../Page/page';
 
@@ -29,12 +30,12 @@ export default function Home() {
               Sélectionnez, personnalisez,
               et recevez le mug de vos rêves directement chez vous !
             </p>
-            <Link
+            <HashLink
               className="disclaimer-bold"
-              href="/concept#how-much"
+              to="/concept#how-much"
             >
               En savoir plus
-            </Link>
+            </HashLink>
           </Box>
           <Box className="carousel-box">
             <CarouselElement

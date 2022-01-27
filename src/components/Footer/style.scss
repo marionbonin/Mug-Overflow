@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 #footer {
-  background-color: #008571;
+  background-color: vars.$darkGrey;
   margin-top: 1rem;
   width: 100%;
   min-height: 15vh;

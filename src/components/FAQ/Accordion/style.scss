@@ -1,11 +1,7 @@
 @use 'src/styles/vars';
 
-h1{
+h1 {
   color:#ffff;
-  margin-bottom: 1rem;
-  // .faq-text-title {
-  //   // color: vars.$veryDarkBackgroundGreen;
-  // }
 }
 
 .MuiAccordionSummary-root {
@@ -18,7 +14,8 @@ h1{
 } 
 
 #container-accordion{
-  padding: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .faq-accordion {
@@ -28,11 +25,15 @@ h1{
 .faq-accordion-text {
   font-family: "brandon-grotesque",sans-serif!important;
   text-align: left;
+
   &.question {
     align-self: center;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 500;
     width: 70%;
-    // border: 1px solid red;
+  }
+  &.answer {
+    font-size: 1.2rem;
   }
 }
 

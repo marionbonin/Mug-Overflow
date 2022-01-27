@@ -43,7 +43,8 @@ export default function Login() {
 
   const handleChange = (event) => {
     // check if we successfully targetting the right field + the right entered data
-    // console.log(`Le champ ${event.target.name} vient de recevoir la nouvelle valeur : ${event.target.value}`);
+    // console.log(`Le champ ${event.target.name} vient de recevoir la 
+    // nouvelle valeur : ${event.target.value}`);
 
     // dispatch action
     dispatch(changeValue(event.target.name, event.target.value));

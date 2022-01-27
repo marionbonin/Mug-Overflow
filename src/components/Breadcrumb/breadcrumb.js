@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 
@@ -18,14 +18,12 @@ export default function ActiveLastBreadcrumb() {
         </Link>
         <Link
           underline="hover"
-          color="inherit"
           to="/categories/"
         >
           Catégories
         </Link>
         <Link
           underline="hover"
-          color="text.primary"
           to="/categories/categorie1/"
           aria-current="page"
         >
@@ -33,7 +31,6 @@ export default function ActiveLastBreadcrumb() {
         </Link>
         <Link
           underline="hover"
-          color="text.primary"
           to="/categories/categorie1/produit1"
           aria-current="page"
         >
