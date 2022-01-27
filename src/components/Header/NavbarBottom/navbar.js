@@ -8,7 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
+import { NavLink, Link } from 'react-router-dom';
 import MenuItem from '@mui/material/MenuItem';
 
 import './style.scss';
@@ -81,7 +81,7 @@ const handleCloseNavMenu = () => {
                   onClick={handleCloseNavMenu}
                 >
                   <Link
-                    href={path}
+                    to={path}
                     key={name}
                     underline="none"
                   >
@@ -102,8 +102,8 @@ const handleCloseNavMenu = () => {
             sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
           >
             {pages.map(({ name, path }) => (
-              <Link
-                href={path}
+              <NavLink
+                to={path}
                 key={name}
                 underline="none"
               >
@@ -115,7 +115,7 @@ const handleCloseNavMenu = () => {
                 >
                   {name}
                 </Button>
-              </Link>
+              </NavLink>
             ))}
           </Box>
         </Toolbar>

@@ -1,6 +1,6 @@
 @use 'src/styles/vars';
 
-#nav-buttons {
+#nav-buttons{
   height: 64px;
   border-radius: 0;
   color: vars.$lightYellow;
@@ -12,12 +12,24 @@
     background-color: transparent;
     // position: relative;
   }
-  &:active {
+  &.active {
     border-bottom: 4px solid vars.$orangeYellow;
     transition: none;
     background-color: transparent;
     padding-bottom: 2px;
     // position: relative;
+  }
+}
+
+#menu-appbar {
+  a {
+    &.active {
+      border-bottom: 4px solid vars.$orangeYellow;
+      transition: none;
+      background-color: transparent;
+      padding-bottom: 2px;
+      // position: relative;
+    }
   }
 }
 

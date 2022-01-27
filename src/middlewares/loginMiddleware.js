@@ -28,10 +28,9 @@ const loginMiddleware = (store) => (next) => (action) => {
       });
   }
 
-  // On passe l'action au suivant
-
+  On passe l'action au suivant
+*/
   next(action);
-  */
 };
 
 export default loginMiddleware;

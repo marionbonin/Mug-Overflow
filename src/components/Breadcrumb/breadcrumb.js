@@ -13,20 +13,20 @@ export default function ActiveLastBreadcrumb() {
   return (
     <div role="presentation" onClick={handleClick}>
       <Breadcrumbs aria-label="breadcrumb" id="breadcrumb-global">
-        <Link underline="hover" color="inherit" href="/">
+        <Link underline="hover" color="inherit" to="/">
           Accueil
         </Link>
         <Link
           underline="hover"
           color="inherit"
-          href="/categories/"
+          to="/categories/"
         >
           Catégories
         </Link>
         <Link
           underline="hover"
           color="text.primary"
-          href="/categories/categorie1/"
+          to="/categories/categorie1/"
           aria-current="page"
         >
           Catégorie 1
@@ -34,7 +34,7 @@ export default function ActiveLastBreadcrumb() {
         <Link
           underline="hover"
           color="text.primary"
-          href="/categories/categorie1/produit1"
+          to="/categories/categorie1/produit1"
           aria-current="page"
         >
           Produit 1

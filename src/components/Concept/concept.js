@@ -9,7 +9,7 @@ import Page from '../Page/page';
 import Footer from '../Footer/footer';
 
 import './style.scss';
-import { Link } from '@mui/material';
+// import { Link } from '@mui/material';
 
 export default function Product() {
   return (

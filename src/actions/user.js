@@ -1,9 +1,9 @@
 /* ici nos propres actions pour tout reprendre au fur et à mesure
 */
 
-export const CHANGE_EMAIL_VALUE = 'CHANGE_EMAIL_VALUE';
-export const changeEmailValue = (identifier, value) => ({
-  type: CHANGE_EMAIL_VALUE,
+export const CHANGE_VALUE = 'CHANGE_VALUE';
+export const changeValue = (identifier, value) => ({
+  type: CHANGE_VALUE,
   identifier: identifier,
   value: value,
 });

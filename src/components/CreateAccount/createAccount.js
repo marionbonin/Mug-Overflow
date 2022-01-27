@@ -120,7 +120,7 @@ export default function AccountCreation() {
 
             <Link
               className="link"
-              href="connexion"
+              to="connexion"
               sx={{
                 color: '#234b78',
               }}
