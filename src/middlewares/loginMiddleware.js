@@ -1,24 +1,37 @@
-// Middleware est un principe de Redux, il est placé en entrée du store
-// Il voit passer toutes les actions avant qu'elles arrivent au reducer
-// Cela permet de gérer les traitements asynchronnes comme les traitements API 
+import axios from 'axios';
+import { UPDATE_LOGIN_FIELD, saveUserData } from '../actions/user';
 
-// Il réagit à certaines actions par exemple en envoyant des requêtes à une API 
+const loginMiddleware = (store) => (next) => (action) => {
+  // console.log('authMiddleware', action);
 
-// Un premier middleware pas très utile, qui va juste logguer les actions qui passent 
+  // On réagit à une action SUBMIT_LOGIN en faisant appel à l'API
 
-/*
-Triple fléchée : on a trois informations disponibles
-  - on a accès au store 
-  - next => fonction qui permet de transmettre l'action au suivant càd au middleware suivant ou au reducer si c'est le dernier middleware 
-  -l'action qui vient d'être dispatchée 
-*/
+  /*
+  if (action.type === UPDATE_LOGIN_FIELD) {
+    axios.post(
+      'http://localhost:3001/login',
 
-const logMiddleware = (store) => (next) => (action) => {
-  //console.log('logMiddleware', action); 
+      {
+        email: store.getState().email,
+        password: store.getState().password,
+      },
+    )
+      .then((response) => {
+        // console.log(response);
+
+        // Récupérer le pseudo dans la réponse et le stocker  dnas le state
+        // => pour modifier le state, il faut dispatch une action
+        store.dispatch(saveUserData(response.data.pseudo));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   // On passe l'action au suivant
 
   next(action);
-}; 
+  */
+};
 
-export default logMiddleware; 
+export default loginMiddleware;

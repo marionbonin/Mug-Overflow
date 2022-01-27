@@ -1,3 +1,7 @@
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeEmailValue } from '../../actions/user';
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,22 +18,41 @@ import Footer from '../Footer/footer';
 
 import './style.scss';
 
+
 const theme = createTheme();
 
 export default function Login() {
+
+  // function that is triggered when form is sent.
+  // It just prevent the reload for now.
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  }
+
+  // we get the initial value of email from the state
+  const emailValue = useSelector((state) => state.user.email);
+  //console.log(emailValue);
+  console.log(`premiere value: ${emailValue}`);
+  
+  const dispatch = useDispatch();
+
+  const handleChange = (event) => {
+    // check if we successfully targetting the right field + the right entered data 
+    console.log(`nom du champ: ${event.target.name}, nouvelle valeur: ${event.target.value}`);
+
+    // dispatch action
+    const action = changeEmailValue(event.target.name, event.target.value); 
+    console.log(event.target.value);
+    dispatch(action);
+    
+    console.log(event.target.value);
+    // the output should be the updated email value from state
+    console.log(`updated value: ${emailValue}`);
   };
 
   return (
-    <ThemeProvider theme={theme} maxWidth="sm">
-      <Container id="main-sign-in" component="main" maxWidth="xs">
+    <ThemeProvider theme={theme}>
+      <Container id="main-sign-in" component="main" maxWidth="sm">
         <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
         <CssBaseline />
         <Box
@@ -55,6 +78,8 @@ export default function Login() {
               label="Email"
               name="email"
               autoComplete="email"
+              onChange={handleChange}
+              value={emailValue}
             />
             <TextField
               margin="normal"

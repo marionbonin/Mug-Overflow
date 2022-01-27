@@ -1,20 +1,14 @@
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-// import reducer from 'src/reducers/reducer';
+import { createStore, applyMiddleware, compose } from 'redux';
 
-// import loginMiddleware from 'src/middlewares/logMiddleware'; 
+import reducer from 'src/reducers/';
+import loginMiddleware from 'src/middlewares/loginMiddleware';
 
-// On construit un enhancer avec à la fois les devtools et les middlewares
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const middlewares = applyMiddleware(logMiddleware, authMiddleware, websocketMiddleware, /* autres middlewares */ );
-
-const enhancer = composeWithDevTools(middlewares);
-
-const store = createStore(
-  // reducer
-  reducer,
-  // enhancer
-  enhancer,
+const enhancers = composeEnhancers(
+  applyMiddleware(loginMiddleware),
 );
+
+const store = createStore(reducer, enhancers);
 
 export default store;
