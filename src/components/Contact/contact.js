@@ -3,13 +3,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 
 import './style.scss';
 
-const theme = createTheme();
 
 export default function Contact() {
   const handleSubmit = (event) => {
@@ -23,7 +21,7 @@ export default function Contact() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Header />
       <Container id="main-contact" component="main" maxWidth="xs">
         <CssBaseline />
@@ -95,6 +93,6 @@ export default function Contact() {
         </Box>
       </Container>
       <Footer />
-    </ThemeProvider>
+    </>
   );
 }

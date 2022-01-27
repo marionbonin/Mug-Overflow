@@ -11,18 +11,23 @@ $darkGrey: #1e2124;
 
 // VERT
 $backgroundGreen: #0ac3a7;
-$darkBackgroundGreen:#0CAD93;
-$veryDarkBackgroundGreen: #008571;
+$darkBackgroundGreen:rgba(10, 195, 167, 0.5);
+$veryDarkBackgroundGreen: #004b4000;
 
 // JAUNE
 $orangeYellow: #ffb400;
 $lightYellow: #fffdd8;
 
-//Bleu
+// Bleu
 $darkBlue: #234b78;
 $lightBlue: #3BB3DE;
 $extraLightBlue: #CDF2FF;
 
-//Rouge
+// Rouge
 $darkRed: rgb(165, 42, 40);
 $lightRed: #D83A37;
+
+// Noir opaque
+$blackOpacityZero: #00000000;
+$blackOpacityTwenty: #00000020;
+$blackOpacitySixty: #00000060;

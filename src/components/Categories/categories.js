@@ -7,7 +7,7 @@ export default function Category() {
     <>
       <Header />
       <Page>
-        <h1> Catégorie </h1>
+        <h2> Catégorie </h2>
       </Page>
       <Footer />
     </>

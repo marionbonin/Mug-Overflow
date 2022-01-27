@@ -1,14 +1,13 @@
 @use 'src/styles/vars';
 
-
 #top-menu-box {
     @media (max-width: 600px){ 
       padding-top: 10px;
     }
-    background-color: vars.$darkBackgroundGreen;
+    background-color: vars.$blackOpacitySixty;
     
     #top-menu-appbar {
-    background-color: vars.$darkBackgroundGreen;
+    background-color: vars.$blackOpacityZero;
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;

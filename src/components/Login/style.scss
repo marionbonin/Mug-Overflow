@@ -1,15 +1,11 @@
 @use 'src/styles/vars';
 
-body {
-  background-color : #0ac3a7!important;
-}
-
-
 #main-sign-in {
   min-height: 85vh;
   // margin-bottom: 20vh;
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
+  margin-bottom: 50px;
 }
 
 .link {

@@ -5,7 +5,6 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
 import Footer from '../Footer/footer';
 
@@ -24,8 +23,6 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
-
 export default function AccountCreation() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,7 +35,7 @@ export default function AccountCreation() {
   };
 
   return (
-    <ThemeProvider theme={theme} maxWidth="sm">
+    <>
       <Container id="main-sign-in" component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -133,6 +130,6 @@ export default function AccountCreation() {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
       <Footer />
-    </ThemeProvider>
+    </>
   );
 }

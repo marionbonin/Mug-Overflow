@@ -11,14 +11,11 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
 import { changeValue, submitLogin } from '../../actions/user';
 import Footer from '../Footer/footer';
 
 import './style.scss';
-
-const theme = createTheme();
 
 export default function Login() {
   // we get the initial email & password values from the state
@@ -56,7 +53,7 @@ export default function Login() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Container id="main-sign-in" component="main" maxWidth="sm">
         <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
         <CssBaseline />
@@ -141,6 +138,6 @@ export default function Login() {
         </Box>
       </Container>
       <Footer />
-    </ThemeProvider>
+    </>
   );
 }
