@@ -10,12 +10,14 @@
   padding-bottom: 10px;
   // position: absolute;
   // bottom: 0;
-  #footer-social {
+
+  // 1st column
+  #social-container {
     display: flex;
     align-items: center;
-    // justify-content: flex-start;
+    padding: 20px 0;
 
-    .footer-social-icon {
+    .social-icon {
       width: 30px;
       align-items: center; 
       margin-right: 15px;
@@ -23,14 +25,21 @@
     }
   }
   
-  #logo-footer{
-    width: 50px;
-    align-items: center;
-    margin: 10px;
+  // 2nd column
+  #logo-container {
+    padding-bottom: 10px;
+
+    #logo-image{
+      width: 50px;
+      align-items: center;
+      margin: 10px;
+    }
   }
   
-  #footer-links{
+  // 3rd column
+  #page-links-container{
     font-family: 'brandon-grotesque', sans-serif;
+    font-size: 1.2rem;
     align-items: center;
     display: flex;
     flex-wrap: nowrap;

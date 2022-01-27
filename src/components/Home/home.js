@@ -20,16 +20,18 @@ export default function Home() {
           </div>
           <Box
             id="info-disclaimer"
-            sx={{ width: { xs: '90%', md: '50%', lg: '40%' } }}
+            sx={{ width: { xs: '90%', md: '60%', lg: '50%' }}}
           >
             <p>
-              Tous les mugs sont au prix unitaire de 12€.
+              Tous les mugs sont au prix unitaire de <span className="disclaimer-bold">12€</span>.
             </p>
             <p>
               Sélectionnez, personnalisez,
               et recevez le mug de vos rêves directement chez vous !
             </p>
-            <Link>
+            <Link   
+              className="disclaimer-bold"
+            >
               En savoir plus
             </Link>
           </Box>

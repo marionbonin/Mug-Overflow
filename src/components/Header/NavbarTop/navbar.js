@@ -88,19 +88,32 @@ export default function SearchAppBar() {
         <Toolbar
           id="top-menu-toolbar"
         >
-          <Search>
+          <Search
+            sx={{
+              order: { xs: 3, sm: 1 },
+              mt:  {xs: '20px', sm: 0 },
+              mb:  {xs: '20px', sm: 0 }, 
+            }}
+          >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Rechercer..."
+              placeholder="Rechercher..."
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Link href="/">
-            <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
+          <Link
+            href="/"
+            sx={{order: { xs: 1, sm: 2 }}}
+          >
+            <img src={logo} alt="logo Mug Overflow" id="logo-image" />
           </Link>
-          <Box sx={{ flexGrow: 0 }}>
+          <Box
+            sx={{
+              flexGrow: 0,
+              order: { xs: 2, sm: 3 }
+              }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="" />

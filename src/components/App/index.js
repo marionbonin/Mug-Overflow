@@ -5,6 +5,12 @@ import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';
 import Error from '../Error/error';
 import FAQ from '../FAQ/faq';
+import LegalNotice from '../MentionsLegales/mentionsLegales';
+// import Concept from '../Concept/concept';
+
+// import CGU from '../CGU/cgu';
+
+import Contact from '../Contact/contact';
 import Concept from '../Concept/concept';
 import Product from '../Product/product';
 
@@ -18,9 +24,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<CreateAccount />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/CGU" element={<CGU />} />
+        {/* <Route path="/concept" element={<Concept />} /> */}
         <Route path="/concept" element={<Concept />} />
         <Route path="/produit" element={<Product />} />
+        <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </div>
