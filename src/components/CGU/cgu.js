@@ -1,8 +1,8 @@
 import Page from '../Page/page';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
-import './style.scss'
 
+import './style.scss';
 
 export default function GeneralConditions() {
   return (

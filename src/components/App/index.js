@@ -6,9 +6,7 @@ import Home from '../Home/home';
 import Error from '../Error/error';
 import FAQ from '../FAQ/faq';
 import LegalNotice from '../MentionsLegales/mentionsLegales';
-// import Concept from '../Concept/concept';
-
-// import CGU from '../CGU/cgu';
+import CGU from '../CGU/cgu';
 
 import Contact from '../Contact/contact';
 import Concept from '../Concept/concept';
