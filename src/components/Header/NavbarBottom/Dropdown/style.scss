@@ -1,4 +1,14 @@
-// #composition-menu {
-//   background-color: inherit;
-//   color: blue;
-// } 
+@use 'src/styles/vars';
+
+#composition-menu {
+// background-color: vars.$backgroundGreen;
+
+} 
+
+#navbar #menu-appbar a.link-dropdown {
+  color: vars.$darkGrey;
+  height: auto;
+  // &:hover {
+  //   // border-bottom: 10px solid red;
+  // }
+}

@@ -16,9 +16,11 @@ const loginMiddleware = (store) => (next) => (action) => {
     )
       .then((response) => {
         console.log(response);
+        console.log(response.data.token);
         // Récupérer le pseudo dans la réponse et le stocker  dnas le state
         // => pour modifier le state, il faut dispatch une action
         // store.dispatch(saveUserData(response.data.pseudo));
+        // Axios get ici?
       })
 
       .catch((error) => {

@@ -13,6 +13,25 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 
 export default function DropdownMenu() {
+  const dropdownItems = [
+    {
+      path: '/categorie1',
+      name: 'Catégorie 1',
+    },
+    {
+      path: '/categorie2',
+      name: 'Catégorie 2',
+    },
+    {
+      path: '/categorie3',
+      name: 'Catégorie 3',
+    },
+    {
+      path: '/categorie4',
+      name: 'Catégorie 4',
+    },
+  ];  
+  
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -85,16 +104,24 @@ export default function DropdownMenu() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem 
-                      onClick={handleClose}>
-                      <Link
-                      to="/"
-                      >
-                        Profile
-                      </Link>
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    
+                    {dropdownItems.map(({ name, path}) => (
+
+                      <MenuItem 
+                        onClick={handleClose}
+                        key={name}
+                        >
+                        <Link
+                          className="link-dropdown"
+                          to={path}
+                          key={name}
+                        >
+                          {name}
+                        </Link>
+                      </MenuItem>
+
+                    ))}
+
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

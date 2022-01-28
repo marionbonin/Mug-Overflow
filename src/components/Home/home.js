@@ -52,7 +52,7 @@ export default function Home() {
               key="3"
             />
           </Box>
-        </div>
+        </div> 
       </Page>
       <Footer />
     </>

@@ -18,19 +18,19 @@ import './style.scss';
 const pages = [
   {
     path: '/',
-    name: 'Accueil',
+    routeName: 'Accueil',
   },
   {
     path: '/categories',
-    name: 'Catégories',
+    routeName: 'Catégories',
   },
   {
     path: '/concept',
-    name: 'Concept',
+    routeName: 'Concept',
   },
   {
     path: '/contact',
-    name: 'Contact',
+    routeName: 'Contact',
   },
 ];
 
@@ -77,22 +77,22 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map(({ name, path }) => (
+              {pages.map(({ routeName, path }) => (
                 <MenuItem
-                  key={name}
+                  key={routeName}
                   onClick={handleCloseNavMenu}
                 >
                   <Link
                     to={path}
-                    key={name}
+                    key={routeName}
                     underline="none"
                   >
                     <Typography
                       id="menu-item"
                       textAlign="center"
-                      key={name}
+                      key={routeName}
                     >
-                      {name}
+                      {routeName}
                     </Typography>
                   </Link>
                 </MenuItem>
@@ -104,23 +104,59 @@ const ResponsiveAppBar = () => {
             id="menu-appbar"
             sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
           >
-            {pages.map(({ name, path }) => (
+          {/* Navlink 1 - homepage */}
               <NavLink
-                to={path}
-                key={name}
+                to='/'
+                key='Accueil'
                 underline="none"
+                className="navbar-bottom-link"
               >
                 <Button
                   className="nav-buttons"
-                  key={name}
+                  key='Accueil'
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  {name}
+                  Accueil
                 </Button>
               </NavLink>
-            ))}
+
+            {/* Navlink 2 - categories */}
             <DropdownMenu />
+
+            {/* Navlink 3 - Concept */}
+            <NavLink
+                to='/concept'
+                key='Concept'
+                underline="none"
+                className="navbar-bottom-link"
+              >
+                <Button
+                  className="nav-buttons"
+                  key='Concept'
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  Concept
+                </Button>
+              </NavLink>
+
+            {/* Navlink 4 - Contact */}
+              <NavLink
+                to='/contact'
+                key='Contact'
+                underline="none"
+                className="navbar-bottom-link"
+              >
+                <Button
+                  className="nav-buttons"
+                  key='Contact'
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  Contact
+                </Button>
+              </NavLink>
           </Box>
         </Toolbar>
       </Container>

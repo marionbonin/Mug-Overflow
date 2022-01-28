@@ -27,7 +27,7 @@
       }
     }
 
-    a {
+    .navbar-bottom-link {
       border-radius: 0;
       color: vars.$lightYellow;
       text-decoration: none;
@@ -49,10 +49,10 @@
 }
 
 // for some reason, doesn't work when included in #navbar{}
+// same thing for user icon links in navbar bottom component
 #menu-item {
   // overriding Roboto Font from MUI component
     font-family: "brandon-grotesque",sans-serif;
     font-size: 1.3rem;
-  
 }
 
