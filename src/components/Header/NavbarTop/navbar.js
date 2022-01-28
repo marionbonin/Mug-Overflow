@@ -116,8 +116,8 @@ export default function SearchAppBar() {
               order: { xs: 2, sm: 3 },
             }}
           >
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+            <Tooltip id="icon-button" title="Open settings">
+              <IconButton  onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
                   src=""
@@ -143,7 +143,7 @@ export default function SearchAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography id="menu-typo" textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

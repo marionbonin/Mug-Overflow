@@ -11,6 +11,8 @@ import Button from '@mui/material/Button';
 import { NavLink, Link } from 'react-router-dom';
 import MenuItem from '@mui/material/MenuItem';
 
+import DropdownMenu from './Dropdown/dropdown';
+
 import './style.scss';
 
 const pages = [
@@ -86,6 +88,7 @@ const ResponsiveAppBar = () => {
                     underline="none"
                   >
                     <Typography
+                      id="menu-item"
                       textAlign="center"
                       key={name}
                     >
@@ -108,7 +111,7 @@ const ResponsiveAppBar = () => {
                 underline="none"
               >
                 <Button
-                  id="nav-buttons"
+                  className="nav-buttons"
                   key={name}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
@@ -117,6 +120,7 @@ const ResponsiveAppBar = () => {
                 </Button>
               </NavLink>
             ))}
+            <DropdownMenu />
           </Box>
         </Toolbar>
       </Container>

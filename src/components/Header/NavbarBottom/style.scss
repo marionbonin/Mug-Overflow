@@ -9,43 +9,50 @@
   color: vars.$lightYellow;
   box-shadow: none;
 
+  #menu-appbar {
 
-#menu-appbar {
-
-  height: 100%;
-  color: vars.$lightYellow;
-  justify-content: space-between;
-  
-  button {
-    font-family: "brandon-grotesque";
-    font-size: 1.3rem;
-    text-transform: none;
-    margin: 0;
-    &:hover{
-      background-color: transparent;
-    }
-  }
-
-  a {
-    height: 64px;
-    border-radius: 0;
+    height: 100%;
     color: vars.$lightYellow;
-    text-decoration: none;
-
-    &:hover:not(.active) {
-      border-top: 4px solid rgba(255, 0, 0, 0);
-      border-bottom: 4px solid vars.$lightYellow;
-      transition: none;
-      border-radius: 0;
-    }
-    &.active {
-      border-bottom: 4px solid vars.$orangeYellow;
-      transition: none;
-      background-color: transparent;
-    }
-    #nav-buttons{
+    justify-content: space-between;
+    
+    button {
+      font-family: "brandon-grotesque";
+      font-size: 1.3rem;
+      text-transform: none;
+      margin: 0;
+      color: white;
       height: 100%;
-    } 
+      &:hover{
+        background-color: transparent;
+      }
+    }
+
+    a {
+      border-radius: 0;
+      color: vars.$lightYellow;
+      text-decoration: none;
+      height: 64px;
+
+      &:hover:not(.active) {
+        border-top: 4px solid rgba(255, 0, 0, 0);
+        border-bottom: 4px solid vars.$lightYellow;
+        transition: none;
+        border-radius: 0;
+      }
+      &.active {
+        border-bottom: 4px solid vars.$orangeYellow;
+        transition: none;
+        background-color: transparent;
+      }
+    }
   }
 }
+
+// for some reason, doesn't work when included in #navbar{}
+#menu-item {
+  // overriding Roboto Font from MUI component
+    font-family: "brandon-grotesque",sans-serif;
+    font-size: 1.3rem;
+  
 }
+
