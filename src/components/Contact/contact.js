@@ -1,22 +1,28 @@
+import React, { useRef } from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import emailjs from '@emailjs/browser';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 
 import './style.scss';
 
 export default function Contact() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'template_6zydwci', form.current,
+      'user_YvQF6GDHWrPDPIOH5ohwx')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
   };
 
   return (
@@ -36,7 +42,7 @@ export default function Contact() {
             alignItems: 'center',
           }}
         >
-          <Box id="box" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box id="box" component="form" onSubmit={sendEmail} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
