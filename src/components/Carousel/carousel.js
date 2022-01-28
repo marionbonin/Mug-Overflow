@@ -34,7 +34,7 @@ export default function CarouselElement() {
 
   return (
     <Container>
-      <h2 id="category-title">catégorie à dynamiser</h2>
+      <h2 id="category-title">Sélection à dynamiser</h2>
       <Carousel
       /* to display more than 1 card in the carousel:
       edit centerSlidePercentage prop to 33.3 and set centerMode prop as "true"

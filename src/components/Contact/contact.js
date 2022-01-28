@@ -8,7 +8,6 @@ import Footer from '../Footer/footer';
 
 import './style.scss';
 
-
 export default function Contact() {
   const handleSubmit = (event) => {
     event.preventDefault();

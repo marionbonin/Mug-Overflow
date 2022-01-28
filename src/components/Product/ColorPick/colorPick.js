@@ -1,26 +1,18 @@
-// // import Box from '@mui/material/Box';
-// import { margin } from '@mui/system';
-// import { CirclePicker } from 'react-color';
+import * as React from 'react';
+import RadioButtonGroup from 'react-custom-radio-buttons-group';
 
-// import './style.scss';
 
-// const colorsToPick = [
-//   '#D42423',
-//   '#213F83',
-//   '#02690E',
-//   '#FFFF00',
-//   '#4A4945',
-//   '#E496A2',
-//   '#F75F0D',
-//   '#FFFFFF',
-// ];
+export default function ColorRadioButtons() {
+  
+  const handleChange = (e)=>{
+    doSomething(e.target.value)
 
-// export default function ColorRadioButtons() {
-//   return (
-//     <CirclePicker
-//       width="100%"
-//       colors={colorsToPick}
-//     />
-
-//   );
-// }
+  return (
+      <RadioButtonGroup
+      onChange={handleChange}
+      hide={false}
+      values={["Blue","Green","Red"]}
+      />
+  );
+}
+}

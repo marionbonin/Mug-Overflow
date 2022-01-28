@@ -8,7 +8,7 @@ const loginMiddleware = (store) => (next) => (action) => {
     console.log(store.getState().user.password);
 
     axios.post(
-      'http://nicolaslenne-server.eddi.cloud:8000/api/login_check',
+      'http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/api/login_check',
       {
         username: store.getState().user.email,
         password: store.getState().user.password,
