@@ -17,33 +17,38 @@
 
 // carousel arrows
 .carousel.carousel-slider .control-arrow {
-  border: red 1px solid;
-  background-color: vars.$backgroundGrey;
+  background-color: white;
+  opacity: 0.5;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  transition: none;
+
   &:hover {
-    background:none;
+    background-color: white;
+    opacity: 0.8;
   }
 }
 
 // arrows containers
 .control-arrow.control-next, .control-arrow.control-prev {
-    background-color: inherit;
-    padding-top: 60px!important;
-    padding-bottom: 60px!important;
+
+    background-color: white;
+    padding: 30px 14px!important;
     border-radius: 50px;
     // J'ai retiré la position relative pour laisser la "absolute" par défaut
     // J'ai juste mis un top à 25% sachant qu'il était à 0% 
     //height: 0%!important;
-    // position: relative!important;
+    position: relative!important;
     top: 25%!important;
-    // bottom: 50%!important;
+    bottom: 50%!important;
+
     // to center the arrow within its container
     display: flex;
     align-items: center;
-    
-    &:hover {
-      transition: none;
-    }
 }
+
+
 
 // arrows symbols
 
@@ -52,8 +57,8 @@
   content: url(src/assets/images/back.png);
   height: auto;
   border: none;
-
-
+  margin: 10px 0 0 0;
+  padding: 0;  
 }
   // right arrow (overriding common arrow properties)
   .carousel .control-next.control-arrow:before {
