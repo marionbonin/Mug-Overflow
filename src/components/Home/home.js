@@ -47,6 +47,25 @@ const categories = [
   },
 ];
 
+
+const homepageCarousels = [
+  {
+    key: 1,
+    id: "",
+    title: "Les derniers en date"
+  },
+  {
+    key: 2,
+    id: "carousel-color",
+    title: "Les préférés de votre promo"
+  },
+  {
+    key: 3,
+    id: "",
+    title: "Pas d'inspiration ?"
+  },
+]
+
   return (
     < >
       <Header />
@@ -74,21 +93,18 @@ const categories = [
               En savoir plus
             </HashLink>
           </Box>
-          <Box className="carousel-box">
-            <CarouselElement
-              key="1"
-            />
-          </Box>
-          <Box className="carousel-color carousel-box">
-            <CarouselElement
-              key="2"
-            />
-          </Box>
-          <Box className="carousel-box">
-            <CarouselElement
-              key="3"
-            />
-          </Box>
+          {homepageCarousels.map(({ key, id, title }) => (   
+            <Box
+              className="carousel-box"
+              id={id}
+            >
+              <CarouselElement
+                key={key}
+                title={title}
+              />
+            </Box>
+          ))}
+  
           <Box id="categories-box">
             <h2>Retrouvez tous nos mugs par catégorie</h2>
             <div id="category-cards">

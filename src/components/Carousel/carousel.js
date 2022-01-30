@@ -10,14 +10,14 @@ import Card from '../ProductCard/productCard';
 
 import './style.scss';
 
-export default function CarouselElement() {
+export default function CarouselElement({ title }) {
   const theme = useTheme();
   const smallerThanSm = useMediaQuery(theme.breakpoints.down('sm'));
   const smallerThanMd = useMediaQuery(theme.breakpoints.down('md'));
   const largerThanMd = useMediaQuery(theme.breakpoints.up('md'));
 
-  // Retirer % au besoin si ca skip une card
-  let centerSlidePercentageRatio = '50.05%';
+  // Remove % if needed, in case it skips a card
+  let centerSlidePercentageRatio = '50.05';
 
   if (smallerThanSm) {
     centerSlidePercentageRatio = '100';
@@ -26,7 +26,7 @@ export default function CarouselElement() {
     centerSlidePercentageRatio = '50';
   }
   else if (largerThanMd) {
-    centerSlidePercentageRatio = '33.3';
+    centerSlidePercentageRatio = '33.3333333';
   }
 
   // console.log(smallerThanSm);
@@ -34,7 +34,7 @@ export default function CarouselElement() {
 
   return (
     <Container>
-      <h2 id="category-title">Sélection à dynamiser</h2>
+      <h2 id="category-title">{title}</h2>
       <Carousel
       /* to display more than 1 card in the carousel:
       edit centerSlidePercentage prop to 33.3 and set centerMode prop as "true"
