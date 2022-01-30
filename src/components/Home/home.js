@@ -90,7 +90,7 @@ const categories = [
             />
           </Box>
           <Box id="categories-box">
-            <h2>Retrouvez tous nos catégories de mugs</h2>
+            <h2>Retrouvez tous nos mugs par catégorie</h2>
             <div id="category-cards">
             {categories.map(({ name, path, id, image }) => (   
                 <Link

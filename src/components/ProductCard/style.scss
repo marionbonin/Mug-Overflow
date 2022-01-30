@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 #mug-card {
-  padding: 0;
+  padding: 0 5px;
   margin: 2rem;
   width: 220px;
   height: 320px; 
@@ -9,6 +9,11 @@
   align-self: center;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
 
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 30px;
+
+    transition: 300ms;
+  }
 
   img {
     height: 60%;

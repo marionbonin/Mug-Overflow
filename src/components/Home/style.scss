@@ -32,7 +32,7 @@
         position: static;
         opacity: 100%;
         width: 100%;
-        transition: width 1000ms, opacity 1000ms;
+        transition: width 1s, opacity 1000ms;
       }
     }
   }
@@ -46,11 +46,11 @@
     font-weight: 400;
     color: vars.$darkGrey; 
     background-color: vars.$lightYellow;
-    border : 1px, solid, vars.$orangeYellow;
+    border : 2px solid vars.$orangeYellow;
     border-radius : 5px;
     line-height: normal;
     padding: 1em;
-    margin: 0.5em;
+    margin: 30px;
 
     .disclaimer-bold {
       font-weight: 600;
@@ -60,7 +60,14 @@
 
   // CATEGORIES BOX
   #categories-box {
+    width: 100%;
     margin-top: 20px;
+    background-color: vars.$orangeYellow;
+
+    h2 {
+      //color: vars.$lightYellow;
+      margin-top: 10px;
+    }
 
     #category-cards {
       display: flex;
@@ -73,17 +80,16 @@
       .category-card {
         margin: 15px;
         border-radius: 10px;
-        height: 220px;
+        height: 200px;
         width: 200px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        background-color: #00000004;
+        background-color: white;
         ; 
         box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
         &:hover {          
-          background: none;
           border: 2px solid vars.$orangeYellow;
           box-shadow: none;
           .category-card-img {
@@ -116,22 +122,4 @@
       }
     }
   }
-
-
-
-
-  // CAROUSELS 
-
-  .carousel-color {
-    background-color: vars.$darkBackgroundGreen;
-    color: vars.$lightYellow;
-  }
-
-  .carousel-box {
-    // border: 1px solid red;
-    width: 100%;
-    padding-bottom: 30px;
-  }
-
-
 }
