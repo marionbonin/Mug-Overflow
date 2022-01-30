@@ -1,9 +1,14 @@
 @use 'src/styles/vars';
 
-// .carousel {
-//     // border: 1px red solid;
-// }
+// carousel wrappers to edit bg color and containers
+.carousel-box {
+  background-color: white!important;
+  margin-top: 30px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 12px;
+}
 
+
+// carousel title
 #category-title {
   padding: 1em;
   font-weight: 500;

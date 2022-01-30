@@ -7,6 +7,8 @@
   height: 320px; 
   border-radius: 16px;
   align-self: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+
 
   img {
     height: 60%;
@@ -22,22 +24,17 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    // border: 1px solid green;
 
     
     .card-mug-props { 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        // border: 1px solid red;
 
         .card-mug-name {
         font-weight: 500;
         margin-bottom: 5px;
         }
-        // .card-mug-categ {
-        // // font-size: 1.5rem;
-        // }
     }
 
     .favourite-button {
@@ -57,10 +54,14 @@
     a {
       text-decoration: none;
       #card-button {
-          background-color: vars.$orangeYellow;
-          color: vars.$backgroundGrey; 
-          border-radius: 20px;
-          margin: 0;
+        background-color: vars.$orangeYellow;
+        color: vars.$darkGrey; 
+        font-family: "brandon-grotesque",sans-serif;
+        text-transform: none;
+        font-size: 1rem;
+        font-weight: 400;
+        border-radius: 50px;
+        margin: 0;
       }
     }
   }

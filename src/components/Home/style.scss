@@ -12,27 +12,13 @@
     color: vars.$backgroundGreen;
   }
 
-  // DISCLAIMER
-  
-  #info-disclaimer{
-    font-family: 'brandon-grotesque', sans-serif;
-    font-weight: 400;
-    color: vars.$darkGrey; 
-    background-color: vars.$lightYellow;
-    border : 1px, solid, vars.$orangeYellow;
-    border-radius : 5px;
-    line-height: normal;
-    padding: 1em;
-    margin: 0.5em;
 
-    .disclaimer-bold {
-      font-weight: 600;
-    }
-  }
+  // SUBTITLE / EASTER EGG
+
   #easter-home {
     font-size: 1.5rem;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 20px;
     color: vars.$backgroundGrey;
 
@@ -51,6 +37,27 @@
     }
   }
 
+
+
+  // DISCLAIMER
+  
+  #info-disclaimer{
+    font-family: 'brandon-grotesque', sans-serif;
+    font-weight: 400;
+    color: vars.$darkGrey; 
+    background-color: vars.$lightYellow;
+    border : 1px, solid, vars.$orangeYellow;
+    border-radius : 5px;
+    line-height: normal;
+    padding: 1em;
+    margin: 0.5em;
+
+    .disclaimer-bold {
+      font-weight: 600;
+    }
+  }
+  
+
   // CATEGORIES BOX
   #categories-box {
     margin-top: 20px;
@@ -61,6 +68,7 @@
       align-items: center;
       flex-wrap: wrap;
       min-height: 100px;
+      margin-bottom: 50px;
 
       .category-card {
         margin: 15px;
@@ -76,7 +84,7 @@
         box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
         &:hover {          
           background: none;
-          border: 3px solid vars.$orangeYellow;
+          border: 2px solid vars.$orangeYellow;
           box-shadow: none;
           .category-card-img {
             filter: none;
@@ -105,26 +113,7 @@
           font-family: "brandon-grotesque",sans-serif;
           margin-bottom: 10px;
         }
-        
       }
-
-      // different background img per category
-     /* #css-puns {
-        background-image: url(/src/assets/images/trombi/mug_trombinoscope_Marion.png);
-      }
-
-      #blagues-de-dev {
-        background-image: url(/src/assets/images/trombi/mug_trombinoscope_Andrei.png);
-      }
-
-      #geek {
-        background-image: url(/src/assets/images/trombi/mug_trombinoscope_Nicolas.png);
-      }
-
-      #oclock {
-        background-image: url(/src/assets/images/trombi/mug_trombinoscope_Erwan_Albert.png);
-      }    
-      */  
     }
   }
 
