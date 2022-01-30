@@ -7,9 +7,46 @@ import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import CarouselElement from '../Carousel/carousel';
 
+// categories images (to be replaced with correct ones)
+import Andrei from 'src/assets/images/trombi/mug_trombinoscope_Andrei.png';
+import Marion from 'src/assets/images/trombi/mug_trombinoscope_Marion.png';
+import Nicolas from 'src/assets/images/trombi/mug_trombinoscope_Nicolas.png';
+import ErwanAlbert from 'src/assets/images/trombi/mug_trombinoscope_Erwan_Albert.png';
+
 import './style.scss';
+import { SendAndArchiveOutlined } from '@mui/icons-material';
 
 export default function Home() {
+
+// array to test display / to be deleted
+// categories will be fetched from API
+const categories = [
+  {
+    path: '/css-puns',
+    id: 'css-puns',
+    name: 'CSS puns',
+    image: Andrei
+  },
+  {
+    path: '/blagues-de-dev',
+    id: 'blagues-de-dev',
+    name: 'Blagues de dev',
+    image: Marion
+  },
+  {
+    path: '/geek',
+    name: 'Geek',
+    id: 'geek',
+    image: Nicolas
+  },
+  {
+    path: '/oclock',
+    name: 'OClock',
+    id: 'oclock',
+    image: ErwanAlbert
+  },
+];
+
   return (
     < >
       <Header />
@@ -36,6 +73,32 @@ export default function Home() {
             >
               En savoir plus
             </HashLink>
+          </Box>
+          <Box id="categories-box">
+            <h2>Retrouvez tous nos catégories de mugs</h2>
+            <div id="category-cards">
+            {categories.map(({ name, path, id, image }) => (   
+                <Link
+                  key={id}
+                  className="category-card"
+                  id={id}
+                  to=""
+                >
+                    <img
+                      alt=""
+                      src={image}
+                      className="category-card-img"
+                    />
+                    <p  
+                      className="category-card-name"
+                    >
+                    {name}
+                    </p>
+                </Link>
+
+            ))}
+            </div>
+
           </Box>
           <Box className="carousel-box">
             <CarouselElement
