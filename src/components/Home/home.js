@@ -43,7 +43,7 @@ const categories = [
     path: '/oclock',
     name: 'OClock',
     id: 'oclock',
-    image: ErwanAlbert
+    image: Nicolas
   },
 ];
 
@@ -54,7 +54,7 @@ const categories = [
         <div id="page-container">
           <h1>Bienvenue sur Mug Overflow </h1>
           <div>
-            <h2 id="easter-home">La boutique<span> (presque) </span> officielle des mugs O'Clock </h2>
+            <p id="easter-home">La boutique<span> (presque) </span> officielle des mugs O'Clock </p>
           </div>
           <Box
             id="info-disclaimer"

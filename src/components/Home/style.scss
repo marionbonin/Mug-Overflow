@@ -30,6 +30,12 @@
     }
   }
   #easter-home {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: vars.$backgroundGrey;
+
     span {
       position: absolute;
       opacity: 0%;
@@ -54,12 +60,10 @@
       justify-content: space-around;
       align-items: center;
       flex-wrap: wrap;
-      border: red 1px solid;
       min-height: 100px;
 
       .category-card {
         margin: 15px;
-        border: blue 1px solid;
         border-radius: 10px;
         height: 220px;
         width: 200px;
@@ -67,13 +71,19 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        background-color: #00000020;   
-
-        &:hover {
-          background: none;   
+        background-color: #00000004;
+        ; 
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+        &:hover {          
+          background: none;
+          border: 2px solid vars.$backgroundGreen;
+          box-shadow: none;
           .category-card-img {
-            border: 1px orange solid;
-            background: none;
+            filter: none;
+          }
+
+          .category-card-name {
+            color: vars.$backgroundGrey;
           }
 
         }
@@ -82,19 +92,17 @@
           width: 90%;
           height: auto;
           max-height: 200px;
-          opacity: 0.5; 
-          //border: 1px orange solid;
+          filter: grayscale(70%);
         }
 
         // category title on card
         &-name {
-          color: brown;
+          color: vars.$backgroundGrey;
           text-align: center;
           font-weight: 600;
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           font-family: "brandon-grotesque",sans-serif;
           margin-bottom: 10px;
-          border: 1px green solid;
         }
         
       }
