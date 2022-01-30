@@ -16,40 +16,48 @@
 }
 
 // carousel arrows
+.carousel.carousel-slider .control-arrow {
+  border: red 1px solid;
+  background-color: vars.$backgroundGrey;
+  &:hover {
+    background:none;
+  }
+}
 
 // arrows containers
 .control-arrow.control-next, .control-arrow.control-prev {
-    color: red;
-    background-color: vars.$orangeYellow!important;
-    border-radius: 0;
-    //opacity: 0.4!important;
+    background-color: inherit;
     padding-top: 60px!important;
     padding-bottom: 60px!important;
+    border-radius: 50px;
     // J'ai retiré la position relative pour laisser la "absolute" par défaut
     // J'ai juste mis un top à 25% sachant qu'il était à 0% 
-    height: 0%!important;
+    //height: 0%!important;
     // position: relative!important;
     top: 25%!important;
     // bottom: 50%!important;
     // to center the arrow within its container
     display: flex;
     align-items: center;
+    
+    &:hover {
+      transition: none;
+    }
 }
 
 // arrows symbols
 
 // property for both arrows
 .carousel.carousel-slider .control-arrow:before, .carousel .control-arrow:before  {
-  content: "<";
+  content: url(src/assets/images/back.png);
+  height: auto;
   border: none;
-  color: black;
-  font-weight: 600;
-  font-family: monospace;
+
+
 }
   // right arrow (overriding common arrow properties)
   .carousel .control-next.control-arrow:before {
-  content: ">";
-
+    content: url(src/assets/images/next.png);
 }
 
 .carousel-status {
