@@ -74,6 +74,21 @@ const categories = [
               En savoir plus
             </HashLink>
           </Box>
+          <Box className="carousel-box">
+            <CarouselElement
+              key="1"
+            />
+          </Box>
+          <Box className="carousel-color carousel-box">
+            <CarouselElement
+              key="2"
+            />
+          </Box>
+          <Box className="carousel-box">
+            <CarouselElement
+              key="3"
+            />
+          </Box>
           <Box id="categories-box">
             <h2>Retrouvez tous nos catégories de mugs</h2>
             <div id="category-cards">
@@ -95,25 +110,8 @@ const categories = [
                     {name}
                     </p>
                 </Link>
-
             ))}
             </div>
-
-          </Box>
-          <Box className="carousel-box">
-            <CarouselElement
-              key="1"
-            />
-          </Box>
-          <Box className="carousel-color carousel-box">
-            <CarouselElement
-              key="2"
-            />
-          </Box>
-          <Box className="carousel-box">
-            <CarouselElement
-              key="3"
-            />
           </Box>
         </div>
       </Page>

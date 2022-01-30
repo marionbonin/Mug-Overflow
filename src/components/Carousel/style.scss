@@ -16,18 +16,40 @@
 }
 
 // carousel arrows
-.control-next, .control-prev {
-    background-color: vars.$darkGrey!important;
+
+// arrows containers
+.control-arrow.control-next, .control-arrow.control-prev {
+    color: red;
+    background-color: vars.$orangeYellow!important;
     border-radius: 0;
-    opacity: 0.4!important;
+    //opacity: 0.4!important;
     padding-top: 60px!important;
     padding-bottom: 60px!important;
     // J'ai retiré la position relative pour laisser la "absolute" par défaut
     // J'ai juste mis un top à 25% sachant qu'il était à 0% 
-    height: 50%!important;
+    height: 0%!important;
     // position: relative!important;
     top: 25%!important;
     // bottom: 50%!important;
+    // to center the arrow within its container
+    display: flex;
+    align-items: center;
+}
+
+// arrows symbols
+
+// property for both arrows
+.carousel.carousel-slider .control-arrow:before, .carousel .control-arrow:before  {
+  content: "<";
+  border: none;
+  color: black;
+  font-weight: 600;
+  font-family: monospace;
+}
+  // right arrow (overriding common arrow properties)
+  .carousel .control-next.control-arrow:before {
+  content: ">";
+
 }
 
 .carousel-status {
