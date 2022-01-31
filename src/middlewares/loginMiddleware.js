@@ -1,4 +1,6 @@
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+import api from './api';
 
 import { 
   SUBMIT_LOGIN, 
@@ -9,16 +11,14 @@ import {
   saveUserData,
 } from '../actions/user';
 
+
 const loginMiddleware = (store) => (next) => (action) => {
-  const api = axios.create({
-    baseURL: 'http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/api/',
-  });
   
   switch (action.type) {
     case SUBMIT_LOGIN:
 
-      axios.post(
-        'http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/api/login_check',
+      api.post(
+        '/login_check',
         {
           username: store.getState().user.email,
           password: store.getState().user.password,
@@ -42,17 +42,11 @@ const loginMiddleware = (store) => (next) => (action) => {
       break;
 
     case GET_USER_DATA:
-
-      axios.get(
-        // First parameter : URL
-        'http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/api/profil',
-        // Second parameter : JSON Body to send
-        {
-          token: localStorage.getItem('token'),
-          headers: {
-            Authorization: `bearer ${localStorage.getItem('token')}`
-          },
-        },
+      if (!localStorage.getItem('token')) {
+        break;
+      }
+      api.get(
+        '/profil',
       )
         .then((response) => {        
           console.log(response);
@@ -65,7 +59,7 @@ const loginMiddleware = (store) => (next) => (action) => {
             response.data.status,
             response.data.role
           ));
-          console.log(store.getState().user.email);
+          // console.log(store.getState().user.email);
         })
         .catch((error) => {
           console.log(error);

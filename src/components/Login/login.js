@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -51,6 +53,14 @@ export default function Login() {
     // he does fully update the store
     // console.log(`Store updated values: ${emailValue} / ${passwordValue}`);
   };
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('token')){
+        return navigate("/");
+    }
+  },[localStorage.getItem('token')]);
 
   return (
     <>

@@ -1,7 +1,8 @@
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -9,19 +10,6 @@ import logo from 'src/assets/images/logo-mugoverflow.svg';
 import Footer from '../Footer/footer';
 
 import './style.scss';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Mug OverFlow
-      </Link>{' '}
-      {new Date().getFullYear()}
-      .
-    </Typography>
-  );
-}
 
 export default function AccountCreation() {
   const handleSubmit = (event) => {
@@ -48,7 +36,7 @@ export default function AccountCreation() {
           }}
         >
           <img src={logo} alt="logo Mug Overflow" id="logo-navbar" />
-          <Typography id="typographyTitle" component="h1" variant="h5">
+          <Typography id="typography-title" component="h1" variant="h5">
             On n'attend plus que toi !
           </Typography>
           <Box id="box" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -117,7 +105,7 @@ export default function AccountCreation() {
 
             <Link
               className="link"
-              to="connexion"
+              to="/connexion"
               sx={{
                 color: '#234b78',
               }}
@@ -127,7 +115,6 @@ export default function AccountCreation() {
 
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
       <Footer />
     </>

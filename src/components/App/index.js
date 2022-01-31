@@ -10,6 +10,8 @@ import LegalNotice from '../MentionsLegales/mentionsLegales';
 import CGU from '../CGU/cgu';
 
 import Contact from '../Contact/contact';
+import ProtectedRoutes from './protectedRoutes';
+import LoggedRoute from './loggedRoute';
 import Concept from '../Concept/concept';
 import Product from '../Product/product';
 import Profile from '../Profile/profile';
@@ -25,26 +27,32 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const token = localStorage.getItem('token');
-  console.log(`token récupéré du localStorage: ${token}`);
-   if (token) { 
-    dispatch(getUserData()); 
-   }
-
+  // const token = localStorage.getItem('token');
+  // console.log(`token récupéré du localStorage: ${token}`);
+  dispatch(getUserData());  
+  
   return (
     <div className="app">
+ 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/connexion" element={<Login />} />
+        <Route path="/" element={
+          <ProtectedRoutes>
+            {<Home />} 
+          </ProtectedRoutes>
+        }/>
+        <Route path="/connexion" element={
+          <LoggedRoute>
+          <Login />
+          </LoggedRoute>
+        } />
         <Route path="/inscription" element={<CreateAccount />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/CGU" element={<CGU />} />
-        {/* <Route path="/concept" element={<Concept />} /> */}
         <Route path="/concept" element={<Concept />} />
         <Route path="/categories" element={<Category />} />
         <Route path="/produit" element={<Product />} />
-        <Route path="/profil" element={<Profile />} />c        
+        <Route path="/profil" element={<Profile />} />       
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/*" element={<Error />} />
       </Routes>
