@@ -1,4 +1,4 @@
-import { CHANGE_VALUE } from '../actions/user';
+import { CHANGE_VALUE, SAVE_TOKEN, GET_USER_DATA } from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -20,27 +20,18 @@ const reducer = (state = initialState, action = {}) => {
         [action.identifier]: action.value,
       };
 
-    /* -------------------------
-    ici, C/C entier du reducer user de oRecipes
-
-    case UPDATE_LOGIN_FIELD:
+    case SAVE_TOKEN: 
       return {
         ...state,
-        [action.identifier]: action.newValue,
+        logged: true,
+        token: action.token,
       };
 
-      /*  ---- Etape : sauvegarder data de l'utilisateur ----------
-      case SAVE_USER_DATA:
-        return {
-          ...state,
-          logged: action.isLogged,
-          nickname: action.nickname,
-          token: action.token,
-          // sécurité : on en profite pour effacer les identifiants dans le state
-          email: '',
-          password: '',
-        };
-        */
+    case GET_USER_DATA: 
+    return {
+      ...state,
+    }
+
 
     default:
       return state;

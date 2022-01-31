@@ -1,5 +1,6 @@
 // == Import
 import { Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Login from '../Login/login';
 import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';
@@ -18,6 +19,9 @@ import './styles.scss';
 
 // == Composant
 function App() {
+  const isLogged = useSelector((state) => state.user.logged);
+  console.log(isLogged);
+  
   return (
     <div className="app">
       <Routes>

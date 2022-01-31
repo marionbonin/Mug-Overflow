@@ -3,6 +3,8 @@
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const SAVE_USER_DATA = 'SAVE_USER_DATA';
+export const SAVE_TOKEN = 'SAVE_TOKEN';
+export const GET_USER_DATA = 'GET_USER_DATA';
 
 export const changeValue = (identifier, value) => ({
   type: CHANGE_VALUE,
@@ -14,9 +16,13 @@ export const submitLogin = () => ({
   type: SUBMIT_LOGIN,
 });
 
-export const saveUserData = (isLogged, nickname, token) => ({
-  type: SAVE_USER_DATA,
-  isLogged: isLogged,
-  nickname: nickname,
+export const saveToken = (token) => ({
+  type: SAVE_TOKEN,
   token: token,
+});
+
+
+export const getUserData = () => ({
+  type: GET_USER_DATA,
+
 });
