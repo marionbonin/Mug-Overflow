@@ -1,4 +1,4 @@
-import { CHANGE_VALUE, GET_USER_DATA, SAVE_USER_DATA } from '../actions/user';
+import { CHANGE_VALUE, GET_USER_DATA, SAVE_USER_DATA, CLEAN_STATE } from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -32,22 +32,42 @@ const reducer = (state = initialState, action = {}) => {
 
 
     case GET_USER_DATA: 
-    return {
-      ...state,
-    }
-
+      // Allow the "logged" state to change ASAP to open the lock at the login page
+      let tokenStored = localStorage.getItem('token');
+      if (tokenStored) {
+        return {
+          ...state,
+          logged: true,
+        }
+      }
+      return {
+        ...state,
+      }
+    
     case SAVE_USER_DATA: 
-    return {
-      ...state,
-      logged: true,
-      email: action.email,
-      firstname: action.firstname,
-      lastname: action.lastname,
-      promo: action.promo.name, 
-      status: action.status,
-      role: action.role,
-    }
+      return {
+        ...state,
+        //logged: true,
+        email: action.email,
+        firstname: action.firstname,
+        lastname: action.lastname,
+        promo: action.promo.name, 
+        status: action.status,
+        role: action.role,
+        password: '',
+      }
 
+    case CLEAN_STATE: 
+      return {
+        ...state,
+        logged: false,
+        email: '',
+        firstname: '',
+        lastname: '',
+        promo: '', 
+        status: '',
+        role: '',
+      }
 
     default:
       return state;

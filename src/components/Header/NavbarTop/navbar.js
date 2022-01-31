@@ -13,6 +13,9 @@ import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import {  useNavigate } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
+import { cleanState } from '../../../actions/user';
 
 import './style.scss';
 
@@ -59,24 +62,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
-  const settings = ['Profil', 'Mon compte', 'Logout'];
+  
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  // I put this part as a comment, because I deleted most of this unused code and want to keep
-  // a trace of what was here.
-  // const [anchorElNav, setAnchorElNav] = React.useState(null);
-  // const handleOpenNavMenu = (event) => {
-  //   setAnchorElNav(event.currentTarget);
-  // };
-  const [setAnchorElNav] = React.useState(null);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const logout = () => {
+    dispatch(cleanState());
+    localStorage.removeItem('token');
+    navigate('/connexion');
+  }
+
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+  const isLogged = useSelector((state) => state.user.logged);
+
   return (
     <Box
       id="top-menu-box"
@@ -116,7 +120,7 @@ export default function SearchAppBar() {
               order: { xs: 2, sm: 3 },
             }}
           >
-            <Tooltip id="icon-button" title="Open settings">
+            <Tooltip id="icon-button" title="profil">
               <IconButton  onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
@@ -141,11 +145,36 @@ export default function SearchAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography id="menu-typo" textAlign="center">{setting}</Typography>
+              { (isLogged) ? 
+                <div>
+                <MenuItem
+                 onClick={()=> {
+                   navigate('/profil');
+                  }}
+                >
+                  <Typography id="menu-typo" textAlign="center">Profil</Typography>
                 </MenuItem>
-              ))}
+                <MenuItem
+                  onClick={()=> { logout()} }
+                >
+                  <Typography id="menu-typo" textAlign="center">
+                    Déconnexion
+                  </Typography>
+                </MenuItem>
+                </div>
+                :
+                <div>
+                <MenuItem
+                  onClick={()=> {
+                    navigate('/connexion');
+                  }}
+                >
+                  <Typography id="menu-typo" textAlign="center">
+                    Connexion
+                  </Typography>
+                </MenuItem>
+                </div>
+              }
             </Menu>
           </Box>
         </Toolbar>

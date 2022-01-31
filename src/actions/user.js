@@ -6,6 +6,8 @@ export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 //export const SAVE_TOKEN = 'SAVE_TOKEN';
 export const GET_USER_DATA = 'GET_USER_DATA';
 export const SAVE_USER_DATA = 'SAVE_USER_DATA';
+export const CLEAN_STATE ='CLEAN_STATE';
+
 
 export const changeValue = (identifier, value) => ({
   type: CHANGE_VALUE,
@@ -37,3 +39,7 @@ export const saveUserData = (email, firstname, lastname, promo , status, role) =
   status: status,
   role: role,
 })
+
+export const cleanState = () => ({
+  type: CLEAN_STATE,
+});

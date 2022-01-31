@@ -35,24 +35,57 @@ function App() {
     <div className="app">
  
       <Routes>
-        <Route path="/" element={
-          <ProtectedRoutes>
-            {<Home />} 
-          </ProtectedRoutes>
-        }/>
+      {/* Logged routes. When you're logged, you have no longer access to those routes */}
         <Route path="/connexion" element={
           <LoggedRoute>
           <Login />
           </LoggedRoute>
         } />
-        <Route path="/inscription" element={<CreateAccount />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/inscription" element={
+          <LoggedRoute>
+          <CreateAccount />
+          </LoggedRoute>
+        } />
+      {/* Protected routes. You need to be logged to access those routes */}
+        <Route path="/" element={
+          <ProtectedRoutes>
+            {<Home />} 
+          </ProtectedRoutes>
+        }/>
+      
+        <Route path="/contact" element={
+         <ProtectedRoutes>
+            {<Contact />} 
+          </ProtectedRoutes>
+        } />
+
+        <Route path="/produit" element={
+         <ProtectedRoutes>
+            {<Product />} 
+          </ProtectedRoutes>
+        } />
+
+        <Route path="/profil" element={
+         <ProtectedRoutes>
+            {<Profile />} 
+          </ProtectedRoutes>
+        } />
+
+        <Route path="/concept" element={
+         <ProtectedRoutes>
+            {<Concept />} 
+          </ProtectedRoutes>
+        } />
+
+        <Route path="/categories" element={
+         <ProtectedRoutes>
+            {<Category />} 
+          </ProtectedRoutes>
+        } />
+
+        {/* Unprotected routes */}
         <Route path="/faq" element={<FAQ />} />
         <Route path="/CGU" element={<CGU />} />
-        <Route path="/concept" element={<Concept />} />
-        <Route path="/categories" element={<Category />} />
-        <Route path="/produit" element={<Product />} />
-        <Route path="/profil" element={<Profile />} />       
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/*" element={<Error />} />
       </Routes>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -11,6 +11,7 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
@@ -23,6 +24,7 @@ export default function Login() {
   // we get the initial email & password values from the state
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
+  const isLogged = useSelector((state) => state.user.logged);
 
   const dispatch = useDispatch();
 
@@ -76,7 +78,7 @@ export default function Login() {
           }}
         >
           <Avatar id="lock-avatar" sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            {!(isLogged) ? <LockOutlinedIcon /> :  <LockOpenOutlinedIcon /> }
           </Avatar>
           <Typography id="typography-title" component="h1" variant="h5">
             Connecte-toi à la boutique officielle O'Clock
