@@ -17,7 +17,7 @@ export default function Profile () {
       <Page>
         <Container>
           <h1>oui</h1>
-          <div>
+          <div id="favorite-form" >
             <form  id="profile-form" >
                 <input className="profile-input" type="text" name="user_first_name" placeholder="Prénom" />
                 <input className="profile-input" type="text" name="user_last_name" placeholder="Nom" />

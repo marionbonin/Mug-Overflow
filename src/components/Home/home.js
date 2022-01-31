@@ -6,64 +6,12 @@ import Page from '../Page/page';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import CarouselElement from '../Carousel/carousel';
-
-// categories images (to be replaced with correct ones)
-import Andrei from 'src/assets/images/trombi/mug_trombinoscope_Andrei.png';
-import Marion from 'src/assets/images/trombi/mug_trombinoscope_Marion.png';
-import Nicolas from 'src/assets/images/trombi/mug_trombinoscope_Nicolas.png';
+import HomeCategoriesData from './homeCategoriesData';
+import HomeCarouselsData from './homeCarouselsData';
 
 import './style.scss';
 
 export default function Home() {
-
-// array to test display / to be deleted
-// categories will be fetched from API
-const categories = [
-  {
-    path: '/css-puns',
-    id: 'css-puns',
-    name: 'CSS puns',
-    image: Andrei
-  },
-  {
-    path: '/blagues-de-dev',
-    id: 'blagues-de-dev',
-    name: 'Blagues de dev',
-    image: Marion
-  },
-  {
-    path: '/geek',
-    name: 'Geek',
-    id: 'geek',
-    image: Nicolas
-  },
-  {
-    path: '/oclock',
-    name: 'OClock',
-    id: 'oclock',
-    image: Nicolas
-  },
-];
-
-
-const homepageCarousels = [
-  {
-    key: 1,
-    id: "",
-    title: "Les derniers en date"
-  },
-  {
-    key: 2,
-    id: "carousel-color",
-    title: "Les préférés de votre promo"
-  },
-  {
-    key: 3,
-    id: "",
-    title: "Pas d'inspiration ?"
-  },
-]
-
   return (
     < >
       <Header />
@@ -91,7 +39,7 @@ const homepageCarousels = [
               En savoir plus
             </HashLink>
           </Box>
-          {homepageCarousels.map(({ key, id, title }) => (   
+          {HomeCarouselsData.map(({ key, id, title }) => (   
             <Box
               className="carousel-box"
               id={id}
@@ -106,7 +54,7 @@ const homepageCarousels = [
           <Box id="categories-box">
             <h2>Retrouvez tous nos mugs par catégorie</h2>
             <div id="category-cards">
-            {categories.map(({ name, path, id, image }) => (   
+            {HomeCategoriesData.map(({ name, path, id, image }) => (   
                 <Link
                   key={id}
                   className="category-card"
