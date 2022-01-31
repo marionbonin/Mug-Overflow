@@ -1,5 +1,13 @@
 @use 'src/styles/vars';
 
+#cgu-container {
+
+  background-color: white;
+  display:flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
 #cgu-content{
   display: block;
   margin: auto;
@@ -15,7 +23,7 @@
 
 
   h2 {
-    color: white;
+    color: vars.$backgroundGreen;
   }
 
   .cgu-p  {

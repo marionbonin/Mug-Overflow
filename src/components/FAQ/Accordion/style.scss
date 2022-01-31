@@ -1,7 +1,8 @@
 @use 'src/styles/vars';
 
 h1 {
-  color:#ffff;
+  color: vars.$darkGrey;
+  margin-bottom: 20px;
 }
 
 .MuiAccordionSummary-root {

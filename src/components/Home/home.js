@@ -11,10 +11,8 @@ import CarouselElement from '../Carousel/carousel';
 import Andrei from 'src/assets/images/trombi/mug_trombinoscope_Andrei.png';
 import Marion from 'src/assets/images/trombi/mug_trombinoscope_Marion.png';
 import Nicolas from 'src/assets/images/trombi/mug_trombinoscope_Nicolas.png';
-import ErwanAlbert from 'src/assets/images/trombi/mug_trombinoscope_Erwan_Albert.png';
 
 import './style.scss';
-import { SendAndArchiveOutlined } from '@mui/icons-material';
 
 export default function Home() {
 

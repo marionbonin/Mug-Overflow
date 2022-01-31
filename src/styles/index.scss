@@ -10,6 +10,7 @@ body {
 
 
 h1 {
+  color: vars.$backgroundGreen;
   padding: 10px;
   font-weight: 600;
   @media (min-width: 0px){ 
@@ -27,7 +28,7 @@ h2 {
   color: vars.$darkGrey;
   //font-style: italic;
   font-weight: 500;
-  margin-top: 10px;
+
   @media (min-width: 0px){ 
     font-size: 1.7rem;
     padding : 20px 0;
