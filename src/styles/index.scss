@@ -10,6 +10,7 @@ body {
 
 
 h1 {
+  color: vars.$backgroundGreen;
   padding: 10px;
   font-weight: 600;
   @media (min-width: 0px){ 
@@ -24,6 +25,10 @@ h1 {
 }
 
 h2 {
+  color: vars.$darkGrey;
+  //font-style: italic;
+  font-weight: 500;
+
   @media (min-width: 0px){ 
     font-size: 1.7rem;
     padding : 20px 0;
@@ -33,8 +38,6 @@ h2 {
     font-size: 2rem;
    padding: 30px 0;
   }
-  font-style: italic;
-  font-weight: 500;
 }
 
 h3 

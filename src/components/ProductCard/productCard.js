@@ -52,7 +52,7 @@ export default function MediaCard() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Voir plus
+            Détails
           </Button>
         </Link>
       </CardActions>

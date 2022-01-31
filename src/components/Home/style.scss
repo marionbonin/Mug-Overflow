@@ -11,24 +11,17 @@
   h1 {
     color: vars.$backgroundGreen;
   }
-  
-  #info-disclaimer{
-    font-family: 'brandon-grotesque', sans-serif;
-    font-weight: 400;
-    color: vars.$darkGrey; 
-    background-color: vars.$lightYellow;
-    border : 1px, solid, vars.$orangeYellow;
-    border-radius : 5px;
-    line-height: normal;
-    padding: 1em;
-    margin: 0.5em;
 
-    .disclaimer-bold {
-      font-weight: 600;
-    }
-  }
+
+  // SUBTITLE / EASTER EGG
 
   #easter-home {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: vars.$backgroundGrey;
+
     span {
       position: absolute;
       opacity: 0%;
@@ -39,20 +32,95 @@
         position: static;
         opacity: 100%;
         width: 100%;
-        transition: width 1000ms, opacity 1000ms;
+        transition: width 1s, opacity 1000ms;
       }
     }
   }
 
-}
 
-.carousel-color {
-  background-color: vars.$darkBackgroundGreen;
-  color: vars.$lightYellow;
-}
 
-.carousel-box {
-  // border: 1px solid red;
-  width: 100%;
-  padding-bottom: 30px;
+  // DISCLAIMER
+  
+  #info-disclaimer{
+    font-family: 'brandon-grotesque', sans-serif;
+    font-weight: 400;
+    color: vars.$darkGrey; 
+    background-color: vars.$lightYellow;
+    border : 2px solid vars.$orangeYellow;
+    border-radius : 5px;
+    line-height: normal;
+    padding: 1em;
+    margin: 30px;
+
+    .disclaimer-bold {
+      font-weight: 600;
+    }
+  }
+  
+
+  // CATEGORIES BOX
+  #categories-box {
+    width: 100%;
+    margin-top: 20px;
+    background-color: vars.$orangeYellow;
+
+    h2 {
+      //color: vars.$lightYellow;
+      margin-top: 10px;
+    }
+
+    #category-cards {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 100px;
+      margin-top: 2rem;
+      margin-bottom: 50px;
+
+      .category-card {
+        margin: 15px;
+        border-radius: 10px;
+        height: 200px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        ; 
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+        &:hover {          
+          border: 2px solid vars.$orangeYellow;
+          box-shadow: none;
+          .category-card-img {
+            filter: none;
+            width: 90%;
+            transition: width 300ms;
+          }
+
+          .category-card-name {
+            color: vars.$backgroundGrey;
+          }
+        }
+
+        &-img {
+          width: 70%;
+          height: auto;
+          margin: auto;
+          filter: grayscale(70%);
+        }
+
+        // category title on card
+        &-name {
+          color: vars.$backgroundGrey;
+          text-align: center;
+          font-weight: 600;
+          font-size: 1.2rem;
+          font-family: "brandon-grotesque",sans-serif;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
 }

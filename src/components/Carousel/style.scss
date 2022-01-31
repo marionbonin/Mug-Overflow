@@ -1,9 +1,25 @@
 @use 'src/styles/vars';
 
-// .carousel {
-//     // border: 1px red solid;
-// }
+// carousel wrappers
+.carousel-box {
+  //border: 1px vars.$backgroundGreen solid;
+  //margin-top: 50px;
+  width: 100%;
+  padding-bottom: 30px;
+  
+}
 
+// middle carousel (with a different bg color?)
+#carousel-color {
+  background-color: vars.$backgroundGreen;
+
+  h2 {
+  color: vars.$lightYellow;
+  }
+}
+
+
+// carousel title
 #category-title {
   padding: 1em;
   font-weight: 500;
@@ -16,18 +32,53 @@
 }
 
 // carousel arrows
-.control-next, .control-prev {
-    background-color: vars.$darkGrey!important;
-    border-radius: 0;
-    opacity: 0.4!important;
-    padding-top: 60px!important;
-    padding-bottom: 60px!important;
+.carousel.carousel-slider .control-arrow {
+  background-color: white;
+  opacity: 0.5;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  transition: none;
+
+  &:hover {
+    background-color: white;
+    opacity: 0.8;
+  }
+}
+
+// arrows containers
+.control-arrow.control-next, .control-arrow.control-prev {
+
+    background-color: white;
+    padding: 30px 14px!important;
+    border-radius: 50px;
     // J'ai retiré la position relative pour laisser la "absolute" par défaut
     // J'ai juste mis un top à 25% sachant qu'il était à 0% 
-    height: 50%!important;
-    // position: relative!important;
+    //height: 0%!important;
+    position: relative!important;
     top: 25%!important;
-    // bottom: 50%!important;
+    bottom: 50%!important;
+
+    // to center the arrow within its container
+    display: flex;
+    align-items: center;
+}
+
+
+
+// arrows symbols
+
+// property for both arrows
+.carousel.carousel-slider .control-arrow:before, .carousel .control-arrow:before  {
+  content: url(src/assets/images/back.png);
+  height: auto;
+  border: none;
+  margin: 10px 0 0 0;
+  padding: 0;  
+}
+  // right arrow (overriding common arrow properties)
+  .carousel .control-next.control-arrow:before {
+    content: url(src/assets/images/next.png);
 }
 
 .carousel-status {

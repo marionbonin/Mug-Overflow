@@ -8,10 +8,26 @@
   flex-direction: column;
   padding: 20px;
 
+  
+
   #notice-title{
     h1 {
       color: vars.$backgroundGreen;
     }
+  }
+
+  #notice-content{
+    display: block;
+    margin: auto;
+    @media (min-width: 0px){ 
+      max-width: 90%;
+    }
+    @media (min-width: 600px) { 
+      max-width: 80%;
+    }
+    text-align: left;
+    padding: 20px 0;
+    font-size: 1.2rem;
   }
 
   h2 {
