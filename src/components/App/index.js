@@ -11,6 +11,7 @@ import CGU from '../CGU/cgu';
 import Contact from '../Contact/contact';
 import Concept from '../Concept/concept';
 import Product from '../Product/product';
+import Profile from '../Profile/profile';
 import Category from '../Categories/categories';
 
 import './styles.scss';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/concept" element={<Concept />} />
         <Route path="/categories" element={<Category />} />
         <Route path="/produit" element={<Product />} />
+        <Route path="/profil" element={<Profile />} />c        
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/*" element={<Error />} />
       </Routes>

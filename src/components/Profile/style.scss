@@ -1,0 +1,51 @@
+@use 'src/styles/vars';
+
+.profile-input{
+  font-family: 'brandon-grotesque', sans-serif;
+  font-size: 1em;
+  height: 3em;
+  width: 100%;
+  background-color: vars.$lightYellow;
+  border: 1px solid vars.$lightYellow;
+  border-radius: 3px;
+  margin: 1em; 
+}
+
+
+#profile-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+
+#text-area{
+  font-family: 'brandon-grotesque', sans-serif;
+  font-size: 1em;
+  height: 8em;
+  width: 100%;
+  align-items: center;
+  background-color: vars.$lightYellow ;
+  margin: 1em;
+  border: 1px solid vars.$lightYellow;
+  border-radius: 3px;
+}
+
+#button-profile {
+  font-family: 'brandon-grotesque', sans-serif;
+  font-size: 1em;
+  color: vars.$lightYellow;
+  width: 60%;
+  height: 2.5em;
+  margin: 1.5em;
+  background-color: vars.$darkBlue ;
+  border: 1px solid vars.$darkBlue;
+  border-radius : 3px;
+}
+
+#favorite-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
