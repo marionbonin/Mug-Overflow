@@ -19,14 +19,16 @@ export default function Profile () {
           <h1>oui</h1>
           <div>
             <form  id="profile-form" >
-                <input className="profile-input" type="text" name="user_name" placeholder="Prénom" />
-                <input className="profile-input" type="text" name="user_email" placeholder="Nom" />
-                <input className="profile-input" type="text" name="user_email" placeholder="Promo" />
+                <input className="profile-input" type="text" name="user_first_name" placeholder="Prénom" />
+                <input className="profile-input" type="text" name="user_last_name" placeholder="Nom" />
+                <input className="profile-input" type="text" name="user_promo" placeholder="Promo" />
                 <input className="profile-input" type="email" name="user_email" placeholder="Email" />
+                <input className="profile-input" type="password" name="user_password" placeholder="" />
                 <input id="button-profile" type="submit" value="Sauvegarde" />
             </form>
           </div>
-          <div>
+          <h2> Tes Mugs Favoris </h2>
+          <div id="favorite-card">
             <FavoriteCard  key="1" />
             <FavoriteCard  key="2" />
             <FavoriteCard  key="3" />

@@ -1,5 +1,17 @@
 @use 'src/styles/vars';
 
+.profile-input{
+  font-family: 'brandon-grotesque', sans-serif;
+  font-size: 1em;
+  height: 3em;
+  width: 100%;
+  background-color: vars.$lightYellow;
+  border: 1px solid vars.$lightYellow;
+  border-radius: 3px;
+  margin: 1em; 
+}
+
+
 #profile-form{
   display: flex;
   flex-direction: column;
@@ -32,13 +44,8 @@
   border-radius : 3px;
 }
 
-.profile-input{
-  font-family: 'brandon-grotesque', sans-serif;
-  font-size: 1em;
-  height: 3em;
-  width: 100%;
-  background-color: vars.$lightYellow;
-  border: 1px solid vars.$lightYellow;
-  border-radius: 3px;
-  margin: 1em; 
+#favorite-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

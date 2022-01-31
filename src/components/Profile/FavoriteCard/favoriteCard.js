@@ -5,9 +5,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
+import './style.scss';
+
 export default function FavoriteCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card id="fav-card"  sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
