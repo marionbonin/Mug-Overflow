@@ -1,6 +1,6 @@
 // == Import
 import { Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Login from '../Login/login';
 import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';
@@ -14,6 +14,7 @@ import Concept from '../Concept/concept';
 import Product from '../Product/product';
 import Profile from '../Profile/profile';
 import Category from '../Categories/categories';
+import { getUserData, GET_USER_DATA } from '../../actions/user';
 
 import './styles.scss';
 
@@ -21,7 +22,15 @@ import './styles.scss';
 function App() {
   const isLogged = useSelector((state) => state.user.logged);
   console.log(isLogged);
-  
+
+  const dispatch = useDispatch();
+
+  const token = localStorage.getItem('token');
+  console.log(`token récupéré du localStorage: ${token}`);
+   if (token) { 
+    dispatch(getUserData()); 
+   }
+
   return (
     <div className="app">
       <Routes>
