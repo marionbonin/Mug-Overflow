@@ -15,7 +15,7 @@ function Copyright(props) {
   return (
     <Typography id="copyright-typo" variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <a href="https://oclock.com/">
+      <a href="https://oclock.io/">
         Mug OverFlow
       </a>{' '}
       {new Date().getFullYear()}

@@ -1,6 +1,8 @@
 @use 'src/styles/vars';
 
-
+.MuiBox-root .MuiToolBar-regular .css1cndkqf-MuiToolbar-root{
+  z-index: 4 !important;
+}
 
 #navbar{
   // height: 64px;
@@ -8,13 +10,15 @@
   background-color: vars.$blackOpacityTwenty;
   color: vars.$lightYellow;
   box-shadow: none;
+  position: relative;
 
   #menu-appbar {
 
     height: 100%;
     color: vars.$lightYellow;
     justify-content: space-between;
-    
+    z-index: 10;  // otherwise, category dropdown goes behind title on Product Page
+
     button {
       font-family: "brandon-grotesque";
       font-size: 1.3rem;

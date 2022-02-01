@@ -1,9 +1,12 @@
 @use 'src/styles/vars';
 
-#composition-menu {
-// background-color: vars.$backgroundGreen;
 
-} 
+.css-1ps6pg7-MuiPaper-root {
+  z-index: 10;
+}
+// #composition-menu {
+// // background-color: vars.$backgroundGreen;
+// } 
 
 #navbar #menu-appbar a.link-dropdown {
   color: vars.$darkGrey;
@@ -11,4 +14,5 @@
   // &:hover {
   //   // border-bottom: 10px solid red;
   // }
+  
 }

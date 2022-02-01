@@ -1,6 +1,8 @@
 @use 'src/styles/vars';
 
 #breadcrumb-global {
+  margin-top: 0;
+  padding-top: 20px;
   margin-left: 32px;
 }
 
@@ -9,8 +11,7 @@
   margin-top: 60px;
   min-height: 80vh;
 
-  .product-title-box {
-    
+  .product-title-box {  
     .product-title {
       display: inline-block;
       color: vars.$lightYellow;
@@ -18,13 +19,14 @@
       position: relative;
       bottom: 2rem;
       text-transform: uppercase;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding: 2rem;
       max-width: 100%;
+      
 
       // per all h1 (see main index.scss)
       @media (min-width: 0px){ 
         font-size: 2.5rem;
+        padding: 1.5rem;
       }
       @media (min-width: 900px){ 
         font-size: 3rem;

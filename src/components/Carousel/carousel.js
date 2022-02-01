@@ -17,7 +17,7 @@ export default function CarouselElement({ title }) {
   const largerThanMd = useMediaQuery(theme.breakpoints.up('md'));
 
   // Remove % if needed, in case it skips a card
-  let centerSlidePercentageRatio = '50.05';
+  let centerSlidePercentageRatio = '50.05%';
 
   if (smallerThanSm) {
     centerSlidePercentageRatio = '100';

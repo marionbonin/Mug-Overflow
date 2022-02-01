@@ -71,7 +71,7 @@ function App() {
             </ProtectedRoutes>
           )}
         />
-
+        {/* Route to delete. There is no "produit" route */}
         <Route
           path="/produit"
           element={(
@@ -80,7 +80,7 @@ function App() {
             </ProtectedRoutes>
           )}
         />
-
+        {/* End of the Route to delete. */}
         <Route
           path="/profil"
           element={(

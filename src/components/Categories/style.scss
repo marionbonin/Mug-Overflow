@@ -4,12 +4,14 @@
 #dropdown-container {
     width: 300px;
     margin: 20px auto 30px auto;
+    
 }
 
 
 // display of product cards  after API call
 #category-results {
     margin: auto;
+    padding-bottom: 50px;
     width: 90%;
     display: flex;
     flex-wrap: wrap;
