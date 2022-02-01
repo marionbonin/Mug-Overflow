@@ -104,59 +104,59 @@ const ResponsiveAppBar = () => {
             id="menu-appbar"
             sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
           >
-          {/* Navlink 1 - homepage */}
-              <NavLink
-                to='/'
-                key='Accueil'
-                underline="none"
-                className="navbar-bottom-link"
+            {/* Navlink 1 - homepage */}
+            <NavLink
+              to="/"
+              key="Accueil"
+              underline="none"
+              className="navbar-bottom-link"
+            >
+              <Button
+                className="nav-buttons"
+                key="Accueil"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Button
-                  className="nav-buttons"
-                  key='Accueil'
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  Accueil
-                </Button>
-              </NavLink>
+                Accueil
+              </Button>
+            </NavLink>
 
             {/* Navlink 2 - categories */}
             <DropdownMenu />
 
             {/* Navlink 3 - Concept */}
             <NavLink
-                to='/concept'
-                key='Concept'
-                underline="none"
-                className="navbar-bottom-link"
+              to="/concept"
+              key="Concept"
+              underline="none"
+              className="navbar-bottom-link"
+            >
+              <Button
+                className="nav-buttons"
+                key="Concept"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Button
-                  className="nav-buttons"
-                  key='Concept'
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  Concept
-                </Button>
-              </NavLink>
+                Concept
+              </Button>
+            </NavLink>
 
             {/* Navlink 4 - Contact */}
-              <NavLink
-                to='/contact'
-                key='Contact'
-                underline="none"
-                className="navbar-bottom-link"
+            <NavLink
+              to="/contact"
+              key="Contact"
+              underline="none"
+              className="navbar-bottom-link"
+            >
+              <Button
+                className="nav-buttons"
+                key="Contact"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Button
-                  className="nav-buttons"
-                  key='Contact'
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  Contact
-                </Button>
-              </NavLink>
+                Contact
+              </Button>
+            </NavLink>
           </Box>
         </Toolbar>
       </Container>

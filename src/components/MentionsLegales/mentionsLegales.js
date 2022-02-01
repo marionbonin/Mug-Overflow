@@ -15,7 +15,7 @@ export default function LegalNotice() {
           <div id="notice-title">
             <h1> Mentions Légales </h1>
           </div>
-            <div id="notice-content">
+          <div id="notice-content">
             <h2> Éditeur du Site </h2>
             <p className="notice"> Mug Overflow, une entreprise à votre écoute au capital de 0€. </p>
             <h2> Hébergement </h2>

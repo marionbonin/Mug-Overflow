@@ -1,11 +1,8 @@
-import React, { useRef } from 'react';
-import Button from '@mui/material/Button';
+import { useRef } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import emailjs from '@emailjs/browser';
-
 
 import Header from '../Header/header';
 import Page from '../Page/page';
@@ -22,11 +19,11 @@ export default function Contact() {
     emailjs.sendForm('service_5mpbk7u', 'template_6zydwci', e.target,
       'user_YvQF6GDHWrPDPIOH5ohwx')
       .then((result) => {
-          console.log(result.text);
+        console.log(result.text);
       }, (error) => {
-          console.log(error.text);
+        console.log(error.text);
       });
-      e.target.reset();
+    e.target.reset();
   };
 
   return (
@@ -47,7 +44,7 @@ export default function Contact() {
               alignItems: 'center',
             }}
           >
-            <form  id="contact-form" ref={form} onSubmit={sendEmail}>
+            <form id="contact-form" ref={form} onSubmit={sendEmail}>
               <input className="contact-input" type="text" name="user_name" placeholder="Prénom" />
               <input className="contact-input" type="email" name="user_email" placeholder="Email" />
               <textarea id="text-area" name="message" placeholder="Ton message" />

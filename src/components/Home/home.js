@@ -23,7 +23,7 @@ export default function Home() {
           </div>
           <Box
             id="info-disclaimer"
-            sx={{ width: { xs: '90%', md: '60%', lg: '50%' }}}
+            sx={{ width: { xs: '90%', md: '60%', lg: '50%' } }}
           >
             <p>
               Tous les mugs sont au prix unitaire de <span className="disclaimer-bold">13,5€</span>.
@@ -39,7 +39,7 @@ export default function Home() {
               En savoir plus
             </HashLink>
           </Box>
-          {HomeCarouselsData.map(({ key, id, title }) => (   
+          {HomeCarouselsData.map(({ key, id, title }) => (
             <Box
               className="carousel-box"
               id={id}
@@ -50,32 +50,34 @@ export default function Home() {
               />
             </Box>
           ))}
-  
+
           <Box id="categories-box">
             <h2>Retrouvez tous nos mugs par catégorie</h2>
             <div id="category-cards">
-            {HomeCategoriesData.map(({ name, path, id, image }) => (   
+              {HomeCategoriesData.map(({
+                name, path, id, image,
+              }) => (
                 <Link
                   key={id}
                   className="category-card"
                   id={id}
                   to=""
                 >
-                    <img
-                      alt=""
-                      src={image}
-                      className="category-card-img"
-                    />
-                    <p  
-                      className="category-card-name"
-                    >
+                  <img
+                    alt=""
+                    src={image}
+                    className="category-card-img"
+                  />
+                  <p
+                    className="category-card-name"
+                  >
                     {name}
-                    </p>
+                  </p>
                 </Link>
-            ))}
+              ))}
             </div>
           </Box>
-        </div> 
+        </div>
       </Page>
       <Footer />
     </>

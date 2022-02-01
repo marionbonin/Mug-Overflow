@@ -1,8 +1,8 @@
+import Container from '@mui/material/Container';
+
 import Page from '../Page/page';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
-import Container from '@mui/material/Container';
-
 
 import './style.scss';
 
@@ -19,7 +19,7 @@ export default function GeneralConditions() {
               Les présentes conditions générales régissent l’utilisation du site Mug Overflow.
               Ce site appartient et est géré par l’Ecole O’Clock.
               En utilisant ce site, vous indiquez que vous avez lu et compris les conditions
-              d’utilisation et que vous acceptez de les respecter en tout temps. 
+              d’utilisation et que vous acceptez de les respecter en tout temps.
             </p>
 
             <h2>Propriété intellectuelle</h2>

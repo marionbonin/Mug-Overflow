@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import Tooltip from '@mui/material/Tooltip';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
@@ -13,7 +13,6 @@ import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import {  useNavigate } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { cleanState } from '../../../actions/user';
 
@@ -62,8 +61,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
-  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -75,10 +76,8 @@ export default function SearchAppBar() {
     dispatch(cleanState());
     localStorage.removeItem('token');
     navigate('/connexion');
-  }
+  };
 
-  const dispatch = useDispatch();
-  let navigate = useNavigate();
   const isLogged = useSelector((state) => state.user.logged);
 
   return (
@@ -121,7 +120,7 @@ export default function SearchAppBar() {
             }}
           >
             <Tooltip id="icon-button" title="profil">
-              <IconButton  onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
                   src=""
@@ -145,36 +144,40 @@ export default function SearchAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              { (isLogged) ? 
-                <div>
-                <MenuItem
-                 onClick={()=> {
-                   navigate('/profil');
-                  }}
-                >
-                  <Typography id="menu-typo" textAlign="center">Profil</Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={()=> { logout()} }
-                >
-                  <Typography id="menu-typo" textAlign="center">
-                    Déconnexion
-                  </Typography>
-                </MenuItem>
-                </div>
-                :
-                <div>
-                <MenuItem
-                  onClick={()=> {
-                    navigate('/connexion');
-                  }}
-                >
-                  <Typography id="menu-typo" textAlign="center">
-                    Connexion
-                  </Typography>
-                </MenuItem>
-                </div>
-              }
+              { (isLogged)
+                ? (
+                  <div>
+                    <MenuItem
+                      onClick={() => {
+                        navigate('/profil');
+                      }}
+                    >
+                      <Typography id="menu-typo" textAlign="center">Profil</Typography>
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        logout();
+                      }}
+                    >
+                      <Typography id="menu-typo" textAlign="center">
+                        Déconnexion
+                      </Typography>
+                    </MenuItem>
+                  </div>
+                )
+                : (
+                  <div>
+                    <MenuItem
+                      onClick={() => {
+                        navigate('/connexion');
+                      }}
+                    >
+                      <Typography id="menu-typo" textAlign="center">
+                        Connexion
+                      </Typography>
+                    </MenuItem>
+                  </div>
+                )}
             </Menu>
           </Box>
         </Toolbar>

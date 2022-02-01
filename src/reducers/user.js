@@ -1,4 +1,9 @@
-import { CHANGE_VALUE, GET_USER_DATA, SAVE_USER_DATA, CLEAN_STATE } from '../actions/user';
+import {
+  CHANGE_VALUE,
+  GET_USER_DATA,
+  SAVE_USER_DATA,
+  CLEAN_STATE,
+} from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -6,7 +11,7 @@ export const initialState = {
   password: '',
   firstname: '',
   lastname: '',
-  promo: '', 
+  promo: '',
   status: '',
   role: '',
 };
@@ -23,51 +28,50 @@ const reducer = (state = initialState, action = {}) => {
         [action.identifier]: action.value,
       };
 
-    // case SAVE_TOKEN: // /!\ à réimporter dans actions et en haut de page si utilisation + tard
-    //   return {
-    //     ...state,
-    //     logged: true,
-    //     token: action.token,
-    //   };
+      // case SAVE_TOKEN: // /!\ à réimporter dans actions et en haut de page si utilisation + tard
+      //   return {
+      //     ...state,
+      //     logged: true,
+      //     token: action.token,
+      //   };
 
-
-    case GET_USER_DATA: 
+    case GET_USER_DATA:
       // Allow the "logged" state to change ASAP to open the lock at the login page
-      let tokenStored = localStorage.getItem('token');
+      const tokenStored = localStorage.getItem('token');
       if (tokenStored) {
         return {
           ...state,
           logged: true,
-        }
+        };
       }
       return {
         ...state,
-      }
-    
-    case SAVE_USER_DATA: 
+      };
+
+    case SAVE_USER_DATA:
       return {
         ...state,
-        //logged: true,
+        // logged: true,
         email: action.email,
         firstname: action.firstname,
         lastname: action.lastname,
-        promo: action.promo.name, 
+        promo: action.promo.name,
         status: action.status,
         role: action.role,
         password: '',
-      }
+      };
 
-    case CLEAN_STATE: 
+    case CLEAN_STATE:
       return {
         ...state,
         logged: false,
         email: '',
         firstname: '',
         lastname: '',
-        promo: '', 
+        promo: '',
         status: '',
         role: '',
-      }
+      };
 
     default:
       return state;

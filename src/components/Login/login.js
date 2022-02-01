@@ -1,7 +1,6 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -44,7 +43,7 @@ export default function Login() {
 
   const handleChange = (event) => {
     // check if we successfully targetting the right field + the right entered data
-    // console.log(`Le champ ${event.target.name} vient de recevoir la 
+    // console.log(`Le champ ${event.target.name} vient de recevoir la
     // nouvelle valeur : ${event.target.value}`);
 
     // dispatch action
@@ -56,13 +55,13 @@ export default function Login() {
     // console.log(`Store updated values: ${emailValue} / ${passwordValue}`);
   };
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem('token')){
-        return navigate("/");
+    if (localStorage.getItem('token')) {
+      return navigate('/');
     }
-  },[localStorage.getItem('token')]);
+  }, [localStorage.getItem('token')]);
 
   return (
     <>
@@ -78,7 +77,7 @@ export default function Login() {
           }}
         >
           <Avatar id="lock-avatar" sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            {!(isLogged) ? <LockOutlinedIcon /> :  <LockOpenOutlinedIcon /> }
+            {!(isLogged) ? <LockOutlinedIcon /> : <LockOpenOutlinedIcon /> }
           </Avatar>
           <Typography id="typography-title" component="h1" variant="h5">
             Connecte-toi à la boutique officielle O'Clock

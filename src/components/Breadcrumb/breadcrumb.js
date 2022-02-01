@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +5,7 @@ import './style.scss';
 
 function handleClick(event) {
   event.preventDefault();
-  console.info('You clicked a breadcrumb.');
+  // console.info('You clicked a breadcrumb.');
 }
 
 export default function ActiveLastBreadcrumb() {

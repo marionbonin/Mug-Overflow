@@ -9,7 +9,6 @@ import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import { Link } from 'react-router-dom';
 
-
 import './style.scss';
 
 export default function DropdownMenu() {
@@ -30,8 +29,8 @@ export default function DropdownMenu() {
       path: '/categorie4',
       name: 'Catégorie 4',
     },
-  ];  
-  
+  ];
+
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -51,7 +50,8 @@ export default function DropdownMenu() {
     if (event.key === 'Tab') {
       event.preventDefault();
       setOpen(false);
-    } else if (event.key === 'Escape') {
+    }
+    else if (event.key === 'Escape') {
       setOpen(false);
     }
   }
@@ -96,21 +96,20 @@ export default function DropdownMenu() {
                   placement === 'bottom-start' ? 'left top' : 'left bottom',
               }}
             >
-              <Paper >
+              <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
                     autoFocusItem={open}
                     id="composition-menu"
                     aria-labelledby="composition-button"
-                    onKeyDown={handleListKeyDown}
+                    onKeyDown={() => (handleListKeyDown())}
                   >
-                    
-                    {dropdownItems.map(({ name, path}) => (
+                    {dropdownItems.map(({ name, path }) => (
 
-                      <MenuItem 
+                      <MenuItem
                         onClick={handleClose}
                         key={name}
-                        >
+                      >
                         <Link
                           className="link-dropdown"
                           to={path}
