@@ -26,7 +26,7 @@ export default function CarouselElement({ title }) {
     centerSlidePercentageRatio = '50';
   }
   else if (largerThanMd) {
-    centerSlidePercentageRatio = '33.3333333';
+    centerSlidePercentageRatio = '33.33';
   }
 
   // console.log(smallerThanSm);

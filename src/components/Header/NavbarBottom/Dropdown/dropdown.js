@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+
 import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
@@ -8,31 +10,14 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './style.scss';
 
 export default function DropdownMenu() {
-  const dropdownItems = [
-    {
-      path: '/categorie1',
-      name: 'Catégorie 1',
-    },
-    {
-      path: '/categorie2',
-      name: 'Catégorie 2',
-    },
-    {
-      path: '/categorie3',
-      name: 'Catégorie 3',
-    },
-    {
-      path: '/categorie4',
-      name: 'Catégorie 4',
-    },
-  ];
-
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
+  const categories = useSelector((state) => state.categories.list);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -104,7 +89,7 @@ export default function DropdownMenu() {
                     aria-labelledby="composition-button"
                     onKeyDown={() => (handleListKeyDown())}
                   >
-                    {dropdownItems.map(({ name, path }) => (
+                    {categories.map(({ name, slug }) => (
 
                       <MenuItem
                         onClick={handleClose}
@@ -112,7 +97,7 @@ export default function DropdownMenu() {
                       >
                         <Link
                           className="link-dropdown"
-                          to={path}
+                          to={slug}
                           key={name}
                         >
                           {name}
@@ -131,3 +116,14 @@ export default function DropdownMenu() {
     </Stack>
   );
 }
+
+DropdownMenu.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};

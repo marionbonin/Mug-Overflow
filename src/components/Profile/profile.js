@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+
 import Container from '@mui/material/Container';
 
 import Header from '../Header/header';
@@ -8,12 +10,14 @@ import FavoriteCard from './FavoriteCard/favoriteCard';
 import './style.scss';
 
 export default function Profile() {
+  const userName = useSelector((state) => state.user.firstname);
+  console.log(userName);
   return (
     <>
       <Header />
       <Page>
         <Container>
-          <h1>oui</h1>
+          <h1> Bonjour {userName}  </h1>
           <div id="favorite-form">
             <form id="profile-form">
               <input className="profile-input" type="text" name="user_first_name" placeholder="Prénom" />

@@ -3,16 +3,15 @@
 
 .css-1ps6pg7-MuiPaper-root {
   z-index: 10;
+  text-align: left;
 }
-// #composition-menu {
-// // background-color: vars.$backgroundGreen;
-// } 
+#composition-menu {
+// background-color: vars.$backgroundGreen;
+} 
 
 #navbar #menu-appbar a.link-dropdown {
   color: vars.$darkGrey;
   height: auto;
-  // &:hover {
-  //   // border-bottom: 10px solid red;
-  // }
+  width: 100%;
   
 }

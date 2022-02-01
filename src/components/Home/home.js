@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Box from '@mui/material/Box';
@@ -8,24 +7,12 @@ import Page from '../Page/page';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import CarouselElement from '../Carousel/carousel';
-import HomeCategoriesData from './homeCategoriesData';
 import HomeCarouselsData from './homeCarouselsData';
 
-import { fetchCategories } from '../../actions/categories';
 import './style.scss';
 
 export default function Home() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log('chargement des catégories');
-    dispatch(fetchCategories());
-  }, []);
-
   const categories = useSelector((state) => state.categories.list);
-  // We get the array of objects with our categories from the DB.
-  // console.log(categories);
-
   return (
     < >
       <Header />
@@ -91,7 +78,8 @@ export default function Home() {
                       {name}
                     </p>
                   </Link>
-                )})}
+                );
+              })}
             </div>
           </Box>
         </div>

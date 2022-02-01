@@ -23,17 +23,19 @@
 }
 
 
-#box{
+#box {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
+  label {
+    font-family: 'brandon-grotesque', sans-serif;
+  }
 }
 
 #email {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
   background-color: #fffdd8;
-  border-radius: 4px;
-  
+  border-radius: 4px;   
 }
 
 #password {
