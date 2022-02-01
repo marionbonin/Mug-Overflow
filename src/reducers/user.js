@@ -14,6 +14,7 @@ export const initialState = {
   promo: '',
   status: '',
   role: '',
+  loading: false,
 };
 
 const reducer = (state = initialState, action = {}) => {

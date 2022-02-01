@@ -1,27 +1,35 @@
-/*
-
-à la base je pensais mettre ce dropdown dans un fichier à part,
-mais peut-etre + simple dans un premier temps de le laisser dans le fichier categories
-le temps de dynamiser toute la page
-
-Donc Fichier inutile pour l'instant, à garder au cas où on en a besoin plus tard
-*/
-
 import
 {
   FormControl, InputLabel, Select, MenuItem,
 } from '@mui/material';
-
+import { Navigate, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Error from '../Error/error';
 import Header from '../Header/header';
 import Page from '../Page/page';
 import Footer from '../Footer/footer';
 import Card from '../ProductCard/productCard';
 
+// un selector c'est simplement une fonction à qui on passe le state pour en déduire une valeur
+import { findCategory } from '../../selectors/categories';
 import './style.scss';
 
 export default function CategoryDropdown() {
-
-  const selectTestValue = 'Nom Catég test';
+  // getting current slug with useParams
+  const parameters = useParams();
+  const currentSlug = parameters.slug;
+  // getting the category matching to the slug (if it exists)
+  const category = useSelector((state) => findCategory(state.categories.list, currentSlug));
+  // if the categories array was found
+  //  (always exists in state, empty by default)
+  // but NOT the category matching the slug, return Error.
+  const categories = useSelector((state) => state.categories.list);
+  if ((categories.length > 0) && !category) {
+    return <Navigate to="/error" replace />;
+  }
+  if ((categories.length > 0) && category) {
+    console.log(category.name);
+  }
 
   return (
     <>
@@ -40,7 +48,7 @@ export default function CategoryDropdown() {
               id="demo-simple-select"
               value="catég 1"
               label="Catégorie"
-              placeholder={selectTestValue}
+              placeholder="test value"
               onChange={() => {
                 console.log("appel API et modif de l'affichage des produits au changement de catégorie");
               }}

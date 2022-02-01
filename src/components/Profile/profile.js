@@ -18,12 +18,14 @@ export default function Profile() {
   const userEmail = useSelector((state) => state.user.email);
   const userPass = useSelector((state) => state.user.password);
 
+
   return (
     <>
       <Header />
       <Page>
         <Container>
           <h1> Bonjour {userFirstName} </h1>
+
           <div id="favorite-form">
             <Box id="profile-form">
               <TextField className="profile-input" id="pi-1" label={userFirstName} variant="outlined" />

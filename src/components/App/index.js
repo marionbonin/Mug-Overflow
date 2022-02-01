@@ -1,6 +1,10 @@
 // == Import
-import { Routes, Route, Navigate } from 'react-router-dom';
+import {
+  Routes, Route, Navigate, useParams,
+} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Login from '../Login/login';
 import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';
@@ -16,18 +20,32 @@ import Product from '../Product/product';
 import Profile from '../Profile/profile';
 import Category from '../Categories/categories';
 import { getUserData } from '../../actions/user';
+import { fetchCategories } from '../../actions/categories';
+
+import Loading from './Loading';
 
 import './styles.scss';
 
 // == Composant
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // console.log('chargement des catégories');
+    dispatch(fetchCategories());
+  }, []);
+
   const isLogged = useSelector((state) => state.user.logged);
+  const loading = useSelector((state) => state.user.loading);
   // console.log(isLogged);
 
-  const dispatch = useDispatch();
   // const token = localStorage.getItem('token');
   // console.log(`token récupéré du localStorage: ${token}`);
   dispatch(getUserData());
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="app">
@@ -100,7 +118,7 @@ function App() {
         />
 
         <Route
-          path="/categories"
+          path="/categories/:slug"
           element={(
             <ProtectedRoutes>
               <Category />
@@ -112,7 +130,9 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/CGU" element={<CGU />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
-        <Route path="/*" element={<Error />} />
+        <Route path="/error" element={<Error />} />
+        <Route path="*" element={<Error />} />
+
       </Routes>
     </div>
   );
