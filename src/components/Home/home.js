@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Box from '@mui/material/Box';
@@ -9,9 +11,21 @@ import CarouselElement from '../Carousel/carousel';
 import HomeCategoriesData from './homeCategoriesData';
 import HomeCarouselsData from './homeCarouselsData';
 
+import { fetchCategories } from '../../actions/categories';
 import './style.scss';
 
 export default function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log('chargement des catégories');
+    dispatch(fetchCategories());
+  }, []);
+
+  const categories = useSelector((state) => state.categories.list);
+  // We get the array of objects with our categories from the DB.
+  // console.log(categories);
+
   return (
     < >
       <Header />
@@ -43,6 +57,7 @@ export default function Home() {
             <Box
               className="carousel-box"
               id={id}
+              key={key}
             >
               <CarouselElement
                 key={key}
@@ -54,27 +69,29 @@ export default function Home() {
           <Box id="categories-box">
             <h2>Retrouvez tous nos mugs par catégorie</h2>
             <div id="category-cards">
-              {HomeCategoriesData.map(({
-                name, path, id, image,
-              }) => (
-                <Link
-                  key={id}
-                  className="category-card"
-                  id={id}
-                  to=""
-                >
-                  <img
-                    alt=""
-                    src={image}
-                    className="category-card-img"
-                  />
-                  <p
-                    className="category-card-name"
+              {categories.map(({
+                id, name, slug, image,
+              }) => {
+                const imageUrl = `http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images_categories/${image}`;
+                return (
+                  <Link
+                    key={id}
+                    className="category-card"
+                    id={slug}
+                    to=""
                   >
-                    {name}
-                  </p>
-                </Link>
-              ))}
+                    <img
+                      alt=""
+                      src={imageUrl}
+                      className="category-card-img"
+                    />
+                    <p
+                      className="category-card-name"
+                    >
+                      {name}
+                    </p>
+                  </Link>
+                )})}
             </div>
           </Box>
         </div>

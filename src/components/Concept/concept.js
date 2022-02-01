@@ -59,13 +59,13 @@ export default function Product() {
           <img src={printer} alt="mug svg" className="svg-concept" />
           <p className="concept-text">
             Une fois chez l'imprimeur, vous redisposez les éléments téléchargés sur votre mug, vous
-            payez, et PAF ! Vous avez votre mug. Le concept peut paraitre farfelu, mais on s'est dit
-            que chez O'Clock, on apprenait à devenir dev. Pas imprimeur. Donc on a fait ce qu'on sait
-            faire de mieux, un site internet.
+            payez, et PAF ! Vous avez votre mug. Le concept peut paraitre farfelu, mais on s'est
+            dit que chez O'Clock, on apprenait à devenir dev. Pas imprimeur. Donc on a fait
+            ce qu'on sait faire de mieux, un site internet.
             Et pour le moment, on laisse le côté impression aux pros. <br />
             Parce que oui, c'est un secret bien gardé, mais en V2 de ce projet, on adorerait pouvoir
-            passer par un service de POD, le futur de l'impression personnalisée, et vous proposer les
-            mêmes mugs, mais à un bien meilleur prix !
+            passer par un service de POD, le futur de l'impression personnalisée, et vous
+            proposer les mêmes mugs, mais à un bien meilleur prix !
           </p>
           <h2 className="concept-question" id="who-is-it">
             Ok mais... Qui est derrière tout ça ?!

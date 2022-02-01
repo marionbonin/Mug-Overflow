@@ -4,7 +4,7 @@
 mais peut-etre + simple dans un premier temps de le laisser dans le fichier categories
 le temps de dynamiser toute la page
 
-Fichier inutile pour l'instant, à garder au cas où besoin plus tard
+Donc Fichier inutile pour l'instant, à garder au cas où on en a besoin plus tard
 */
 
 import

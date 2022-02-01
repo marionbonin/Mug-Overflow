@@ -1,5 +1,4 @@
 import api from './api';
-
 import {
   FETCH_PRODUCTS,
   saveProducts,
@@ -25,6 +24,6 @@ const productsMiddleware = (store) => (next) => (action) => {
   }
 
   next(action);
-
+};
 
 export default productsMiddleware;

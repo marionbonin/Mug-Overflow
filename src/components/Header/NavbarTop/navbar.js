@@ -124,7 +124,7 @@ export default function SearchAppBar() {
                 <Avatar
                   alt="Remy Sharp"
                   src=""
-                  sx={{ color: '#0CAD93', backgroundColor: 'white' }}
+                  sx={{ color: '#1e2124', backgroundColor: 'white' }}
                 />
               </IconButton>
             </Tooltip>

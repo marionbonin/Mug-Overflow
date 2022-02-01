@@ -90,12 +90,16 @@
         background-color: white;
         ; 
         box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+        position: relative;
+        overflow: hidden;
+
         &:hover {          
           border: 2px solid vars.$orangeYellow;
           box-shadow: none;
+          
           .category-card-img {
             filter: none;
-            width: 90%;
+            width: 110%;
             transition: width 300ms;
           }
 
@@ -105,7 +109,9 @@
         }
 
         &-img {
-          width: 70%;
+          position: absolute;
+          top: -25px;
+          width: 100%;
           height: auto;
           margin: auto;
           filter: grayscale(70%);
@@ -118,7 +124,8 @@
           font-weight: 600;
           font-size: 1.2rem;
           font-family: "brandon-grotesque",sans-serif;
-          margin-bottom: 10px;
+          position: absolute;
+          bottom: 10px;
         }
       }
     }

@@ -21,8 +21,8 @@ const loginMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
-          console.log(response.data.token);
+          // console.log(response);
+          // console.log(response.data.token);
           // saving user token in store
           // store.dispatch(saveToken(response.data.token));
           // editing api headers config

@@ -37,6 +37,7 @@ const reducer = (state = initialState, action = {}) => {
 
     case GET_USER_DATA:
       // Allow the "logged" state to change ASAP to open the lock at the login page
+      // eslint-disable-next-line no-case-declarations
       const tokenStored = localStorage.getItem('token');
       if (tokenStored) {
         return {
