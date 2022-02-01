@@ -45,11 +45,11 @@ export default function CarouselElement({ title }) {
         infiniteLoop="true"
         showThumbs={false}
       >
-        <Card key="1" className="carousel-white" />
-        <Card key="2" className="carousel-color" />
-        <Card key="3" className="carousel-white" />
-        <Card key="4" className="carousel-color" />
-        <Card key="5" className="carousel-white" />
+        <Card key="1" />
+        <Card key="2" />
+        <Card key="3" />
+        <Card key="4" />
+        <Card key="5" />
       </Carousel>
     </Container>
   );

@@ -1,6 +1,6 @@
 // == Import
-import { Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Login from '../Login/login';
 import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';
@@ -11,7 +11,6 @@ import CGU from '../CGU/cgu';
 
 import Contact from '../Contact/contact';
 import ProtectedRoutes from './protectedRoutes';
-import LoggedRoute from './loggedRoute';
 import Concept from '../Concept/concept';
 import Product from '../Product/product';
 import Profile from '../Profile/profile';
@@ -22,11 +21,10 @@ import './styles.scss';
 
 // == Composant
 function App() {
-  // const isLogged = useSelector((state) => state.user.logged);
+  const isLogged = useSelector((state) => state.user.logged);
   // console.log(isLogged);
 
   const dispatch = useDispatch();
-
   // const token = localStorage.getItem('token');
   // console.log(`token récupéré du localStorage: ${token}`);
   dispatch(getUserData());
@@ -36,21 +34,25 @@ function App() {
 
       <Routes>
         {/* Logged routes. When you're logged, you have no longer access to those routes */}
+        {isLogged && (
+          <>
+            <Route
+              path="/connexion"
+              element={<Navigate replace to="/" />}
+            />
+            <Route
+              path="/inscription"
+              element={<Navigate replace to="/" />}
+            />
+          </>
+        )}
         <Route
           path="/connexion"
-          element={(
-            <LoggedRoute>
-              <Login />
-            </LoggedRoute>
-        )}
+          element={<Login />}
         />
         <Route
           path="/inscription"
-          element={(
-            <LoggedRoute>
-              <CreateAccount />
-            </LoggedRoute>
-          )}
+          element={<CreateAccount />}
         />
         {/* Protected routes. You need to be logged to access those routes */}
         <Route

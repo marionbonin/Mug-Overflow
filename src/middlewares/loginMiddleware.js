@@ -1,19 +1,15 @@
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import api from './api';
 
-import { 
-  SUBMIT_LOGIN, 
-  // SAVE_TOKEN,
-  // saveToken,
+import {
+  SUBMIT_LOGIN,
   GET_USER_DATA,
   getUserData,
   saveUserData,
 } from '../actions/user';
 
-
 const loginMiddleware = (store) => (next) => (action) => {
-  
   switch (action.type) {
     case SUBMIT_LOGIN:
 
@@ -24,7 +20,7 @@ const loginMiddleware = (store) => (next) => (action) => {
           password: store.getState().user.password,
         },
       )
-        .then((response) => {        
+        .then((response) => {
           console.log(response);
           console.log(response.data.token);
           // saving user token in store
@@ -48,16 +44,16 @@ const loginMiddleware = (store) => (next) => (action) => {
       api.get(
         '/profil',
       )
-        .then((response) => {        
-          console.log(response);
-          console.log(response.data.email);
+        .then((response) => {
+          // console.log(response);
+          // console.log(response.data.email);
           store.dispatch(saveUserData(
             response.data.email,
             response.data.firstname,
             response.data.lastname,
             response.data.promo,
             response.data.status,
-            response.data.role
+            response.data.role,
           ));
           // console.log(store.getState().user.email);
         })
@@ -65,6 +61,7 @@ const loginMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       break;
+    default:
   }
   next(action);
 };

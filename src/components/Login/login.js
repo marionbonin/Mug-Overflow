@@ -77,7 +77,7 @@ export default function Login() {
           }}
         >
           <Avatar id="lock-avatar" sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            {!(isLogged) ? <LockOutlinedIcon /> : <LockOpenOutlinedIcon /> }
+            {!(isLogged) ? <LockOutlinedIcon /> :  <LockOpenOutlinedIcon /> }
           </Avatar>
           <Typography id="typography-title" component="h1" variant="h5">
             Connecte-toi à la boutique officielle O'Clock

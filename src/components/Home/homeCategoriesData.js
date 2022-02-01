@@ -21,14 +21,14 @@ export default [
   },
   {
     path: '/geek',
-    name: 'Geek',
     id: 'geek',
+    name: 'Geek',
     image: Nicolas,
   },
   {
     path: '/oclock',
-    name: 'OClock',
     id: 'oclock',
+    name: 'OClock',
     image: Nicolas,
   },
 ];
