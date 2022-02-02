@@ -89,23 +89,20 @@ export default function DropdownMenu() {
                     aria-labelledby="composition-button"
                     onKeyDown={() => (handleListKeyDown())}
                   >
-                    {categories.map(({ name, slug }) => {
-                      const slugUrl = `categories/${slug}`;
-                      return (
-                        <MenuItem
-                          onClick={handleClose}
+                    {categories.map(({ name, slug }) => (
+                      <MenuItem
+                        onClick={handleClose}
+                        key={name}
+                        className="link-dropdown"
+                      >
+                        <Link
+                          to={`/categories/${slug}`}
                           key={name}
                         >
-                          <Link
-                            className="link-dropdown"
-                            to={slugUrl}
-                            key={name}
-                          >
-                            {name}
-                          </Link>
-                        </MenuItem>
-                      );
-                    })}
+                          {name}
+                        </Link>
+                      </MenuItem>
+                    ))}
 
                   </MenuList>
                 </ClickAwayListener>

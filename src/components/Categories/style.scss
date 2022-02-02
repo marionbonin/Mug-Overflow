@@ -1,19 +1,26 @@
 @use 'src/styles/vars';
 
-
 #dropdown-container {
-    width: 300px;
+    width: 19em;
     margin: 20px auto 30px auto;
-    
-  }
+}
   
-  .link-dropdown {
-    padding: 0;
-    a {
-      width: 100%;
-      background-color: blue;
-    }
+.link-dropdown {
+  // margin: -8px!important;
+  // width: auto;
+  position: relative;
+  
+  a {
+    //position: absolute;
+    //left: 0px;
+    //top: 0;
+    // margin: 0;
+    padding: 10px!important;
+    // height: 5rem;
+    width: 100%;
+    border: solid 1px blue;
   }
+}
 
 // display of product cards  after API call
 #category-results {

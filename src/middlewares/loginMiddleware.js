@@ -56,7 +56,6 @@ const loginMiddleware = (store) => (next) => (action) => {
             response.data.status,
             response.data.role,
           ));
-          console.log(store.getState().user.email);
         })
         .catch((error) => {
           console.log(error);
