@@ -4,13 +4,22 @@ import {
   saveProductsByCategory,
 } from '../actions/products';
 
-
 // const categorySlug = window.location.pathname;
 // console.log(categorySlug);
 
 const productsMiddleware = (store) => (next) => (action) => {
-  const slugURL = store.getState().user.slug;
-  console.log(slugURL);
+  let slugURL = store.getState().user.slug;
+  // const dispatch = useDispatch();
+  if (slugURL === '') {
+    // const pieceOfUrl = window.location.pathname;
+    // URL à nettoyer pour être fonctionnel.
+    // Actuel : /categories/cc-puns
+    // Attendu : /css-puns
+    // store.dispatch(saveSlug('geek'));
+    // console.log(slugURL);
+    slugURL = 'css-puns';
+  }
+
   switch (action.type) {
     case FETCH_PRODUCTS_BY_CATEGORY:
       console.log('appel à fetch products by category');

@@ -12,6 +12,7 @@ import Card from './ProductCardCategory/productCardCategory';
 import Loading from '../App/Loading';
 import { findCategory } from '../../selectors/categories';
 import { fetchProductsByCategory } from '../../actions/products';
+import { saveSlug } from '../../actions/user';
 import './style.scss';
 
 export default function Category() {
@@ -42,7 +43,11 @@ export default function Category() {
   }, []);
 
   const handleChange = ((event) => {
-    console.log(event.target);
+    console.log(event.target.value);
+    const slug = event.target.value;
+    // const base = '/categories/';
+    // document.location = base + slug;
+    dispatch(saveSlug(slug));
   });
 
   if (categories.length === 0) {
@@ -71,22 +76,17 @@ export default function Category() {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={category.name}
+              value={category.slug}
               label="Catégorie"
               onChange={handleChange}
             >
               {categories.map(({ name, slug }) => (
                 <MenuItem
                   className="link-dropdown"
-                  value={name}
+                  value={slug}
                   key={slug}
                 >
-                  <Link
-                    to={`/categories/${slug}`}
-                    key={name}
-                  >
-                    {name}
-                  </Link>
+                  {name}
                 </MenuItem>
               ))}
             </Select>

@@ -3,6 +3,7 @@ import {
   GET_USER_DATA,
   SAVE_USER_DATA,
   CLEAN_STATE,
+  SAVE_SLUG,
 } from '../actions/user';
 
 export const initialState = {
@@ -75,6 +76,12 @@ const reducer = (state = initialState, action = {}) => {
         promo: '',
         status: '',
         role: '',
+      };
+
+    case SAVE_SLUG:
+      return {
+        ...state,
+        slug: action.slug,
       };
 
     default:
