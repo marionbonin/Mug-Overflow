@@ -7,30 +7,31 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Link from '@mui/material/Link';
-import frontMockup from 'src/assets/images/mug-mockups/CSS_IS_AWESOME_front.png';
 
 import './style.scss';
 
-export default function MediaCard() {
+export default function MediaCard(
+  product,
+) {
+  // console.log(product.category[0].name);
   return (
     <Card
-      // sx={{ borderRadius: 4 }}
       id="mug-card"
     >
       <CardMedia
         component="img"
         className="cardMugMedia"
-        image={frontMockup}
+        image= {`http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.mockupFront}`}
         alt="photo du produit"
       />
       <CardContent>
         <Box className="card-content">
           <div className="card-mug-props">
             <div className="card-mug-name">
-              CSS IS tout pourri
+              {product.name}
             </div>
             <div className="card-mug-categ">
-              CSS
+              {product.category[0].name}
             </div>
           </div>
           <IconButton
@@ -44,6 +45,7 @@ export default function MediaCard() {
       <CardActions disableSpacing>
         <Link
           to=""
+          // /categories/:slug/:idDuProduit
         >
           <Button
             id="card-button"

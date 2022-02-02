@@ -35,14 +35,11 @@ function App() {
   // console.log(`token récupéré du localStorage: ${token}`);
 
   useEffect(() => {
-    // console.log('chargement des catégories');
     if (token && !isLogged) {
       dispatch(getUserData());
     }
   }, []);
   dispatch(fetchCategories());
-
-  // console.log(isLogged);
 
   if (loading) {
     return <Loading />;

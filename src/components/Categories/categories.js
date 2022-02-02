@@ -2,8 +2,7 @@ import
 {
   FormControl, InputLabel, Select, MenuItem,
 } from '@mui/material';
-
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Navigate, useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../Header/header';
@@ -11,7 +10,6 @@ import Page from '../Page/page';
 import Footer from '../Footer/footer';
 import Card from './ProductCardCategory/productCardCategory';
 import Loading from '../App/Loading';
-// un selector c'est simplement une fonction à qui on passe le state pour en déduire une valeur
 import { findCategory } from '../../selectors/categories';
 import { fetchProductsByCategory } from '../../actions/products';
 import './style.scss';
@@ -25,21 +23,23 @@ export default function Category() {
   const category = useSelector((state) => findCategory(state.categories.list, currentSlug));
 
   const categories = useSelector((state) => state.categories.list);
+  console.log(categories);
 
-  // const products = useSelector((state) => state.products.list);
-  // console.log(products);
+  const products = useSelector((state) => state.products.list);
+  console.log(products);
 
-
-  // if the categories array was found
-  //  (always exists in state, empty by default)
+  // if the categories array was found (always exists in state, empty by default)
   // but NOT the category matching the slug, return Error.
   if ((categories.length > 0) && !category) {
     return <Navigate to="/error" replace />;
   }
   if ((categories.length > 0) && category) {
     console.log('On récupère les produits en fonction du slug');
-    dispatch(fetchProductsByCategory());
   }
+
+  useEffect(() => {
+    dispatch(fetchProductsByCategory());
+  }, []);
 
   const handleChange = ((event) => {
     console.log(event.target);
@@ -93,12 +93,13 @@ export default function Category() {
           </FormControl>
         </div>
         <div id="category-results">
-          <Card key="1" className="product-card" props="" />
-          <Card key="2" className="product-card" />
-          <Card key="3" className="product-card" />
-          <Card key="4" className="product-card" />
-          <Card key="5" className="product-card" />
-          <Card key="6" className="product-card" />
+          {products.map((product) => (
+            <Card
+              key={product.name}
+              className="product-card"
+              {...product}
+            />
+          ))}
         </div>
       </Page>
       <Footer />
