@@ -3,11 +3,10 @@
 
 export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
-//export const SAVE_TOKEN = 'SAVE_TOKEN';
+// export const SAVE_TOKEN = 'SAVE_TOKEN';
 export const GET_USER_DATA = 'GET_USER_DATA';
 export const SAVE_USER_DATA = 'SAVE_USER_DATA';
-export const CLEAN_STATE ='CLEAN_STATE';
-
+export const CLEAN_STATE = 'CLEAN_STATE';
 
 export const changeValue = (identifier, value) => ({
   type: CHANGE_VALUE,
@@ -30,15 +29,15 @@ export const getUserData = () => ({
 
 });
 
-export const saveUserData = (email, firstname, lastname, promo , status, role) => ({
+export const saveUserData = (email, firstname, lastname, promo, status, role) => ({
   type: SAVE_USER_DATA,
   email: email,
   firstname: firstname,
   lastname: lastname,
-  promo: promo, 
+  promo: promo,
   status: status,
   role: role,
-})
+});
 
 export const cleanState = () => ({
   type: CLEAN_STATE,

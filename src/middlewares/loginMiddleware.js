@@ -39,6 +39,7 @@ const loginMiddleware = (store) => (next) => (action) => {
 
     case GET_USER_DATA:
       if (!localStorage.getItem('token')) {
+        console.log('notoken');
         break;
       }
       api.get(
@@ -55,7 +56,7 @@ const loginMiddleware = (store) => (next) => (action) => {
             response.data.status,
             response.data.role,
           ));
-          // console.log(store.getState().user.email);
+          console.log(store.getState().user.email);
         })
         .catch((error) => {
           console.log(error);

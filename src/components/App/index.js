@@ -29,19 +29,20 @@ import './styles.scss';
 // == Composant
 function App() {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    // console.log('chargement des catégories');
-    dispatch(fetchCategories());
-  }, []);
-
   const isLogged = useSelector((state) => state.user.logged);
   const loading = useSelector((state) => state.user.loading);
-  // console.log(isLogged);
-
-  // const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
   // console.log(`token récupéré du localStorage: ${token}`);
-  dispatch(getUserData());
+
+  useEffect(() => {
+    console.log('chargement des catégories');
+    dispatch(fetchCategories());
+    if (token && !isLogged) {
+      dispatch(getUserData());
+    }
+  }, []);
+
+  // console.log(isLogged);
 
   if (loading) {
     return <Loading />;

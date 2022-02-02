@@ -5,8 +5,15 @@
     width: 300px;
     margin: 20px auto 30px auto;
     
-}
-
+  }
+  
+  .link-dropdown {
+    padding: 0;
+    a {
+      width: 100%;
+      background-color: blue;
+    }
+  }
 
 // display of product cards  after API call
 #category-results {
@@ -17,7 +24,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
     // id defined in ProductCard Component
     #mug-card {
         margin: 30px 50px; 

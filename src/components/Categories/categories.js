@@ -2,19 +2,19 @@ import
 {
   FormControl, InputLabel, Select, MenuItem,
 } from '@mui/material';
-import { Navigate, useParams } from 'react-router-dom';
+// import { useEffect } from 'react';
+import { Navigate, useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Error from '../Error/error';
 import Header from '../Header/header';
 import Page from '../Page/page';
 import Footer from '../Footer/footer';
 import Card from '../ProductCard/productCard';
-
+import Loading from '../App/Loading';
 // un selector c'est simplement une fonction à qui on passe le state pour en déduire une valeur
 import { findCategory } from '../../selectors/categories';
 import './style.scss';
 
-export default function CategoryDropdown() {
+export default function Category() {
   // getting current slug with useParams
   const parameters = useParams();
   const currentSlug = parameters.slug;
@@ -28,14 +28,31 @@ export default function CategoryDropdown() {
     return <Navigate to="/error" replace />;
   }
   if ((categories.length > 0) && category) {
-    console.log(category.name);
+    console.log(category);
   }
 
+  const handleChange = ((event) => {
+    // console.log(event.target);
+    // return <p>Hello</p>;
+  
+  });
+
+  if (categories.length === 0) {
+    return (
+      <>
+        <Header />
+        <Page>
+          <Loading />
+        </Page>
+        <Footer />
+      </>
+    );
+  }
   return (
     <>
       <Header />
       <Page>
-        <h1> Titre Catégorie </h1>
+        <h1> {category.name} </h1>
         <div id="dropdown-container">
           <FormControl fullWidth>
             <InputLabel
@@ -46,21 +63,27 @@ export default function CategoryDropdown() {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value="catég 1"
+              value={category.name}
               label="Catégorie"
-              placeholder="test value"
-              onChange={() => {
-                console.log("appel API et modif de l'affichage des produits au changement de catégorie");
-              }}
+              onChange={handleChange}
             >
-              <MenuItem value="catég 1">Catég 1
-              </MenuItem>
-              <MenuItem value="catég 2">Catég 2
-              </MenuItem>
-              <MenuItem value="catég 3">Catég 3
-              </MenuItem>
-              <MenuItem value="catég 4">Catég 4
-              </MenuItem>
+              {categories.map(({ name, slug }) => {
+                const slugURL = `http://localhost:8080/categories/${slug}`;
+                return (
+                  <MenuItem
+                    className="link-dropdown"
+                    value={name}
+                    key={slug}
+                  >
+                    <Link
+                      to={slugURL}
+                      key={name}
+                    >
+                      {name}
+                    </Link>
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
         </div>

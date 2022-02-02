@@ -44,6 +44,7 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
           logged: true,
+          loading: true,
         };
       }
       return {
@@ -53,7 +54,6 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_USER_DATA:
       return {
         ...state,
-        // logged: true,
         email: action.email,
         firstname: action.firstname,
         lastname: action.lastname,
@@ -61,6 +61,7 @@ const reducer = (state = initialState, action = {}) => {
         status: action.status,
         role: action.role,
         password: '',
+        loading: false,
       };
 
     case CLEAN_STATE:

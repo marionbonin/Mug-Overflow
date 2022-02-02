@@ -24,15 +24,11 @@ export default function categoryDropdown() {
           console.log("appel API et modif de l'affichage des produits au changement de catégorie");
         }}
       >
-        <MenuItem value="catég 1">Catég 1
-        </MenuItem>
-        <MenuItem value="catég 2">Catég 2
-        </MenuItem>
-        <MenuItem value="catég 3">Catég 3
-        </MenuItem>
-        <MenuItem value="catég 4">Catég 4
-        </MenuItem>
+        <MenuItem value="catég 1">Catégoooooooorie 1</MenuItem>
+        <MenuItem value="catég 2">Catég 2</MenuItem>
+        <MenuItem value="catég 3">Catég 3</MenuItem>
+        <MenuItem value="catég 4">Catég 4</MenuItem>
       </Select>
     </FormControl>
-  )
+  );
 }
