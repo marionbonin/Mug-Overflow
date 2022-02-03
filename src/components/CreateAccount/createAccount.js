@@ -4,11 +4,17 @@ import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
 import Footer from '../Footer/footer';
 
 import './style.scss';
+
+const handleChange = () => {
+  console.log("salut");
+};
 
 export default function AccountCreation() {
   const handleSubmit = (event) => {
@@ -55,14 +61,28 @@ export default function AccountCreation() {
               label="Nom"
               id="last-name"
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="promo"
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value="PROMO"
               label="Promo"
-              id="promo"
-            />
+              onChange={handleChange}
+            >
+              <MenuItem value="Xandar">Xandar</MenuItem>
+              <MenuItem value="XIII">Twenty</MenuItem>
+              <MenuItem value="Tardis">Thirty</MenuItem>
+            </Select>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value="PROMO"
+              label="Promo"
+              onChange={handleChange}
+            >
+              <MenuItem value="Xandar">Staff</MenuItem>
+              <MenuItem value="XIII">Etudiant</MenuItem>
+              <MenuItem value="Tardis">Alumni</MenuItem>
+            </Select>
             <TextField
               margin="normal"
               required

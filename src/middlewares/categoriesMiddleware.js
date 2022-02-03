@@ -12,7 +12,7 @@ const categoriesMiddleware = (store) => (next) => (action) => {
       api.get('/categories')
         .then((response) => {
           const categories = response.data;
-          console.log('categories récupérées ok');
+          // console.log('categories récupérées ok');
           // Dispatching the action getting the categories into the reducer
           // and adding them into the state
           store.dispatch(saveCategories(categories));

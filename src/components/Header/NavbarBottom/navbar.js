@@ -47,11 +47,13 @@ const ResponsiveAppBar = () => {
   return (
     <AppBar id="navbar" position="static">
       <Container>
-        <Toolbar disableGutters>
+        <Toolbar
+          disableGutters
+        >
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="hamburger menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -73,7 +75,7 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'flex', md: 'none' },
               }}
             >
               {pages.map(({ routeName, path }) => (

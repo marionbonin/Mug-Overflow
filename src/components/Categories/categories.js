@@ -2,47 +2,55 @@ import
 {
   FormControl, InputLabel, Select, MenuItem,
 } from '@mui/material';
-
-// import { useEffect } from 'react';
-import { Navigate, useParams, Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import { Navigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../Header/header';
 import Page from '../Page/page';
 import Footer from '../Footer/footer';
 import Card from './ProductCardCategory/productCardCategory';
 import Loading from '../App/Loading';
-// un selector c'est simplement une fonction à qui on passe le state pour en déduire une valeur
 import { findCategory } from '../../selectors/categories';
 import { fetchProductsByCategory } from '../../actions/products';
+import { saveSlug } from '../../actions/user';
 import './style.scss';
 
 export default function Category() {
   const dispatch = useDispatch();
   // getting current slug with useParams
   const parameters = useParams();
+  const navigate = useNavigate();
   const currentSlug = parameters.slug;
   // getting the category matching to the slug (if it exists)
   const category = useSelector((state) => findCategory(state.categories.list, currentSlug));
 
   const categories = useSelector((state) => state.categories.list);
+  // console.log(categories);
 
-  // const products = useSelector((state) => state.products.list);
+  const products = useSelector((state) => state.products.list);
   // console.log(products);
 
-
-  // if the categories array was found
-  //  (always exists in state, empty by default)
+  // if the categories array was found (always exists in state, empty by default)
   // but NOT the category matching the slug, return Error.
   if ((categories.length > 0) && !category) {
     return <Navigate to="/error" replace />;
   }
-  if ((categories.length > 0) && category) {
-    console.log('On récupère les produits en fonction du slug');
+  // if ((categories.length > 0) && category) {
+  //   console.log('On récupère les produits en fonction du slug');
+  // }
+
+  useEffect(() => {
     dispatch(fetchProductsByCategory());
-  }
+  }, []);
 
   const handleChange = ((event) => {
-    console.log(event.target);
+    const slug = event.target.value;
+    const base = '/categories/';
+    const urlToRedirect = base + slug;
+    navigate(urlToRedirect);
+    dispatch(saveSlug(slug));
+    dispatch(fetchProductsByCategory());
   });
 
   if (categories.length === 0) {
@@ -71,34 +79,30 @@ export default function Category() {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={category.name}
+              value={category.slug}
               label="Catégorie"
               onChange={handleChange}
             >
               {categories.map(({ name, slug }) => (
                 <MenuItem
                   className="link-dropdown"
-                  value={name}
+                  value={slug}
                   key={slug}
                 >
-                  <Link
-                    to={`/categories/${slug}`}
-                    key={name}
-                  >
-                    {name}
-                  </Link>
+                  {name}
                 </MenuItem>
               ))}
             </Select>
           </FormControl>
         </div>
         <div id="category-results">
-          <Card key="1" className="product-card" props="" />
-          <Card key="2" className="product-card" />
-          <Card key="3" className="product-card" />
-          <Card key="4" className="product-card" />
-          <Card key="5" className="product-card" />
-          <Card key="6" className="product-card" />
+          {products.map((product) => (
+            <Card
+              key={product.name}
+              className="product-card"
+              {...product}
+            />
+          ))}
         </div>
       </Page>
       <Footer />

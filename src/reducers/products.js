@@ -1,4 +1,4 @@
-import { SAVE_PRODUCTS_BY_CATEGORY, FETCH_PRODUCTS_BY_CATEGORY } from '../actions/products';
+import { SAVE_PRODUCTS_BY_CATEGORY } from '../actions/products';
 
 export const initialState = {
   list: [],
@@ -6,11 +6,6 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case FETCH_PRODUCTS_BY_CATEGORY:
-      return {
-        ...state,
-      };
-
     case SAVE_PRODUCTS_BY_CATEGORY:
       return {
         ...state,
