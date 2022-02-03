@@ -5,17 +5,17 @@ import { HashLink } from 'react-router-hash-link';
 import Box from '@mui/material/Box';
 import Page from '../Page/page';
 
-import { fetchRandomProducts } from '../../actions/products';
+import { fetchRandomProducts, fetchFavoriteProducts, fetchLatestProducts } from '../../actions/products';
 
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
-import CarouselElement from '../Carousel/carousel';
-import HomeCarouselsData from './homeCarouselsData';
+import Gallery from '../Carousel/aliceCarousel';
+// import HomeCarouselsData from './homeCarouselsData';
 
 import './style.scss';
 
 export default function Home() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.list);
   // const randomProducts = useSelector((state) => state.products.randomList);
   // console.log(randomProducts);
@@ -24,6 +24,16 @@ export default function Home() {
   // useEffect(() => {
   //   dispatch(fetchRandomProducts());
   // }, []);
+
+  useEffect(() => {
+    dispatch(fetchRandomProducts());
+    dispatch(fetchFavoriteProducts());
+    dispatch(fetchLatestProducts());
+  }, []);
+
+  const randomProducts = useSelector((state) => state.products.randomList);
+  const favoriteProducts = useSelector((state) => state.products.favoriteList);
+  const latestProducts = useSelector((state) => state.products.lastList);
 
   return (
     < >
@@ -52,6 +62,27 @@ export default function Home() {
               En savoir plus
             </HashLink>
           </Box>
+
+          <Box className="alice-carousel-box">
+            <Gallery />
+          </Box>
+
+          {/* ICI NOUVEAU MAP DES 3 CAROUSELS
+          {HomeCarouselsData.map(({ key, id, title }) => (
+            <Box
+              className="carousel-box"
+              id={id}
+              key={key}
+            >
+              <AliceCarousel
+                key={key}
+                title={title}
+              />
+            </Box>
+          ))}
+          */}
+
+          {/* ICI ANCIEN MAP DES 3 CAROUSELS
           {HomeCarouselsData.map(({ key, id, title }) => (
             <Box
               className="carousel-box"
@@ -64,6 +95,10 @@ export default function Home() {
               />
             </Box>
           ))}
+          */}
+
+
+
 
           <Box id="categories-box">
             <h2>Retrouvez tous nos mugs par catégorie</h2>

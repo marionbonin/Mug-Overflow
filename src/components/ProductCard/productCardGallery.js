@@ -7,11 +7,11 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Link from '@mui/material/Link';
+import imageMug from '../../assets/images/mug-mockups/CSS_IS_AWESOME_front.png';
 
 import './style.scss';
 
-export default function MediaCard(product) {
-  console.log(product);
+export default function ProductCardGallery() {
   return (
     <Card
       // sx={{ borderRadius: 4 }}
@@ -20,17 +20,17 @@ export default function MediaCard(product) {
       <CardMedia
         component="img"
         className="cardMugMedia"
-        image={`http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.mockupFront}`}
+        image={imageMug}
         alt="photo du produit"
       />
       <CardContent>
         <Box className="card-content">
           <div className="card-mug-props">
             <div className="card-mug-name">
-              {product.name}
+              NOM DU MUG
             </div>
             <div className="card-mug-categ">
-              {product.category[0].name}
+              CATEGORIE
             </div>
           </div>
           <IconButton

@@ -1,3 +1,4 @@
+import AliceCarousel from 'react-alice-carousel';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
@@ -8,6 +9,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { fetchRandomProducts, fetchFavoriteProducts, fetchLatestProducts } from '../../actions/products';
 
 import Card from '../ProductCard/productCard';
+import MediaCard from '../ProductCard/productFavoriteCard';
 
 // import MediaCard from '../ProductCard/productCard';
 
@@ -17,11 +19,7 @@ export default function CarouselElement({ title }) {
   const theme = useTheme();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchRandomProducts());
-    dispatch(fetchFavoriteProducts());
-    dispatch(fetchLatestProducts());
-  }, []);
+ 
 
   const smallerThanSm = useMediaQuery(theme.breakpoints.down('sm'));
   const smallerThanMd = useMediaQuery(theme.breakpoints.down('md'));
@@ -33,7 +31,7 @@ export default function CarouselElement({ title }) {
   // console.log(favoriteProducts);
 
   // Remove % if needed, in case it skips a card
-  let centerSlidePercentageRatio = '50.05%';
+  let centerSlidePercentageRatio = '100';
 
   if (smallerThanSm) {
     centerSlidePercentageRatio = '100';
@@ -56,7 +54,7 @@ export default function CarouselElement({ title }) {
       edit centerSlidePercentage prop to 33.3 and set centerMode prop as "true"
       */
         className="carousel-break"
-        centerMode={smallerThanSm ? 'false' : 'true'}
+        centerMode="false"
         centerSlidePercentage={centerSlidePercentageRatio}
         infiniteLoop="true"
         showThumbs={false}
@@ -69,14 +67,16 @@ export default function CarouselElement({ title }) {
             />
           ))
         )}
+
         {(title === 'Les préférés de votre promo') && (
           favoriteProducts.map((favoriteProduct) => (
-            <Card
+            <MediaCard
               key={favoriteProduct.slug}
               {...favoriteProduct}
             />
           ))
         )}
+
         {(title === 'Pas d\'inspiration ?') && (
           randomProducts.map((randomProduct) => (
             <Card

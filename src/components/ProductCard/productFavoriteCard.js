@@ -10,27 +10,27 @@ import Link from '@mui/material/Link';
 
 import './style.scss';
 
-export default function MediaCard(product) {
-  console.log(product);
+export default function MediaCard(favoriteProduct) {
+  // console.log(randomProduct);
   return (
     <Card
       // sx={{ borderRadius: 4 }}
-      id="mug-card"
+      className="mug-card"
     >
       <CardMedia
         component="img"
         className="cardMugMedia"
-        image={`http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.mockupFront}`}
+        image={`http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${favoriteProduct.mockup_front}`}
         alt="photo du produit"
       />
       <CardContent>
         <Box className="card-content">
           <div className="card-mug-props">
             <div className="card-mug-name">
-              {product.name}
+              {favoriteProduct.name}
             </div>
             <div className="card-mug-categ">
-              {product.category[0].name}
+              {/* {randomProduct.category} */}
             </div>
           </div>
           <IconButton
