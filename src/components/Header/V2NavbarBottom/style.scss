@@ -56,7 +56,7 @@ img {
   z-index: 7;
 }
 ul.main-menu {
-  border: brown 2px solid;
+  //border: brown 2px solid;
   display: flex;
   width: 100vw;
   max-width: 1200px;
@@ -159,6 +159,22 @@ li {
   z-index: 1000;
   //box-shadow: 0 10px 12px rgb(22 33 39 / 25%);
   text-align: left;
+
+  li {
+    //border-bottom: 0.1px vars.$darkGrey solid;
+    //margin: 0;
+    //padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+      background-color: vars.$backgroundGreen;
+
+    }
+
+    
+  }
 }
 
 
@@ -181,10 +197,13 @@ li {
   }
 }
 .menu-item .sub__menus  a {
-  padding: 7px 0 0px 0;
-  margin: 7px 27px;
+  //padding: 7px 0 0px 0;
+  //margin: 7px 27px;
+  margin: 0;
+  padding: 0;
   color: vars.$backgroundGrey!important;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 500;
   line-height: 3rem;
 }
 .menu-item:hover > a{
@@ -192,7 +211,8 @@ li {
   
 }
 .menu-item .sub__menus li:hover a{
-  color: vars.$backgroundGreen !important;  
+  //background-color: vars.$backgroundGreen !important;
+
 }
 
 .header__middle__logo img{
@@ -206,24 +226,30 @@ li {
 .header__middle__menus {width: 20%;}
 .header__middle__logo img {max-width: 197px;margin: 27px 0 0 0;}
 
-// hover on hamburger
-.main-nav .menubar__button:hover {background-color: vars.$orangeYellow;}
-
-.main-nav .menu-item:hover > a {color: vars.$backgroundGreen!important}
+// hamburger menu icon
 .main-nav .menubar__button {
-  border: blue 2px solid;
+  //border: blue 2px solid;
   display: block!important;
   //float: right;
-  background-color: #080808;
-  color: #fff;
+  //background-color: #080808;
+  color: vars.$lightYellow;
   padding: 6px 7px;
   border-radius: 5px;
-  margin: 27px auto 0;
+  margin: 14px auto 13px;
   cursor: pointer;
   position: relative;
   z-index: 10037;
+
+  svg {
+    font-size: 27px;
+  }
 }
-.main-nav .menubar__button svg{font-size: 27px;}
+.main-nav .menubar__button:hover {
+  color: vars.$darkGrey;
+}
+
+.main-nav .menu-item:hover > a {color: vars.$backgroundGreen!important}
+
 
 .main-nav ul.menuq2 {
   display: block!important;
