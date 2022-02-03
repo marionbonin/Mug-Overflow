@@ -1,6 +1,14 @@
 // == Import
 import ResponsiveAppBarTop from './NavbarTop/navbar';
-import ResponsiveAppBar from './NavbarBottom/navbar';
+// old navbar bottom made with mui
+//import ResponsiveAppBar from './NavbarBottom/navbar';
+
+// new one started from scratch
+//import Navbar from './NavbarBottomNew/navbar';
+
+// best one
+import NavbarMenu from './V2NavbarBottom/Navbarmenu';
+
 
 import './style.scss';
 
@@ -8,7 +16,7 @@ import './style.scss';
 const Header = () => (
   <header id="header-container">
     <ResponsiveAppBarTop />
-    <ResponsiveAppBar />
+    <NavbarMenu />
   </header>
 );
 
