@@ -22,7 +22,7 @@ const pages = [
   },
   {
     path: '/categories',
-    routeName: 'Catégories',
+    routeName: 'Catégolries',
   },
   {
     path: '/concept',

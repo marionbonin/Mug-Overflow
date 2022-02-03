@@ -23,7 +23,6 @@ export default function DropdownMenu() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const categories = useSelector((state) => state.categories.list);
-  console.log(categories);
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -78,7 +77,7 @@ export default function DropdownMenu() {
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          Catégories
+          Catégolries
         </Button>
         <Popper
           open={open}

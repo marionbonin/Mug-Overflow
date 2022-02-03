@@ -1,8 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Box from '@mui/material/Box';
 import Page from '../Page/page';
+
+import { fetchRandomProducts } from '../../actions/products';
 
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
@@ -12,7 +15,16 @@ import HomeCarouselsData from './homeCarouselsData';
 import './style.scss';
 
 export default function Home() {
+  // const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.list);
+  // const randomProducts = useSelector((state) => state.products.randomList);
+  // console.log(randomProducts);
+  // const randomProducts =useSelector((state))
+
+  // useEffect(() => {
+  //   dispatch(fetchRandomProducts());
+  // }, []);
+
   return (
     < >
       <Header />

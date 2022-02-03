@@ -11,7 +11,8 @@ import frontMockup from 'src/assets/images/mug-mockups/CSS_IS_AWESOME_front.png'
 
 import './style.scss';
 
-export default function MediaCard() {
+export default function MediaCard(randomProduct) {
+  // console.log(randomProduct);
   return (
     <Card
       // sx={{ borderRadius: 4 }}
@@ -20,17 +21,17 @@ export default function MediaCard() {
       <CardMedia
         component="img"
         className="cardMugMedia"
-        image={frontMockup}
+        image={`http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${randomProduct.mockup_front}`}
         alt="photo du produit"
       />
       <CardContent>
         <Box className="card-content">
           <div className="card-mug-props">
             <div className="card-mug-name">
-              CSS IS AWESOME
+              {randomProduct.name}
             </div>
             <div className="card-mug-categ">
-              CSS
+              {/* {randomProduct.category} */}
             </div>
           </div>
           <IconButton
