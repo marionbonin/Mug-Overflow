@@ -67,9 +67,13 @@ export default function Home() {
               En savoir plus
             </HashLink>
           </Box>
-          {homeCarouselsData.map(({ key, title }) => (
-            <Box className="alice-carousel-box">
+          {homeCarouselsData.map(({ id, key, title }) => (
+            <Box
+              className="alice-carousel-box"
+              id={id}
+            >
               <Gallery
+                id={id}
                 key={key}
                 title={title}
                 {...homepageProducts}
