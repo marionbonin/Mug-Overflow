@@ -60,19 +60,19 @@ const Navbarmenu = () => {
                     <li onClick={toggleSubmenu} className="menu-item sub__menus__arrows" > <Link to="#"> Catégories <FiChevronDown /> </Link>
                         <ul className={boxClassSubMenu.join(' ')} > 
                         <li>
-                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/o-clock`}> O'Clock
+                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/categories/o-clock`}> O'Clock
                               </NavLink>
                             </li>
                             <li>
-                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/Geek`}> Geek
+                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/categories/geek`}> Geek
                               </NavLink>
                             </li>
                             <li>
-                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/css-puns`}> CSS Puns
+                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/categories/css-puns`}> CSS Puns
                               </NavLink>
                             </li>
                             <li>
-                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/blague-de-devv`}> Blague de Dev
+                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/categories/blague-de-dev`}> Blague de Dev
                               </NavLink>
                             </li>
                         </ul>
