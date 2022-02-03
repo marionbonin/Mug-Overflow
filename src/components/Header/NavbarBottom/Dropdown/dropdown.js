@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
@@ -11,14 +12,18 @@ import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { fetchProductsByCategory } from '../../../../actions/products';
+import { saveSlug } from '../../../../actions/user';
 
 import './style.scss';
 
 export default function DropdownMenu() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const categories = useSelector((state) => state.categories.list);
-
+  console.log(categories);
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -40,6 +45,16 @@ export default function DropdownMenu() {
       setOpen(false);
     }
   }
+
+  const handleClick = ((event) => {
+    const slug = event.target.getAttribute('value');
+    console.log(slug);
+    const base = '/categories/';
+    const urlToRedirect = base + slug;
+    navigate(urlToRedirect);
+    dispatch(saveSlug(slug));
+    dispatch(fetchProductsByCategory());
+  });
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
@@ -91,16 +106,12 @@ export default function DropdownMenu() {
                   >
                     {categories.map(({ name, slug }) => (
                       <MenuItem
-                        onClick={handleClose}
+                        onClick={handleClick}
                         key={name}
                         className="link-dropdown"
+                        value={slug}
                       >
-                        <Link
-                          to={`/categories/${slug}`}
-                          key={name}
-                        >
-                          {name}
-                        </Link>
+                        {name}
                       </MenuItem>
                     ))}
 
