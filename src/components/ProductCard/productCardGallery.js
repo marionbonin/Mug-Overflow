@@ -12,7 +12,7 @@ import imageMug from '../../assets/images/mug-mockups/CSS_IS_AWESOME_front.png';
 import './style.scss';
 
 export default function ProductCardGallery(product) {
-  console.log(product.props);
+  // console.log(product.props);
   return (
     <Card
       // sx={{ borderRadius: 4 }}

@@ -14,8 +14,7 @@ const responsive = {
   1024: { items: 3 },
 };
 
-
-export default function Gallery({ title, ...homepageProducts }) {
+export default function Gallery({ id, title, ...homepageProducts }) {
   const latestProducts = homepageProducts[0];
   const favoriteProducts = homepageProducts[1];
   const randomProducts = homepageProducts[2];
@@ -37,6 +36,7 @@ export default function Gallery({ title, ...homepageProducts }) {
       <AliceCarousel
         mouseTracking
         key={title}
+        className="TOTO"
         responsive={responsive}
         controlsStrategy="alternate"
         infinite={true}

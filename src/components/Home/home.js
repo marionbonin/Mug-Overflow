@@ -67,11 +67,10 @@ export default function Home() {
               En savoir plus
             </HashLink>
           </Box>
-          {homeCarouselsData.map(({ key, id, title }) => (
+          {homeCarouselsData.map(({ key, title }) => (
             <Box className="alice-carousel-box">
               <Gallery
                 key={key}
-                id={id}
                 title={title}
                 {...homepageProducts}
               />
@@ -120,7 +119,7 @@ export default function Home() {
                     key={id}
                     className="category-card"
                     id={slug}
-                    to=""
+                    to={`/categories/${slug}`}
                   >
                     <img
                       alt=""

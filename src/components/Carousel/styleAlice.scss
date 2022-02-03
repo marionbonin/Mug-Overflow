@@ -2,7 +2,7 @@
 
 
 .alice-carousel-box {
-  width: 90%;
+  width: 100%;
   
   .alice-carousel {
     // margin: 2rem;
@@ -58,13 +58,6 @@
         }
       }
     }
-    
-    li {
-      //justify-content: center;
-      //border: 1px solid blue;
-      // padding: 1em;
-    }
-
     .alice-carousel__prev-btn-wrapper{
       text-align: center;
     }  
@@ -76,8 +69,8 @@
       .alice-carousel__dots-item {
           background-color: vars.$orangeYellow;
           &.__active {
-              border: 3px solid vars.$backgroundGrey;
-              padding: 4px;
+            border: 3px solid vars.$backgroundGrey;
+            padding: 4px;
           }
       }
     }
@@ -121,3 +114,4 @@
   }
 
 }
+
