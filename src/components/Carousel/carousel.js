@@ -19,7 +19,7 @@ export default function CarouselElement({ title }) {
   const theme = useTheme();
   const dispatch = useDispatch();
 
- 
+
 
   const smallerThanSm = useMediaQuery(theme.breakpoints.down('sm'));
   const smallerThanMd = useMediaQuery(theme.breakpoints.down('md'));

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
 import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
@@ -14,6 +15,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchProductsByCategory } from '../../../../actions/products';
 import { saveSlug } from '../../../../actions/user';
+import { fetchCategories } from '../../../../actions/categories';
 
 import './style.scss';
 
@@ -64,6 +66,10 @@ export default function DropdownMenu() {
 
     prevOpen.current = open;
   }, [open]);
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
 
   return (
     <Stack direction="row" spacing={2}>

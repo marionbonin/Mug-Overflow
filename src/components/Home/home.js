@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Box from '@mui/material/Box';
 import Page from '../Page/page';
+import homeCarouselsData from './homeCarouselsData';
 
 import { fetchRandomProducts, fetchFavoriteProducts, fetchLatestProducts } from '../../actions/products';
 
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import Gallery from '../Carousel/aliceCarousel';
-// import HomeCarouselsData from './homeCarouselsData';
 
 import './style.scss';
 
@@ -34,9 +34,14 @@ export default function Home() {
   const randomProducts = useSelector((state) => state.products.randomList);
   const favoriteProducts = useSelector((state) => state.products.favoriteList);
   const latestProducts = useSelector((state) => state.products.lastList);
-
+  // console.log(randomProducts)
+  const homepageProducts = [
+    latestProducts,
+    favoriteProducts,
+    randomProducts,
+  ];
   return (
-    < >
+    <>
       <Header />
       <Page>
         <div id="page-container">
@@ -62,10 +67,16 @@ export default function Home() {
               En savoir plus
             </HashLink>
           </Box>
-
-          <Box className="alice-carousel-box">
-            <Gallery />
-          </Box>
+          {homeCarouselsData.map(({ key, id, title }) => (
+            <Box className="alice-carousel-box">
+              <Gallery
+                key={key}
+                id={id}
+                title={title}
+                {...homepageProducts}
+              />
+            </Box>
+          ))}
 
           {/* ICI NOUVEAU MAP DES 3 CAROUSELS
           {HomeCarouselsData.map(({ key, id, title }) => (
@@ -96,9 +107,6 @@ export default function Home() {
             </Box>
           ))}
           */}
-
-
-
 
           <Box id="categories-box">
             <h2>Retrouvez tous nos mugs par catégorie</h2>

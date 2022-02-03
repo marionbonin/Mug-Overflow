@@ -39,7 +39,6 @@ function App() {
       dispatch(getUserData());
     }
   }, []);
-  dispatch(fetchCategories());
 
   if (loading) {
     return <Loading />;

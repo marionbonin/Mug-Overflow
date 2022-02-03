@@ -11,7 +11,8 @@ import imageMug from '../../assets/images/mug-mockups/CSS_IS_AWESOME_front.png';
 
 import './style.scss';
 
-export default function ProductCardGallery() {
+export default function ProductCardGallery(product) {
+  console.log(product.props);
   return (
     <Card
       // sx={{ borderRadius: 4 }}
@@ -20,17 +21,17 @@ export default function ProductCardGallery() {
       <CardMedia
         component="img"
         className="cardMugMedia"
-        image={imageMug}
+        image={`http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.props.mockupFront}`}
         alt="photo du produit"
       />
       <CardContent>
         <Box className="card-content">
           <div className="card-mug-props">
             <div className="card-mug-name">
-              NOM DU MUG
+              {product.props.name}
             </div>
             <div className="card-mug-categ">
-              CATEGORIE
+              {product.props.category[0].name}
             </div>
           </div>
           <IconButton
