@@ -8,7 +8,6 @@ import { fetchCategories } from '../../../actions/categories';
 import './style.scss';
 
 const Navbarmenu = () => {
-
     const [isMenu, setisMenu] = useState(false);
     const [isResponsiveclose, setResponsiveclose] = useState(false);
     const toggleClass = () => {

@@ -13,6 +13,9 @@ export const SAVE_FAVORITE_PRODUCTS = 'SAVE_FAVORITE_PRODUCTS';
 export const FETCH_LATEST_PRODUCTS = 'FETCH_LATEST_PRODUCTS';
 export const SAVE_LATEST_PRODUCTS = 'SAVE_LATEST_PRODUCTS';
 
+export const FETCH_SINGLE_PRODUCT = 'FETCH_SINGLE_PRODUCT';
+export const SAVE_SINGLE_PRODUCT = 'SAVE_SINGLE_PRODUCT';
+
 export const fetchProducts = () => ({
   type: FETCH_PRODUCTS,
 });
@@ -56,4 +59,13 @@ export const fetchLatestProducts = () => ({
 export const saveLatestProducts = (latestProducts) => ({
   type: SAVE_LATEST_PRODUCTS,
   latestProducts: latestProducts,
+});
+
+export const fetchSingleProduct = () => ({
+  type: FETCH_SINGLE_PRODUCT,
+});
+
+export const saveSingleProduct = (product) => ({
+  type: SAVE_SINGLE_PRODUCT,
+  product: product,
 });
