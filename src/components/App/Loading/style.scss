@@ -2,7 +2,7 @@
 
 @keyframes fade {
   0% {
-    opacity: .5;
+    opacity: .7;
   }
   100% {
     opacity: 1;
@@ -32,19 +32,20 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  color: blue;
+  color: vars.$darkGrey;
   font-size: 2em;
-  animation: fade .75s infinite alternate;
+  font-family: "brandon-grotesque",sans-serif;
+  animation: fade .5s infinite alternate;
 
   &::after {
     content: "";
     height: 30%;
     width: 100%;
-    background-color: blue;
-    opacity: .3;
+    background-color: vars.$lightYellow;
+    opacity: .4;
     position: absolute;
     top: 70%;
     left: 0;
-    animation: load 1.5s infinite;
+    animation: load 1s infinite;
   }
 }
