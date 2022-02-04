@@ -71,9 +71,9 @@ export default function Home() {
             <Box
               className="alice-carousel-box"
               id={id}
+              key={key}
             >
               <Gallery
-                id={id}
                 key={key}
                 title={title}
                 {...homepageProducts}

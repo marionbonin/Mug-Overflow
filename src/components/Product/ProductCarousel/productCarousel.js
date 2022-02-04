@@ -5,10 +5,11 @@ import backMockup from 'src/assets/images/mug-mockups/mug_solo_back_logo_oclock.
 
 import './style.scss';
 
-export default function ProductCarousel() {
+export default function ProductCarousel(product) {
+  console.log(product);
   const data = [
     {
-      image: frontMockup,
+      image: `http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.mockupFront}`,
       caption: 'Recto',
     },
     {
@@ -16,7 +17,7 @@ export default function ProductCarousel() {
       caption: 'Verso',
     },
     {
-      image: frontBackMockup,
+      image: `http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.mockupOverview}`,
       caption: 'Recto verso',
     },
   ];

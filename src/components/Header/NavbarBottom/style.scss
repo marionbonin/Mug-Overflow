@@ -37,12 +37,15 @@
       }
     }
 
+    
+    // = .menu-item
     .navbar-bottom-link {
       border-radius: 0;
       color: vars.$lightYellow;
       text-decoration: none;
       height: 64px;
 
+      // use not(.is-active) instead
       &:hover:not(.active) {
         border-top: 4px solid rgba(255, 0, 0, 0);
         border-bottom: 4px solid vars.$lightYellow;

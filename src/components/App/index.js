@@ -88,7 +88,7 @@ function App() {
         />
         {/* Route to delete. There is no "produit" route */}
         <Route
-          path="/produit"
+          path="/produit/:slug"
           element={(
             <ProtectedRoutes>
               <Product />

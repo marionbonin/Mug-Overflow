@@ -38,31 +38,54 @@ img {
     display: flex;
     padding: 60px 0;
 }
-/*
-.sec__one h1{
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-  color: #07a8ff;
-  font-family: 'Inter', sans-serif;
-}
-*/
 
-.is-active {
-  color: vars.$backgroundGreen!important;
+
+// .is-active {
+//   color: vars.$backgroundGreen!important;
+// }
+#accueil {
+  order: 1;
+}
+#categories {
+  order: 2;
+  
+  @media (min-width: 900px){ 
+    &:hover {
+      .chevron { 
+        transition: 0.1s ease-in-out;
+        transform: rotate(180deg);
+      }
+    }
+  }
+  
+  @media (max-width: 899px){ 
+    &:active {
+      .chevron { 
+        transition: 5s ease-in-out;
+        transform: rotate(180deg)!important;
+      }
+    }
+  }
+}
+
+#concept {
+  order: 3;
+}
+#contact {
+  order: 4;
 }
 
 .navBar .col-md-3 {
   z-index: 7;
 }
 ul.main-menu {
-  border: brown 2px solid;
+  //border: brown 1px solid;
   display: flex;
   width: 100vw;
   max-width: 1200px;
   min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
+  padding-right: 44px; // 24px + size of down arrow svg(20px)
+  padding-left: 34px; // to make it match with searchbar padding (mui component impossible to target)
   justify-content: space-between;
   align-items: center;
   list-style: none;
@@ -74,39 +97,27 @@ ul.main-menu>li.menu-item:first-child {
   margin-left: 0;
 }
 .menu-item {
+  //width: 100%;
+  // border: blue 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   line-height: 1.5rem;
-}
-li {
+  height: 64px;
   list-style-type: none;
-}
-.menu-item a {
-  font-family: "brandon-grotesque",sans-serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  line-height: 3rem;
-  position: relative;
-  display: block;
-  color: vars.$lightYellow;
-  //margin: 27px 17px;
-  text-decoration: none;
-  cursor: pointer;
-}
-/*
-.header__middle__logo{
-  width: 20%;
-  display: inline-block;
-  float: left;
-}
-*/
-/*
-.header__middle__menus {
-  width: 70%;
-  display: inline-block;
-  float: left;
-}
-*/
-.menu-item.menu__qqqitem a{
-  margin: 27px 10px;
+
+  & a {
+    font-family: "brandon-grotesque",sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    //line-height: 3rem;
+    position: relative;
+    display: block;
+    color: vars.$lightYellow;
+    margin: auto;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
 
 .header__middle {
@@ -117,14 +128,7 @@ li {
   position: relative;
 }
 
-/*
-.header__middle__logo > a > h1 {
-  color: #07a8ff;
-  text-transform: uppercase;
-  text-decoration: none;
-  margin-top: 33px;
-}
-*/
+
 .active{
   color: vars.$darkGrey!important;
   background: none!important;
@@ -132,33 +136,37 @@ li {
   // text-underline-offset: 0.2rem;
 } 
 
-.header__middle__menus span.text {
-  position: absolute;
-  right: 177px;
-  bottom: 10px;
-  font-size: 1.3rem;
-  color: vars.$orangeYellow;
-}
 .sub__menus__arrows{
   position: relative;
 }
 .sub__menus__arrows svg, .sub__menus__arrows__full svg{
   padding-top: 0px;
   position: absolute;
-  top: 13px;
+  top: 3px;
+  width: 20px;
+  //right: -30px;
 }
+
+
+// dropdown on categories menu item
 .sub__menus {
-  //3px palevioletred solid;
   position: absolute;
+  right: -20px; // size of the down arrow
+  top: 64px;
   display: none;
   background-color: vars.$lightYellow;
   min-width: 150px;
-  max-width: 100vw;
-  //left: -17px;
   padding: 0;
   margin: 0;
   z-index: 1000;
-  //box-shadow: 0 10px 12px rgb(22 33 39 / 25%);
+  box-shadow: 0 10px 12px rgb(22 33 50 / 10%);
+
+  // we want full width on dropdown on mobile screens
+  @media (max-width:900px) { 
+      width: 100%;
+      margin: 0;
+      padding: 0;
+  }
 
   li {
     width: 100%;
@@ -167,8 +175,7 @@ li {
 
     &:hover {
       background-color: vars.$backgroundGreen;
-
-    }
+    }    
   }
 }
 
@@ -191,6 +198,9 @@ li {
     z-index: 1000000;
   }
 }
+
+
+
 .menu-item .sub__menus  a {
   //padding: 7px 0 0px 0;
   //margin: 7px 27px;
@@ -200,19 +210,13 @@ li {
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 3rem;
+  width: 100%;
 }
+
+// prop à modif si on veut le soulignage jaune au hover
 .menu-item:hover > a{
   color: vars.$darkGrey !important;
   
-}
-.menu-item .sub__menus li:hover a{
-  //background-color: vars.$backgroundGreen !important;
-
-}
-
-.header__middle__logo img{
-  max-width: 207px;
-  margin: 17px 0 0 0;
 }
 
 
@@ -223,12 +227,10 @@ li {
 
 // hamburger menu icon
 .main-nav .menubar__button {
-  //border: blue 2px solid;
   display: block!important;
-  //float: right;
-  //background-color: #080808;
   color: vars.$lightYellow;
-  padding: 6px 7px;
+  margin: 0;
+  padding: 0;
   border-radius: 5px;
   margin: 14px auto 13px;
   cursor: pointer;
@@ -236,15 +238,16 @@ li {
   z-index: 10037;
 
   svg {
-    font-size: 27px;
+    font-size: 33px;
   }
 }
 .main-nav .menubar__button:hover {
   color: vars.$darkGrey;
 }
 
-.main-nav .menu-item:hover > a {color: vars.$backgroundGreen!important}
-
+.main-nav .menu-item:hover > a {
+  color: vars.$backgroundGreen!important;
+}
 
 .main-nav ul.menuq2 {
   display: block!important;
@@ -252,13 +255,15 @@ li {
   right: 0;
   z-index: 10007;
   background-color: vars.$backgroundGrey;
-  //border-bottom: 3px solid #ff3d00;
-  right: 0;
-  padding-bottom: 20px;
-  padding-top: 50px;
+  padding: 0;
 }
 
-.main-nav .menu-item a {margin: 10px 17px;text-align: center;color: vars.$lightYellow;}
+.main-nav .menu-item a {
+  margin: auto 0;
+  text-align: center;
+  color: vars.$lightYellow;
+}
+
 .main-nav  ul.main-menu {display: none}
 .main-nav .sub__menus__arrows:hover .sub__menus {margin: 0 auto;left: 0;right: 0;}
 .sub__menus__Active{display: block!important;margin: 0 auto;left: 0;right: 0;}

@@ -1,0 +1,13 @@
+@use 'src/styles/vars';
+.main-wrapper {
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 200%;
+}
+
+.page {
+  min-height: 75vh;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*# sourceMappingURL=style.css.map */
