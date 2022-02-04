@@ -1,6 +1,10 @@
-import React,{useState} from 'react';
+import {useState, useEffect} from 'react';
 import {NavLink, Link} from 'react-router-dom';
 import {FiAlignRight,FiXCircle,FiChevronDown } from "react-icons/fi";
+import { useSelector, useDispatch } from 'react-redux';
+
+import { fetchCategories } from '../../../actions/categories';
+
 import './style.scss';
 
 const Navbarmenu = () => {
@@ -32,7 +36,10 @@ const Navbarmenu = () => {
         boxClassSubMenu.push('');
     }
 
-   
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(fetchCategories());
+    }, []);
 
     return (
     <div className="header__middle">
