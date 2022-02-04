@@ -40,6 +40,20 @@ const Navbarmenu = () => {
       dispatch(fetchCategories());
     }, []);
 
+    const categories = useSelector((state) => state.categories.list);
+    
+    const handleClick = ((event) => {
+      const slug = event.target.getAttribute('value');
+      console.log(slug);
+      const base = '/categories/';
+      const urlToRedirect = base + slug;
+      navigate(urlToRedirect);
+      dispatch(saveSlug(slug));
+      dispatch(fetchProductsByCategory());
+    });
+    
+
+
     return (
     <div className="header__middle">
         <div id="navbar-container">
@@ -62,25 +76,23 @@ const Navbarmenu = () => {
                     <li className="menu-item " ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/Contact`}> Contact </NavLink> </li>
 
 
-                    <li className="menu-item " ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/Concept`}> Concept </NavLink> </li>
+                    <li 
+                      className="menu-item " 
+                    >
+                      <NavLink onClick={toggleClass} activeClassName='is-active' to={`/Concept`}> Concept
+                    </NavLink>
+                    </li>
+
+
                     <li onClick={toggleSubmenu} className="menu-item sub__menus__arrows" > <Link to="#"> Catégories <FiChevronDown /> </Link>
                         <ul className={boxClassSubMenu.join(' ')} > 
-                        <li>
-                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/categories/o-clock`}> O'Clock
-                              </NavLink>
-                            </li>
+                
+                          {categories.map(({ name, slug }) => (
                             <li>
-                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/categories/geek`}> Geek
+                              <NavLink onClick={toggleClass, handleClick} activeClassName='is-active' to={`/categories/${slug}`}> {name}
                               </NavLink>
                             </li>
-                            <li>
-                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/categories/css-puns`}> CSS Puns
-                              </NavLink>
-                            </li>
-                            <li>
-                              <NavLink onClick={toggleClass} activeClassName='is-active' to={`/categories/blague-de-dev`}> Blague de Dev
-                              </NavLink>
-                            </li>
+                          ))}
                         </ul>
                     </li>
 
