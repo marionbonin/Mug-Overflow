@@ -130,7 +130,7 @@ const Navbarmenu = () => {
                   <Link className="menu-item-link" to="#"> Catégories <FiChevronDown className="chevron" /> </Link>
                   <ul className={boxClassSubMenu.join(' ')}>
                     {categories.map(({ name, slug }) => (
-                      <li>
+                      <li key={slug}>
                         <NavLink
                           onClick={handleClick}
                           value={slug}

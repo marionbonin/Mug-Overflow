@@ -49,20 +49,31 @@
     justify-content: space-around;
     //border: 1px red solid;
     max-width: 100%;
-        
+    // border: 1px solid green;
+
     #buttons-group {
+      // border: 1px solid red;
       display: flex;
       flex-direction: column;
       min-width: 40%;
-      // border: 1px solid black;
       padding: 10px;
       justify-content: center;
-
+      #buttons-group-warning {
+        align-self: center;
+        // border: 1px solid blue;
+        width: 100%;
+        max-width: 400px;
+        p{
+          padding-bottom: 10px;
+          line-height: 1.1;
+          text-align: justify;
+        }
+      }
       // selecting all direct children elements: 2 buttons & 1 link
       & > * {
         margin: 0.8em;
         font-family: "brandon-grotesque",sans-serif;
-        width: 100%;
+        max-width: 100%;
       }
 
       // no links for these, only button tags

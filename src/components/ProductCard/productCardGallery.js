@@ -15,10 +15,12 @@ import './style.scss';
 
 export default function ProductCardGallery(product) {
   const navigate = useNavigate();
-  const base = `/produit/${product.props.name}`;
+  const base = `/produit/${product.props.slug}`;
 
   const handleClick = (() => {
     navigate(base);
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   });
 
   // console.log(product.props);
