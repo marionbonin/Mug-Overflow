@@ -85,7 +85,7 @@ const Navbarmenu = () => {
                 >
                   <NavLink
                     className={
-                      (navData) => navData.isActive ? "is-active" : ""
+                      (navData) => (navData.isActive ? 'is-active' : '')
                     }
                     onClick={toggleClass}
                     to="/"
@@ -99,7 +99,7 @@ const Navbarmenu = () => {
                   <NavLink
                     onClick={toggleClass}
                     className={
-                      (navData) => navData.isActive ? "is-active" : ""
+                      (navData) => (navData.isActive ? 'is-active' : '')
                     }
                     to="/contact"
                   >
@@ -114,7 +114,7 @@ const Navbarmenu = () => {
                   <NavLink
                     onClick={toggleClass}
                     className={
-                      (navData) => navData.isActive ? "is-active" : ""
+                      (navData) => (navData.isActive ? 'is-active' : '')
                     }
                     to="/concept"
                   >

@@ -1,7 +1,7 @@
 // == Import
 import ResponsiveAppBarTop from './NavbarTop/navbar';
 // old navbar bottom made with mui
-//import ResponsiveAppBar from './NavbarBottom/navbar';
+// import ResponsiveAppBar from './NavbarBottom/navbar';
 
 // new one started from scratch
 //import Navbar from './NavbarBottomNew/navbar';

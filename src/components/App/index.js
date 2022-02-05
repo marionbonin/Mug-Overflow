@@ -40,10 +40,12 @@ function App() {
     }
   }, []);
 
-  if (loading) {
-    return <Loading />;
-  }
- 
+  // Desactivation pour travailler sur des bases
+
+  // if (loading) {
+  //   return <Loading />;
+  // }
+
   return (
     <div className="app">
 

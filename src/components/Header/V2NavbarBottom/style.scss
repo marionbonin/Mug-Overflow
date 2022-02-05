@@ -1,85 +1,62 @@
 @use 'src/styles/vars';
 
 
+// keep a good ratio on small mobiles.
+// navbar-container is the main container.
 #navbar-container {
   width: 100%;
-	//padding-right:15px;
-	//padding-left:15px;
-	//margin-right:auto;
-	//margin-left:auto;
-  //border: 3px solid red;
   background-color: vars.$blackOpacityTwenty;
-  //color: white;
-  position: relative;
-}
+  .main-nav {
+    display: flex;
+    justify-content: space-around;
+    // to have the burger icon on the right on mobile view
+    @media (max-width:900px) { 
+        width: 100%;
+        text-align: right;
+    }
 
-.main-nav {
-  //border: 3px solid green;
-  display: flex;
-  justify-content: space-around;
-
-  // to have the burger icon on the right on mobile view
-  @media (max-width:900px) { 
-      width: 100%;
-      text-align: right;
+    // Push the "catégories" navlink in 2nd pos when navbar is on.
+    #accueil {
+      order: 1;
+    }
+    #categories {
+      order: 2;
+      
+      @media (min-width: 900px){ 
+        &:hover {
+          .chevron { 
+            transition: 0.1s ease-in-out;
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    
+    #concept {
+      order: 3;
+    }
+    #contact {
+      order: 4;
     }
   }
-
-/*
-img {
-  max-width: 100%;
-  height: auto;
 }
-*/
 
+//! rapport au dropdown categ? pas acces
 .sec__one {
+  border: 1px solid red;
     position: relative;
     width: 100%;
     display: flex;
     padding: 60px 0;
 }
 
-
-// .is-active {
-//   color: vars.$backgroundGreen!important;
-// }
-#accueil {
-  order: 1;
-}
-#categories {
-  order: 2;
-  
-  @media (min-width: 900px){ 
-    &:hover {
-      .chevron { 
-        transition: 0.1s ease-in-out;
-        transform: rotate(180deg);
-      }
-    }
-  }
-  
-  @media (max-width: 899px){ 
-    &:active {
-      .chevron { 
-        transition: 5s ease-in-out;
-        transform: rotate(180deg)!important;
-      }
-    }
-  }
-}
-
-#concept {
-  order: 3;
-}
-#contact {
-  order: 4;
-}
-
+//! rapport au dropdown categ? pas acces
 .navBar .col-md-3 {
+  border: brown 1px solid;
   z-index: 7;
 }
 ul.main-menu {
-  //border: brown 1px solid;
+  border: brown 1px solid;
   display: flex;
   width: 100vw;
   max-width: 1200px;
@@ -120,6 +97,42 @@ ul.main-menu>li.menu-item:first-child {
   }
 }
 
+@media (min-width:900px) { 
+  // Handle the bottom navbar over and links when 
+  // it's not in burger menu
+  .menu-item {
+    // border: 1px solid red;
+    border-radius: 0;
+    color: vars.$lightYellow;
+    text-decoration: none;
+    height: 64px;
+    a {
+      display: flex;
+      // flex-wrap: nowrap;
+      align-items: center;
+      height: 100%;
+      // This padding allows us to have a 8px wider border bottom on hover
+      padding: 0 4px;
+      // use not(.is-active) instead
+      &:hover:not(.is-active) {
+        border-top: 4px solid rgba(255, 0, 0, 0);
+        border-bottom: 4px solid vars.$lightYellow;
+        transition: none;
+        border-radius: 0;
+      }
+      &.is-active {
+        // border: 1px solid blue;
+        border-bottom: 4px solid vars.$orangeYellow;
+      }
+      // put the svg chevron on the same line
+      .chevron {
+        position: relative;
+      }
+    }
+  }
+}
+
+  
 .header__middle {
   display: flex;
   width: 100%;
@@ -214,10 +227,9 @@ ul.main-menu>li.menu-item:first-child {
 }
 
 // prop à modif si on veut le soulignage jaune au hover
-.menu-item:hover > a{
-  color: vars.$darkGrey !important;
-  
-}
+// .menu-item:hover > a{
+//   color: vars.$orangeYellow !important;
+// }
 
 
 @media(max-width:900px){
