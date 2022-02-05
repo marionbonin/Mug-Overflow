@@ -52,30 +52,33 @@
 
 //! rapport au dropdown categ? pas acces
 .navBar .col-md-3 {
-  border: brown 1px solid;
   z-index: 7;
 }
+// those ul. can't go inside the navbar container or they break 
+// burger menu
 ul.main-menu {
-  border: brown 1px solid;
   display: flex;
   width: 100vw;
   max-width: 1200px;
   min-height: 64px;
-  padding-right: 44px; // 24px + size of down arrow svg(20px)
-  padding-left: 34px; // to make it match with searchbar padding (mui component impossible to target)
+  padding-right: 24px;
+  padding-left: 24px;
   justify-content: space-between;
   align-items: center;
   list-style: none;
   margin: 0;
   z-index: 7;
 }
-ul.main-menu>li.menu-item:first-child {
-  padding-left: 0;
-  margin-left: 0;
-}
+
+//! rapport au dropdown categ?
+//! sinon à supprimer, car pas utile
+// ul.main-menu>li.menu-item:first-child {
+//   border: 1px solid red;
+//   padding-left: 0;
+//   margin-left: 0;
+// }
+
 .menu-item {
-  //width: 100%;
-  // border: blue 1px solid;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +90,6 @@ ul.main-menu>li.menu-item:first-child {
     font-family: "brandon-grotesque",sans-serif;
     font-size: 1.3rem;
     font-weight: 600;
-    //line-height: 3rem;
     position: relative;
     display: block;
     color: vars.$lightYellow;
@@ -132,34 +134,37 @@ ul.main-menu>li.menu-item:first-child {
   }
 }
 
-  
-.header__middle {
-  display: flex;
-  width: 100%;
-  //float: left;
-  //border-bottom: 1px dashed lavender;
-  position: relative;
-}
+//! rapport au dropdown categ?
+//! sinon à supprimer, car pas utile
+// .header__middle {
+//   display: flex;
+//   width: 100%;
+//   //float: left;
+//   //border-bottom: 1px dashed lavender;
+//   position: relative;
+// }
 
+//! rapport au dropdown categ?
+//! sinon à supprimer, car pas utile
+// .active{
+//   color: vars.$darkGrey!important;
+//   background: none!important;
+//   // text-decoration: underline!important;
+//   // text-underline-offset: 0.2rem;
+// } 
 
-.active{
-  color: vars.$darkGrey!important;
-  background: none!important;
-  // text-decoration: underline!important;
-  // text-underline-offset: 0.2rem;
-} 
+// .sub__menus__arrows{
+//   position: relative;
+// }
 
-.sub__menus__arrows{
-  position: relative;
-}
+// oddly, this manage the svg chevron on burger menu, but 
+// is not override by the other position and so from above.
 .sub__menus__arrows svg, .sub__menus__arrows__full svg{
   padding-top: 0px;
   position: absolute;
   top: 3px;
   width: 20px;
-  //right: -30px;
 }
-
 
 // dropdown on categories menu item
 .sub__menus {
@@ -231,58 +236,57 @@ ul.main-menu>li.menu-item:first-child {
 //   color: vars.$orangeYellow !important;
 // }
 
-
+// burger menu management
 @media(max-width:900px){
 .header__middle__logo {width: 77%;}
 .header__middle__menus {width: 20%;}
 .header__middle__logo img {max-width: 197px;margin: 27px 0 0 0;}
 
-// hamburger menu icon
-.main-nav .menubar__button {
-  display: block!important;
-  color: vars.$lightYellow;
-  margin: 0;
-  padding: 0;
-  border-radius: 5px;
-  margin: 14px auto 13px;
-  cursor: pointer;
-  position: relative;
-  z-index: 10037;
+  // hamburger menu icon
+  .main-nav .menubar__button {
+    display: block!important;
+    color: vars.$lightYellow;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    margin: 14px auto 13px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10037;
 
-  svg {
-    font-size: 33px;
+    svg {
+      font-size: 33px;
+    }
   }
-}
-.main-nav .menubar__button:hover {
-  color: vars.$darkGrey;
-}
+  .main-nav .menubar__button:hover {
+    color: vars.$darkGrey;
+  }
 
-.main-nav .menu-item:hover > a {
-  color: vars.$backgroundGreen!important;
-}
+  .main-nav .menu-item:hover > a {
+    color: vars.$backgroundGreen!important;
+  }
 
-.main-nav ul.menuq2 {
-  display: block!important;
-  position: absolute;
-  right: 0;
-  z-index: 10007;
-  background-color: vars.$backgroundGrey;
-  padding: 0;
-}
+  .main-nav ul.menuq2 {
+    display: block!important;
+    position: absolute;
+    right: 0;
+    z-index: 10007;
+    background-color: vars.$backgroundGrey;
+    padding: 0;
+  }
 
-.main-nav .menu-item a {
-  margin: auto 0;
-  text-align: center;
-  color: vars.$lightYellow;
-}
+  .main-nav .menu-item a {
+    margin: auto 0;
+    text-align: center;
+    color: vars.$lightYellow;
+  }
 
-.main-nav  ul.main-menu {display: none}
-.main-nav .sub__menus__arrows:hover .sub__menus {margin: 0 auto;left: 0;right: 0;}
-.sub__menus__Active{display: block!important;margin: 0 auto;left: 0;right: 0;}
-.sub__menus__Active2{display: block!important;}
-.menus__categorysss{display: none;}
-.menus__categorysss2{display: none;}
-.menu-item .sub__menus__full a {text-align: left;}
-
+  .main-nav  ul.main-menu {display: none}
+  .main-nav .sub__menus__arrows:hover .sub__menus {margin: 0 auto;left: 0;right: 0;}
+  .sub__menus__Active{display: block!important;margin: 0 auto;left: 0;right: 0;}
+  .sub__menus__Active2{display: block!important;}
+  .menus__categorysss{display: none;}
+  .menus__categorysss2{display: none;}
+  .menu-item .sub__menus__full a {text-align: left;}
 }
 
