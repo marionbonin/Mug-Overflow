@@ -85,7 +85,7 @@ const Navbarmenu = () => {
                 >
                   <NavLink
                     className={
-                      (navData) => (navData.isActive ? 'is-active' : '')
+                      (navData) => (navData.isActive ? 'is-active menu-item-link' : 'menu-item-link')
                     }
                     onClick={toggleClass}
                     to="/"
@@ -99,7 +99,7 @@ const Navbarmenu = () => {
                   <NavLink
                     onClick={toggleClass}
                     className={
-                      (navData) => (navData.isActive ? 'is-active' : '')
+                      (navData) => (navData.isActive ? 'is-active menu-item-link' : 'menu-item-link')
                     }
                     to="/contact"
                   >
@@ -114,7 +114,7 @@ const Navbarmenu = () => {
                   <NavLink
                     onClick={toggleClass}
                     className={
-                      (navData) => (navData.isActive ? 'is-active' : '')
+                      (navData) => (navData.isActive ? 'is-active menu-item-link' : 'menu-item-link')
                     }
                     to="/concept"
                   >
@@ -127,14 +127,16 @@ const Navbarmenu = () => {
                   onClick={toggleSubmenu}
                   className="menu-item sub__menus__arrows"
                 >
-                  <Link to="#"> Catégories <FiChevronDown className="chevron" /> </Link>
+                  <Link className="menu-item-link" to="#"> Catégories <FiChevronDown className="chevron" /> </Link>
                   <ul className={boxClassSubMenu.join(' ')}>
                     {categories.map(({ name, slug }) => (
                       <li>
                         <NavLink
                           onClick={handleClick}
                           value={slug}
-                          activeclassname="is-active"
+                          className={
+                            (navData) => (navData.isActive ? 'is-active submenu-item-link' : '')
+                          }
                           to={`/categories/${slug}`}
                         > {name}
                         </NavLink>

@@ -116,12 +116,6 @@ ul.main-menu {
       // This padding allows us to have a 8px wider border bottom on hover
       padding: 0 4px;
       // use not(.is-active) instead
-      &:hover:not(.is-active) {
-        border-top: 4px solid rgba(255, 0, 0, 0);
-        border-bottom: 4px solid vars.$lightYellow;
-        transition: none;
-        border-radius: 0;
-      }
       &.is-active {
         // border: 1px solid blue;
         border-bottom: 4px solid vars.$orangeYellow;
@@ -130,6 +124,12 @@ ul.main-menu {
       .chevron {
         position: relative;
       }
+    }
+    .menu-item-link:hover:not(.is-active) {
+      border-top: 4px solid rgba(255, 0, 0, 0);
+      border-bottom: 4px solid vars.$lightYellow;
+      transition: none;
+      border-radius: 0;
     }
   }
 }
@@ -153,9 +153,9 @@ ul.main-menu {
 //   // text-underline-offset: 0.2rem;
 // } 
 
-// .sub__menus__arrows{
-//   position: relative;
-// }
+.sub__menus__arrows{
+  position: relative;
+}
 
 // oddly, this manage the svg chevron on burger menu, but 
 // is not override by the other position and so from above.

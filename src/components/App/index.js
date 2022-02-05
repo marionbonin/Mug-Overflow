@@ -42,9 +42,9 @@ function App() {
 
   // Desactivation pour travailler sur des bases
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="app">
