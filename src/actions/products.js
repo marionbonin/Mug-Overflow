@@ -16,6 +16,8 @@ export const SAVE_SINGLE_PRODUCT = 'SAVE_SINGLE_PRODUCT';
 export const FETCH_SEARCHED_PRODUCTS = 'FETCH_SEARCHED_PRODUCTS';
 export const SAVE_SEARCHED_PRODUCTS = 'SAVE_SEARCHED_PRODUCTS';
 
+export const CLEAN_LIST_STATE = 'CLEAN_LIST_STATE';
+
 export const fetchProductsByCategory = () => ({
   type: FETCH_PRODUCTS_BY_CATEGORY,
 });
@@ -68,4 +70,8 @@ export const fetchSearchedProducts = () => ({
 export const saveSearchedProducts = (searchedProducts) => ({
   type: SAVE_SEARCHED_PRODUCTS,
   searchedProducts: searchedProducts,
+});
+
+export const cleanListState = () => ({
+  type: CLEAN_LIST_STATE,
 });

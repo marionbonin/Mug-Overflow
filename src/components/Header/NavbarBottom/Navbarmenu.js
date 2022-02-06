@@ -5,7 +5,7 @@ import { FiAlignRight, FiXCircle, FiChevronDown } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveSlug } from '../../../actions/user';
 import { fetchCategories } from '../../../actions/categories';
-import { fetchProductsByCategory } from '../../../actions/products';
+import { fetchProductsByCategory, cleanListState } from '../../../actions/products';
 
 import './style.scss';
 
@@ -54,6 +54,7 @@ const Navbarmenu = () => {
     const base = '/categories/';
     const urlToRedirect = base + slug;
     toggleClass();
+    dispatch(cleanListState());
     navigate(urlToRedirect);
     dispatch(saveSlug(slug));
     dispatch(fetchProductsByCategory());

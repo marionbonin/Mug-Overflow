@@ -6,6 +6,7 @@ import {
   SAVE_SINGLE_PRODUCT,
   SAVE_SEARCHED_PRODUCTS,
   FETCH_SEARCHED_PRODUCTS,
+  CLEAN_LIST_STATE,
 } from '../actions/products';
 
 export const initialState = {
@@ -59,6 +60,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: action.searchedProducts,
         loading: false,
+      };
+
+    case CLEAN_LIST_STATE:
+      return {
+        ...state,
+        list: [],
       };
     default:
       return state;

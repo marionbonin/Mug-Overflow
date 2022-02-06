@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -9,15 +10,18 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Link from '@mui/material/Link';
+import { cleanListState } from '../../actions/products';
 import imageMug from '../../assets/images/mug-mockups/CSS_IS_AWESOME_front.png';
 
 import './style.scss';
 
 export default function ProductCardGallery(product) {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const base = `/produit/${product.props.slug}`;
 
   const handleClick = (() => {
+    dispatch(cleanListState());
     navigate(base);
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera

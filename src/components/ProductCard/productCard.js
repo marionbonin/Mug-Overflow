@@ -53,7 +53,7 @@ export default function MediaCard(product) {
             sx={{ mt: 3, mb: 2 }}
             onClick={handleClick}
           >
-            Détails
+            Détailss
           </Button>
         </Link>
       </CardActions>
