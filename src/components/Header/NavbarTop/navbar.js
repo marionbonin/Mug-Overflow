@@ -80,6 +80,19 @@ export default function SearchAppBar() {
 
   const isLogged = useSelector((state) => state.user.logged);
 
+  // handling search in searchbar
+  const handleChange = (event) => {
+    console.log("handlechange");
+    if (event.key === 'Enter') {
+      handleSubmit();
+    }
+    
+  }
+  const handleSubmit = () => {
+    console.log("handleSubmit");
+    console.log("display JSX with search results")
+  }
+
   return (
     <Box
       id="top-menu-box"
@@ -104,7 +117,7 @@ export default function SearchAppBar() {
             <StyledInputBase
               placeholder="Rechercher..."
               inputProps={{ 'aria-label': 'search' }}
-              onChange={handleChange}
+              onKeyPress={handleChange}
             />
           </Search>
           <Link
