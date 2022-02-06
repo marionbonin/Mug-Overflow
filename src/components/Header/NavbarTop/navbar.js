@@ -80,17 +80,30 @@ export default function SearchAppBar() {
 
   const isLogged = useSelector((state) => state.user.logged);
 
+
+
   // handling search in searchbar
+
+  const [searchValue, setSearchValue] = React.useState('');
   const handleChange = (event) => {
-    console.log("handlechange");
+    // set search value 
+    setSearchValue(event.target.value);
+    //console.log(searchValue);
     if (event.key === 'Enter') {
-      handleSubmit();
+      handleSubmit(searchValue);
     }
     
   }
-  const handleSubmit = () => {
-    console.log("handleSubmit");
-    console.log("display JSX with search results")
+  const handleSubmit = (searchValue) => {
+
+    // 1) récupérer résultat de la recherche ie ce qui a été tapé dans le champ
+    console.log(searchValue);
+
+    // 2) si aucun résultat, set un booléen en false et afficher de manière conditionnelle une div sur la page indiquant "aucnu résultat trouvé"
+    console.log("display div saying No Result Found");
+
+    // 3) sinon, afficher une page avec les résultats de recherche
+    console.log("display search results");
   }
 
   return (
@@ -118,6 +131,7 @@ export default function SearchAppBar() {
               placeholder="Rechercher..."
               inputProps={{ 'aria-label': 'search' }}
               onKeyPress={handleChange}
+       
             />
           </Search>
           <Link
