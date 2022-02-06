@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -8,15 +11,28 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
+import { fetchPromoNames, fetchStatusNames } from '../../actions/user';
 import Footer from '../Footer/footer';
 
 import './style.scss';
 
 const handleChange = () => {
-  console.log("salut");
+  console.log('salut');
 };
 
 export default function AccountCreation() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPromoNames());
+    dispatch(fetchStatusNames());
+  }, []);
+
+  const promos = useSelector((state) => state.user.promoNames);
+  const statusNames = useSelector((state) => state.user.statusNames);
+  console.log(promos);
+  console.log(statusNames);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -64,24 +80,34 @@ export default function AccountCreation() {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value="PROMO"
+              value=""
               label="Promo"
               onChange={handleChange}
             >
-              <MenuItem value="Xandar">Xandar</MenuItem>
-              <MenuItem value="XIII">Twenty</MenuItem>
-              <MenuItem value="Tardis">Thirty</MenuItem>
+              {promos.map((promo) => (
+                <MenuItem
+                  key={promo.id}
+                  value={promo.name}
+                >
+                  {promo.name}
+                </MenuItem>
+              ))}
             </Select>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value="PROMO"
+              value="Promo"
               label="Promo"
               onChange={handleChange}
             >
-              <MenuItem value="Xandar">Staff</MenuItem>
-              <MenuItem value="XIII">Etudiant</MenuItem>
-              <MenuItem value="Tardis">Alumni</MenuItem>
+              {statusNames.map((singleStatus) => (
+                <MenuItem
+                  key={singleStatus.id}
+                  value={singleStatus.name}
+                >
+                  {singleStatus.name}
+                </MenuItem>
+              ))}
             </Select>
             <TextField
               margin="normal"

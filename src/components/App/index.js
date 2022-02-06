@@ -57,10 +57,10 @@ function App() {
               path="/connexion"
               element={<Navigate replace to="/" />}
             />
-            <Route
+            {/* <Route
               path="/inscription"
               element={<Navigate replace to="/" />}
-            />
+            /> */}
           </>
         )}
         <Route

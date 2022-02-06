@@ -190,6 +190,7 @@ ul.main-menu {
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 0 20px;
 
     &:hover {
       background-color: vars.$backgroundGreen;
