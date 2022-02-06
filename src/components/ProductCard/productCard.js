@@ -51,6 +51,7 @@ export default function MediaCard(product) {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            onClick={handleClick}
           >
             Détails
           </Button>

@@ -105,7 +105,6 @@ const ResponsiveAppBar = () => {
             id="menu-appbar"
             sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
           >
-            {/* Navlink 1 - homepage */}
             <NavLink
               to="/"
               key="Accueil"
@@ -122,10 +121,7 @@ const ResponsiveAppBar = () => {
               </Button>
             </NavLink>
 
-            {/* Navlink 2 - categories */}
             <DropdownMenu />
-
-            {/* Navlink 3 - Concept */}
             <NavLink
               to="/concept"
               key="Concept"
@@ -142,7 +138,6 @@ const ResponsiveAppBar = () => {
               </Button>
             </NavLink>
 
-            {/* Navlink 4 - Contact */}
             <NavLink
               to="/contact"
               key="Contact"
@@ -165,3 +160,4 @@ const ResponsiveAppBar = () => {
   );
 };
 export default ResponsiveAppBar;
+

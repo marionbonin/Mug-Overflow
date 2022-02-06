@@ -40,10 +40,12 @@ function App() {
     }
   }, []);
 
+  // Desactivation pour travailler sur des bases
+
   if (loading) {
     return <Loading />;
   }
- 
+
   return (
     <div className="app">
 
@@ -55,10 +57,10 @@ function App() {
               path="/connexion"
               element={<Navigate replace to="/" />}
             />
-            <Route
+            {/* <Route
               path="/inscription"
               element={<Navigate replace to="/" />}
-            />
+            /> */}
           </>
         )}
         <Route
@@ -88,7 +90,7 @@ function App() {
         />
         {/* Route to delete. There is no "produit" route */}
         <Route
-          path="/produit"
+          path="/produit/:slug"
           element={(
             <ProtectedRoutes>
               <Product />

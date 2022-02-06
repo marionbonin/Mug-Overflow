@@ -93,12 +93,12 @@ export default function Product() {
           </h2>
 
           <h3 className="concept-price">
-            13,5€!
+            12,5€!
           </h3>
 
           <p className="concept-text">
-            Ce prix, ce n'est pas nous qui le fixons. Il inclut 7,99€ de mug, et 5,39€ de livraison
-            (ça pique un peu, je vous l'accorde), ce qui nous donne un prix exact de 13,38€.
+            Ce prix, ce n'est pas nous qui le fixons. Il inclut 6,99€ de mug, et 5,39€ de livraison
+            (ça pique un peu, je vous l'accorde), ce qui nous donne un prix exact de 12,38€.
           </p>
           <p className="concept-text">
             Et comme vous avez pu le voir en naviguant, il s'agit d'une pseudo-boutique, et non d'un

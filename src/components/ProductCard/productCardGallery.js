@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router';
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -12,6 +14,15 @@ import imageMug from '../../assets/images/mug-mockups/CSS_IS_AWESOME_front.png';
 import './style.scss';
 
 export default function ProductCardGallery(product) {
+  const navigate = useNavigate();
+  const base = `/produit/${product.props.slug}`;
+
+  const handleClick = (() => {
+    navigate(base);
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  });
+
   // console.log(product.props);
   return (
     <Card
@@ -52,6 +63,7 @@ export default function ProductCardGallery(product) {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            onClick={handleClick}
           >
             Détails
           </Button>

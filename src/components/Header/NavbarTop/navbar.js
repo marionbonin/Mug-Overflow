@@ -122,9 +122,14 @@ export default function SearchAppBar() {
               order: { xs: 3, sm: 1 },
               mt: { xs: '20px', sm: 0 },
               mb: { xs: '20px', sm: 0 },
+              ml: { xs: 0 },
             }}
           >
-            <SearchIconWrapper>
+            <SearchIconWrapper
+              // sx={{
+              //   pl: { xs: '5px' },
+              // }}
+            >
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase

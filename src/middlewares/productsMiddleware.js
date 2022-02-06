@@ -4,10 +4,12 @@ import {
   FETCH_RANDOM_PRODUCTS,
   FETCH_FAVORITE_PRODUCTS,
   FETCH_LATEST_PRODUCTS,
+  FETCH_SINGLE_PRODUCT,
   saveProductsByCategory,
   saveRandomProducts,
   saveFavoriteProducts,
   saveLatestProducts,
+  saveSingleProduct,
 } from '../actions/products';
 
 // const categorySlug = window.location.pathname;
@@ -77,6 +79,21 @@ const productsMiddleware = (store) => (next) => (action) => {
         });
 
       break;
+
+    case FETCH_SINGLE_PRODUCT:
+      // API call to get fav products
+      api.get(`/products/${slugURL}`)
+        .then((response) => {
+          const singleProduct = response.data;
+          console.log(singleProduct);
+          store.dispatch(saveSingleProduct(singleProduct));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      break;
+
     default:
   }
   next(action);

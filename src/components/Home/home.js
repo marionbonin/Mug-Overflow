@@ -54,7 +54,7 @@ export default function Home() {
             sx={{ width: { xs: '90%', md: '60%', lg: '50%' } }}
           >
             <p>
-              Tous les mugs sont au prix unitaire de <span className="disclaimer-bold">13,5€</span>.
+              Tous les mugs sont au prix unitaire de <span className="disclaimer-bold">12,5€</span>.
             </p>
             <p>
               Sélectionnez, personnalisez,
@@ -71,9 +71,9 @@ export default function Home() {
             <Box
               className="alice-carousel-box"
               id={id}
+              key={key}
             >
               <Gallery
-                id={id}
                 key={key}
                 title={title}
                 {...homepageProducts}

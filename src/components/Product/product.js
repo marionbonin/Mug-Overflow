@@ -3,30 +3,19 @@ import Link from '@mui/material/Link';
 import Container from '@mui/material/Container';
 import FaceIcon from '@mui/icons-material/Face';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
-
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import logoOclockBackMug from 'src/assets/images/mug-mockups/logo_oclock_back_mug.png';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import Page from '../Page/page';
 import ActiveLastBreadcrumb from '../Breadcrumb/breadcrumb';
 import ProductCarousel from './ProductCarousel/productCarousel';
-
+import { fetchSingleProduct } from '../../actions/products';
 // import ColorRadioButtons from './ColorPick/colorPick';
 
 import './style.scss';
 
-const onDownloadRecto = () => {
-  const link = document.createElement('a');
-  link.download = 'nom_du_recto_au_telechargement.jpg';
-  link.href = 'src/assets/images/mug-mockups/CSS_IS_AWESOME_front.png';
-  link.click();
-};
-
-const onDownloadVerso = () => {
-  const link = document.createElement('a');
-  link.download = 'nom_du_verso_au_telechargement.jpg';
-  link.href = 'src/assets/images/mug-mockups/CSS_IS_AWESOME_back.png';
-  link.click();
-};
 // return (
 //   <Button onClick={onDownload} variant="contained" color="primary">
 //     Download
@@ -35,6 +24,38 @@ const onDownloadVerso = () => {
 // }
 
 export default function Product() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchSingleProduct());
+  }, []);
+
+  const product = useSelector((state) => state.products.list);
+  console.log(product.assetFront);
+
+  const urlBaseImage = 'http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/';
+  const urlEndImage = product.assetFront;
+  const fullUrlImage = urlBaseImage + urlEndImage;
+  const pngExtension = '.jpg';
+  const fileName = product.name + pngExtension;
+
+  const onDownloadRecto = () => {
+    const link = document.createElement('a');
+    console.log(fileName);
+    console.log(fullUrlImage);
+    link.href = fullUrlImage;
+    link.setAttribute('download', fileName);
+    link.setAttribute('target', '_blank');
+    link.click();
+  };
+
+  const onDownloadVerso = () => {
+    const link = document.createElement('a');
+    link.download = 'mug-verso.png';
+    link.href = logoOclockBackMug;
+    link.click();
+  };
+
   return (
     <>
       <Header />
@@ -44,17 +65,32 @@ export default function Product() {
           <div id="product-details">
             <div className="product-title-box">
               <h1 className="product-title">
-                css is awesome
+                {product.name}
               </h1>
             </div>
             <p className="product-description">
-              Le CSS, c'est génial... Enfin, surtout quand ça marche ! <br />
-              Si comme nous vous êtes amoureux de CSS, que vous rêvez flexbox, dinez flexbox, et
-              surtout, buvez flexbox, c'est LE mug qu'il vous faut!
+              {product.description}
             </p>
             <div id="product-actions">
-              <ProductCarousel />
+              <ProductCarousel
+                {...product}
+              />
               <div id="buttons-group">
+                <div id="buttons-group-warning">
+                  <h3>ATTENTION :</h3>
+                  <p>
+                    Actuellement, et jusqu'à ce que le front-end et le back-end fasse leur
+                    réunification façon Koh-Lanta, nous ne pouvons pas te proposer de téléchargement
+                    cross-origin (demander à notre bouton de te télécharger l'image de ton mug,
+                    hébergée ailleurs).
+                  </p>
+                  <p>
+                    Du coup, au clic sur le bouton, l'image recto de ton mug s'ouvrira dans un
+                    nouvel onglet. Il ne restera plus qu'à faire un
+                    clic droit, puis "enregistrer l'image sous...". Quand on y pense, c'est toi
+                    le bouton téléchargement..
+                  </p>
+                </div>
                 <Button
                   variant="contained"
                   id="download-recto"

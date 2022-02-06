@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router';
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -10,9 +12,14 @@ import Link from '@mui/material/Link';
 
 import './style.scss';
 
-export default function MediaCard(
-  product,
-) {
+export default function MediaCard(product) {
+  const navigate = useNavigate();
+  const base = `/produit/${product.name}`;
+
+  const handleClick = ((event) => {
+    navigate(base);
+  });
+
   // console.log(product.category[0].name);
   return (
     <Card
@@ -53,6 +60,7 @@ export default function MediaCard(
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            onClick={handleClick}
           >
             Détails
           </Button>

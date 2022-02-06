@@ -4,6 +4,9 @@ import {
   SAVE_USER_DATA,
   CLEAN_STATE,
   SAVE_SLUG,
+  CREATE_USER_ACCOUNT,
+  SAVE_PROMO_NAMES,
+  SAVE_STATUS_NAMES,
 } from '../actions/user';
 
 export const initialState = {
@@ -17,6 +20,8 @@ export const initialState = {
   role: '',
   loading: false,
   slug: '',
+  promoNames: [],
+  statusNames: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -82,6 +87,29 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         slug: action.slug,
+      };
+
+    case SAVE_PROMO_NAMES:
+      return {
+        ...state,
+        promoNames: action.promoNames,
+      };
+
+    case SAVE_STATUS_NAMES:
+      return {
+        ...state,
+        statusNames: action.statusNames,
+      };
+
+    case CREATE_USER_ACCOUNT:
+      return {
+        ...state,
+        email: action.email,
+        firstname: action.firstname,
+        lastname: action.lastname,
+        promo: action.promo.name,
+        status: action.status,
+        role: action.role,
       };
 
     default:

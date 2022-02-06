@@ -3,6 +3,7 @@ import {
   SAVE_RANDOM_PRODUCTS,
   SAVE_FAVORITE_PRODUCTS,
   SAVE_LATEST_PRODUCTS,
+  SAVE_SINGLE_PRODUCT,
 } from '../actions/products';
 
 export const initialState = {
@@ -36,6 +37,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         lastList: action.latestProducts,
+      };
+
+    case SAVE_SINGLE_PRODUCT:
+      return {
+        ...state,
+        list: action.product,
       };
     default:
       return state;
