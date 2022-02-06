@@ -6,7 +6,9 @@ import {
   SAVE_SLUG,
   CREATE_USER_ACCOUNT,
   SAVE_PROMO_NAMES,
+  FETCH_STATUS_NAMES,
   SAVE_STATUS_NAMES,
+  FETCH_PROMO_NAMES,
 } from '../actions/user';
 
 export const initialState = {
@@ -19,9 +21,12 @@ export const initialState = {
   status: '',
   role: '',
   loading: false,
+  loadingSupOne: false,
+  loadingSupTwo: false,
   slug: '',
   promoNames: [],
   statusNames: [],
+  searchValue: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -89,15 +94,29 @@ const reducer = (state = initialState, action = {}) => {
         slug: action.slug,
       };
 
+    case FETCH_PROMO_NAMES:
+      return {
+        ...state,
+        loadingSupOne: true,
+      };
+
     case SAVE_PROMO_NAMES:
       return {
         ...state,
+        loadingSupOne: false,
         promoNames: action.promoNames,
+      };
+
+    case FETCH_STATUS_NAMES:
+      return {
+        ...state,
+        loadingSupTwo: true,
       };
 
     case SAVE_STATUS_NAMES:
       return {
         ...state,
+        loadingSupTwo: false,
         statusNames: action.statusNames,
       };
 
@@ -107,9 +126,9 @@ const reducer = (state = initialState, action = {}) => {
         email: action.email,
         firstname: action.firstname,
         lastname: action.lastname,
-        promo: action.promo.name,
+        promo: action.promo,
         status: action.status,
-        role: action.role,
+        password: '',
       };
 
     default:

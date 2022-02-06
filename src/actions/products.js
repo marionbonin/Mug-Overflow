@@ -1,6 +1,3 @@
-export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
-export const SAVE_PRODUCTS = 'SAVE_PRODUCTS';
-
 export const FETCH_PRODUCTS_BY_CATEGORY = 'FETCH_PRODUCTS_BY_CATEGORY';
 export const SAVE_PRODUCTS_BY_CATEGORY = 'SAVE_PRODUCTS_BY_CATEGORY';
 
@@ -16,14 +13,8 @@ export const SAVE_LATEST_PRODUCTS = 'SAVE_LATEST_PRODUCTS';
 export const FETCH_SINGLE_PRODUCT = 'FETCH_SINGLE_PRODUCT';
 export const SAVE_SINGLE_PRODUCT = 'SAVE_SINGLE_PRODUCT';
 
-export const fetchProducts = () => ({
-  type: FETCH_PRODUCTS,
-});
-
-export const saveProducts = (products) => ({
-  type: SAVE_PRODUCTS,
-  products: products,
-});
+export const FETCH_SEARCHED_PRODUCTS = 'FETCH_SEARCHED_PRODUCTS';
+export const SAVE_SEARCHED_PRODUCTS = 'SAVE_SEARCHED_PRODUCTS';
 
 export const fetchProductsByCategory = () => ({
   type: FETCH_PRODUCTS_BY_CATEGORY,
@@ -68,4 +59,13 @@ export const fetchSingleProduct = () => ({
 export const saveSingleProduct = (product) => ({
   type: SAVE_SINGLE_PRODUCT,
   product: product,
+});
+
+export const fetchSearchedProducts = () => ({
+  type: FETCH_SEARCHED_PRODUCTS,
+});
+
+export const saveSearchedProducts = (searchedProducts) => ({
+  type: SAVE_SEARCHED_PRODUCTS,
+  searchedProducts: searchedProducts,
 });

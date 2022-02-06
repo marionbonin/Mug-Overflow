@@ -1,21 +1,24 @@
 import api from './api';
 import {
   FETCH_PRODUCTS_BY_CATEGORY,
-  FETCH_RANDOM_PRODUCTS,
   FETCH_FAVORITE_PRODUCTS,
+  FETCH_SEARCHED_PRODUCTS,
   FETCH_LATEST_PRODUCTS,
+  FETCH_RANDOM_PRODUCTS,
   FETCH_SINGLE_PRODUCT,
-  saveProductsByCategory,
-  saveRandomProducts,
-  saveFavoriteProducts,
-  saveLatestProducts,
   saveSingleProduct,
+  saveRandomProducts,
+  saveLatestProducts,
+  saveSearchedProducts,
+  saveFavoriteProducts,
+  saveProductsByCategory,
 } from '../actions/products';
 
 // const categorySlug = window.location.pathname;
 // console.log(categorySlug);
 
 const productsMiddleware = (store) => (next) => (action) => {
+  const searchInput = store.getState().user.searchValue;
   let slugURL = store.getState().user.slug;
   if (slugURL === '') {
     const slugFromSearchBar = window.location.pathname;
@@ -67,7 +70,7 @@ const productsMiddleware = (store) => (next) => (action) => {
       break;
 
     case FETCH_LATEST_PRODUCTS:
-      // API call to get fav products
+      // API call to get latest  products
       api.get('/products?type=latest')
         .then((response) => {
           const latestProducts = response.data;
@@ -81,7 +84,7 @@ const productsMiddleware = (store) => (next) => (action) => {
       break;
 
     case FETCH_SINGLE_PRODUCT:
-      // API call to get fav products
+      // API call to get a single product according to its url
       api.get(`/products/${slugURL}`)
         .then((response) => {
           const singleProduct = response.data;
@@ -91,7 +94,19 @@ const productsMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log(error);
         });
+      break;
 
+    case FETCH_SEARCHED_PRODUCTS:
+    // API call to get a list of products resulting from a research
+      api.get(`/products?search=${searchInput}`)
+        .then((response) => {
+          const searchedProducts = response.data;
+          console.log(searchedProducts);
+          store.dispatch(saveSearchedProducts(searchedProducts));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       break;
 
     default:

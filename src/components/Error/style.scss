@@ -1,19 +1,38 @@
+@use 'src/styles/vars';
+
 .box-error-page {
     
-  //min-height: 70vh;  
-
-  // h1 { // should be same as other pages from main scss file
-  //   //padding-top: 3rem;
-  //   //font-size: 5rem;
-  // }
-  
+  padding: 20px;
+  display: flex;
+  flex-direction: column
+  ;
+  h1 {
+    font-size: 4rem;
+  }
   h2 {
-    padding-top: 3rem;
-    font-size: 3rem;
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.5rem;
+    margin: 10px;
+    font-style: italic;
+  }
+  #mug-to-spill{
+    width: 20%;
+    height: 30%;
+  }
+
+  #link-to-home  {
+    font-size: 1.5rem;
+  }
+  #button {
+    font-family: "brandon-grotesque",sans-serif;
+    background-color: vars.$orangeYellow;
+    color: vars.$darkGrey;
+    font-size: 2rem;
+    //font-weight: 500;
+    text-transform: none;
   }
 }
 
-#mug-to-split{
-  width: 20%;
-  height: 30%;
-}
+

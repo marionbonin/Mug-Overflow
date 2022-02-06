@@ -3,6 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import emailjs from '@emailjs/browser';
+import { useSelector } from 'react-redux';
 
 import Header from '../Header/header';
 import Page from '../Page/page';
@@ -11,6 +12,13 @@ import Footer from '../Footer/footer';
 import './style.scss';
 
 export default function Contact() {
+
+  // getting user info from state to prefill fields
+  const firstName = useSelector((state) => state.user.firstname);
+  const email = useSelector((state) => state.user.email);
+  console.log(firstName, email);
+
+
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -45,10 +53,30 @@ export default function Contact() {
             }}
           >
             <form id="contact-form" ref={form} onSubmit={sendEmail}>
-              <input className="contact-input" type="text" name="user_name" placeholder="Prénom" />
-              <input className="contact-input" type="email" name="user_email" placeholder="Email" />
-              <textarea id="text-area" name="message" placeholder="Ton message" />
-              <input id="button-contact" type="submit" value="Envoies ton message" />
+              <input
+                className="contact-input"
+                type="text"
+                name="user_name"
+                placeholder="Prénom"
+                defaultValue={firstName}
+              />
+              <input
+                className="contact-input"
+                type="email"
+                name="user_email"
+                placeholder="Email"
+                defaultValue={email}
+              />
+              <textarea
+                id="text-area"
+                name="message"
+                placeholder="Ton message"
+              />
+              <input
+                id="button-contact"
+                type="submit"
+                value="Envoyer"
+              />
             </form>
           </Box>
         </Container>

@@ -9,7 +9,9 @@ export default function FAQ() {
     <>
       <Header />
       <Page>
-        <Accordion />
+        <div id="faq-container">
+          <Accordion />
+        </div>
       </Page>
       <Footer />
     </>

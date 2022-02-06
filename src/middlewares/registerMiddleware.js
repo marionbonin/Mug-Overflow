@@ -1,6 +1,7 @@
 import api from './api';
 
 import {
+  CREATE_USER_ACCOUNT,
   FETCH_PROMO_NAMES,
   FETCH_STATUS_NAMES,
   savePromoNames,
@@ -34,6 +35,28 @@ const registerMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       break;
+
+    case CREATE_USER_ACCOUNT:
+      api.post(
+        '/register',
+        {
+          email: store.getState().user.email,
+          password: store.getState().user.password,
+          firstname: store.getState().user.firstname,
+          lastname: store.getState().user.lastname,
+          promo: store.getState().user.promo,
+          status: store.getState().user.status,
+        },
+      )
+        .then((response) => {
+          console.log(response);
+        })
+
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
     default:
   }
   next(action);

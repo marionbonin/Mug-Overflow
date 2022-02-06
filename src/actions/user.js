@@ -54,12 +54,12 @@ export const saveSlug = (slug) => ({
   slug: slug,
 });
 
-export const createUserAccount = (firstname, lastname, promo, role, email, password) => ({
+export const createUserAccount = (firstname, lastname, promo, status, email, password) => ({
   type: CREATE_USER_ACCOUNT,
   firstname: firstname,
   lastname: lastname,
   promo: promo,
-  role: role,
+  status: status,
   email: email,
   password: password,
 });

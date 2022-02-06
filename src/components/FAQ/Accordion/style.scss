@@ -43,7 +43,7 @@ h1 {
   right: 1%;
   // bottom: 3%;
   display: inline;
-  background-image: url(/src/assets/images/mug-to-split.svg);
+  background-image: url(/src/assets/images/mug-to-spill.svg);
   height: 40px;
   width: 40px;
   background-repeat: no-repeat;
@@ -55,7 +55,7 @@ h1 {
   &.rotate {
     // transition: 200ms;
     // transform: rotate(90deg);
-    background-image: url(/src/assets/images/split-mug.svg);
+    background-image: url(/src/assets/images/spilled-mug.svg);
     height: 80px;
     width: 80px;
     overflow: visible;

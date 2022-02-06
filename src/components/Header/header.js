@@ -4,11 +4,10 @@ import ResponsiveAppBarTop from './NavbarTop/navbar';
 // import ResponsiveAppBar from './NavbarBottom/navbar';
 
 // new one started from scratch
-//import Navbar from './NavbarBottomNew/navbar';
+// import Navbar from './NavbarBottomNew/navbar';
 
 // best one
-import NavbarMenu from './V2NavbarBottom/Navbarmenu';
-
+import NavbarMenu from './NavbarBottom/Navbarmenu';
 
 import './style.scss';
 

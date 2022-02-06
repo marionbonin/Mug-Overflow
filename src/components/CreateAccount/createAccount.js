@@ -3,53 +3,78 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '@mui/material/Button';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
+
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+
 import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
 import logo from 'src/assets/images/logo-mugoverflow.svg';
-import { fetchPromoNames, fetchStatusNames } from '../../actions/user';
+
+import
+{
+  fetchPromoNames,
+  fetchStatusNames,
+  changeValue,
+  createUserAccount,
+} from '../../actions/user';
+
 import Footer from '../Footer/footer';
+import Loading from '../App/Loading';
 
 import './style.scss';
-
 
 export default function AccountCreation() {
   const dispatch = useDispatch();
 
+  // This part let us get the dropdown content
   useEffect(() => {
     dispatch(fetchPromoNames());
     dispatch(fetchStatusNames());
   }, []);
-
   const promos = useSelector((state) => state.user.promoNames);
   const statusNames = useSelector((state) => state.user.statusNames);
-  //console.log(promos);
-  //console.log(statusNames);
+  // End of the dropdown content part
 
   // set selected dropdown value
-  const [selectedValuePromo, setSelectedValuePromo] = React.useState('');
-  const [selectedValueStatus, setSelectedValueStatus] = React.useState('');
+  // const [selectedValuePromo, setSelectedValuePromo] = React.useState('');
+  // const [selectedValueStatus, setSelectedValueStatus] = React.useState('');
+  // const handleChange = (event) => {
+  //   console.log(event.target.value);
+  //   setSelectedValuePromo(event.target.value);
+  //   setSelectedValueStatus(event.target.value);
+  // };
+
+  const firstnameValue = useSelector((state) => state.user.firstname);
+  const lastnameValue = useSelector((state) => state.user.lastname);
+  const promoValue = useSelector((state) => state.user.promo);
+  const statusValue = useSelector((state) => state.user.status);
+  const emailValue = useSelector((state) => state.user.email);
+  const passwordValue = useSelector((state) => state.user.password);
+  const isLoading = useSelector((state) => state.user.loadingSupOne);
+  const isLoadingSup = useSelector((state) => state.user.loadingSupTwo);
+
   const handleChange = (event) => {
+    console.log(event.target.name);
     console.log(event.target.value);
-    setSelectedValuePromo(event.target.value);
-    setSelectedValueStatus(event.target.value);
+    dispatch(changeValue(event.target.name, event.target.value));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    dispatch(createUserAccount());
   };
 
+  if (isLoading || isLoadingSup) {
+    return <Loading />;
+  }
   return (
     <>
       <Container id="main-sign-in" component="main" maxWidth="xs">
@@ -72,48 +97,63 @@ export default function AccountCreation() {
               margin="normal"
               required
               fullWidth
-              name="first-name"
+              name="firstname"
               label="Prénom"
               id="first-name"
-            />
+              onChange={handleChange}
+            >
+              {firstnameValue}
+            </TextField>
             <TextField
               margin="normal"
               required
               fullWidth
-              name="last-name"
+              name="lastname"
               label="Nom"
               id="last-name"
-            />
-            <Select
-              className="register-select"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={selectedValuePromo}
-              label="Promo"
               onChange={handleChange}
             >
-              {promos.map((promo) => (
-                <MenuItem
-                  key={promo.id}
-                  value={promo.name}
-                >
-                  {promo.name}
-                </MenuItem>
-              ))}
-            </Select>
+              {lastnameValue}
+            </TextField>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Promotion</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                className="register-select"
+                id="demo-simple-select"
+                name="promo"
+                value={promoValue}
+                label="Promotion"
+                placeholder="Statut"
+                onChange={handleChange}
+              >
+                {promos.map((promo) => (
+                  <MenuItem
+                    name="promo"
+                    key={promo.id}
+                    value={promo.id}
+                  >
+                    {promo.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             <Select
+              labelId="demo-multiple-chip-label"
               className="register-select"
-              labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={selectedValueStatus}
+              value={statusValue}
+              name="status"
               label="Statut"
               placeholder="Statut"
+              input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
               onChange={handleChange}
             >
               {statusNames.map((singleStatus) => (
                 <MenuItem
+                  name="status"
                   key={singleStatus.id}
-                  value={singleStatus.name}
+                  value={singleStatus.id}
                 >
                   {singleStatus.name}
                 </MenuItem>
@@ -127,7 +167,11 @@ export default function AccountCreation() {
               label="Email"
               name="email"
               autoComplete="email"
-            />
+              onChange={handleChange}
+              value={emailValue}
+            >
+              {emailValue}
+            </TextField>
             <TextField
               margin="normal"
               required
@@ -137,17 +181,11 @@ export default function AccountCreation() {
               type="password"
               id="password"
               autoComplete="new-password"
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="confirm-password"
-              label="Confirmez votre mot de passe"
-              type="password"
-              id="password-verify"
-              autoComplete="new-password"
-            />
+              onChange={handleChange}
+            >
+              {passwordValue}
+            </TextField>
+
             <Button
               id="connexionButton"
               type="submit"

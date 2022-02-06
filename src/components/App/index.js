@@ -1,10 +1,9 @@
 // == Import
 import {
-  Routes, Route, Navigate, useParams,
+  Routes, Route, Navigate
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Login from '../Login/login';
 import CreateAccount from '../CreateAccount/createAccount';
 import Home from '../Home/home';
@@ -19,8 +18,8 @@ import Concept from '../Concept/concept';
 import Product from '../Product/product';
 import Profile from '../Profile/profile';
 import Category from '../Categories/categories';
+import SearchResults from '../SearchResults/SearchResults';
 import { getUserData } from '../../actions/user';
-import { fetchCategories } from '../../actions/categories';
 
 import Loading from './Loading';
 
@@ -57,10 +56,10 @@ function App() {
               path="/connexion"
               element={<Navigate replace to="/" />}
             />
-            {/* <Route
+            <Route
               path="/inscription"
               element={<Navigate replace to="/" />}
-            /> */}
+            />
           </>
         )}
         <Route
@@ -88,7 +87,7 @@ function App() {
             </ProtectedRoutes>
           )}
         />
-        {/* Route to delete. There is no "produit" route */}
+
         <Route
           path="/produit/:slug"
           element={(
@@ -97,7 +96,16 @@ function App() {
             </ProtectedRoutes>
           )}
         />
-        {/* End of the Route to delete. */}
+
+        <Route
+          path="/recherche/:slug"
+          element={(
+            <ProtectedRoutes>
+              <SearchResults />
+            </ProtectedRoutes>
+          )}
+        />
+
         <Route
           path="/profil"
           element={(

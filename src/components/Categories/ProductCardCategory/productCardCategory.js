@@ -14,7 +14,7 @@ import './style.scss';
 
 export default function MediaCard(product) {
   const navigate = useNavigate();
-  const base = `/produit/${product.name}`;
+  const base = `/produit/${product.slug}`;
 
   const handleClick = ((event) => {
     navigate(base);

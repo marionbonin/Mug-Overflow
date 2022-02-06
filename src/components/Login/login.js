@@ -1,12 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -126,7 +125,7 @@ export default function Login() {
             >
               <Link
                 className="link"
-                href="#"
+                to="#"
                 sx={{
                   mt: 2,
                   mb: 1.5,
@@ -137,7 +136,7 @@ export default function Login() {
               </Link>
               <Link
                 className="link"
-                href="/inscription"
+                to="/inscription"
                 sx={{
                   color: '#234b78',
                 }}

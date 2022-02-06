@@ -14,7 +14,8 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { cleanState } from '../../../actions/user';
+import { cleanState, changeValue } from '../../../actions/user';
+import { fetchSearchedProducts } from '../../../actions/products';
 
 import './style.scss';
 
@@ -79,27 +80,23 @@ export default function SearchAppBar() {
   };
 
   const isLogged = useSelector((state) => state.user.logged);
+  const searchValue = useSelector((state) => state.user.searchValue);
 
   // handling search in searchbar
 
-  const [searchValue, setSearchValue] = React.useState('');
-  const handleSubmit = (searchInputValue) => {
-    // 1) récupérer résultat de la recherche ie ce qui a été tapé dans le champ
-    console.log(searchInputValue);
-    // 2) si aucun résultat, set un booléen en false et afficher de manière conditionnelle une
-    // div sur la page indiquant "aucnu résultat trouvé"
-    console.log('display div saying No Result Found');
-    // 3) sinon, afficher une page avec les résultats de recherche
-    console.log('display search results');
+  const handleSubmit = () => {
+    dispatch(fetchSearchedProducts(searchValue));
+    navigate(`/recherche/${searchValue}`);
+  };
+
+  const pressEnter = (event) => {
+    if (event.key === 'Enter') {
+      handleSubmit();
+    }
   };
 
   const handleChange = (event) => {
-    // set search value
-    setSearchValue(event.target.value);
-    // console.log(searchValue);
-    if (event.key === 'Enter') {
-      handleSubmit(searchValue);
-    }
+    dispatch(changeValue(event.target.name, event.target.value));
   };
 
   return (
@@ -127,9 +124,13 @@ export default function SearchAppBar() {
             <StyledInputBase
               placeholder="Rechercher..."
               inputProps={{ 'aria-label': 'search' }}
-              onKeyPress={handleChange}
+              name="searchValue"
+              onChange={handleChange}
+              onKeyPress={pressEnter}
+            >
+              {searchValue}
+            </StyledInputBase>
 
-            />
           </Search>
           <Link
             to="/"

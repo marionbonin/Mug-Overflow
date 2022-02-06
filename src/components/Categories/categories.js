@@ -1,6 +1,9 @@
 import
 {
-  FormControl, InputLabel, Select, MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
@@ -95,7 +98,7 @@ export default function Category() {
             </Select>
           </FormControl>
         </div>
-        <div id="category-results">
+        <div className="products-results">
           {products.map((product) => (
             <Card
               key={product.name}
