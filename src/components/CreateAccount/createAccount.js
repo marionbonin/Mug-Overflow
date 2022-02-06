@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -16,9 +17,6 @@ import Footer from '../Footer/footer';
 
 import './style.scss';
 
-const handleChange = () => {
-  console.log('salut');
-};
 
 export default function AccountCreation() {
   const dispatch = useDispatch();
@@ -30,8 +28,17 @@ export default function AccountCreation() {
 
   const promos = useSelector((state) => state.user.promoNames);
   const statusNames = useSelector((state) => state.user.statusNames);
-  console.log(promos);
-  console.log(statusNames);
+  //console.log(promos);
+  //console.log(statusNames);
+
+  // set selected dropdown value
+  const [selectedValuePromo, setSelectedValuePromo] = React.useState('');
+  const [selectedValueStatus, setSelectedValueStatus] = React.useState('');
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    setSelectedValuePromo(event.target.value);
+    setSelectedValueStatus(event.target.value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -78,9 +85,10 @@ export default function AccountCreation() {
               id="last-name"
             />
             <Select
+              className="register-select"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value=""
+              value={selectedValuePromo}
               label="Promo"
               onChange={handleChange}
             >
@@ -94,10 +102,12 @@ export default function AccountCreation() {
               ))}
             </Select>
             <Select
+              className="register-select"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value="Promo"
-              label="Promo"
+              value={selectedValueStatus}
+              label="Statut"
+              placeholder="Statut"
               onChange={handleChange}
             >
               {statusNames.map((singleStatus) => (

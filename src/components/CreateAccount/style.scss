@@ -1,3 +1,11 @@
+@use 'src/styles/vars';
+
+.register-select{
+  width: 50%;
+  background-color: vars.$lightYellow;
+
+}
+
 #main-box {
   margin-top: 0;
 }
@@ -7,7 +15,7 @@
   padding-bottom: 1rem;
   width: max(100%, 250px);
   align-items: center;
-  fill : #fffdd8;
+  fill : vars.$lightYellow;
 }
 
 #typography-title {
@@ -18,7 +26,7 @@
 #first-name {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
-  background-color: #fffdd8;
+  background-color: vars.$lightYellow;
   border-radius: 4px;
   
 }
@@ -26,14 +34,14 @@
 #last-name {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
-  background-color: #fffdd8;
+  background-color: vars.$lightYellow;
   border-radius: 4px;
 }
 
 #promo {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
-  background-color: #fffdd8;
+  background-color: vars.$lightYellow;
   border-radius: 4px;
   
 }
@@ -42,7 +50,7 @@
 #email {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
-  background-color: #fffdd8;
+  background-color: vars.$lightYellow;
   border-radius: 4px;
   
 }
@@ -50,14 +58,14 @@
 #password {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
-  background-color: #fffdd8;
+  background-color: vars.$lightYellow;
   border-radius: 4px;
 }
 
 #password-verify {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
-  background-color: #fffdd8;
+  background-color: vars.$lightYellow;
   border-radius: 4px;
 }
 
@@ -65,5 +73,5 @@
   padding-top: 2rem; 
   max-width: 1200px;
   align-items: center;
-  fill : #fffdd8;
+  fill : vars.$lightYellow;
 }

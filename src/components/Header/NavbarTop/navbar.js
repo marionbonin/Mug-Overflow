@@ -80,31 +80,27 @@ export default function SearchAppBar() {
 
   const isLogged = useSelector((state) => state.user.logged);
 
-
-
   // handling search in searchbar
 
   const [searchValue, setSearchValue] = React.useState('');
+  const handleSubmit = (searchInputValue) => {
+    // 1) récupérer résultat de la recherche ie ce qui a été tapé dans le champ
+    console.log(searchInputValue);
+    // 2) si aucun résultat, set un booléen en false et afficher de manière conditionnelle une
+    // div sur la page indiquant "aucnu résultat trouvé"
+    console.log('display div saying No Result Found');
+    // 3) sinon, afficher une page avec les résultats de recherche
+    console.log('display search results');
+  };
+
   const handleChange = (event) => {
-    // set search value 
+    // set search value
     setSearchValue(event.target.value);
-    //console.log(searchValue);
+    // console.log(searchValue);
     if (event.key === 'Enter') {
       handleSubmit(searchValue);
     }
-    
-  }
-  const handleSubmit = (searchValue) => {
-
-    // 1) récupérer résultat de la recherche ie ce qui a été tapé dans le champ
-    console.log(searchValue);
-
-    // 2) si aucun résultat, set un booléen en false et afficher de manière conditionnelle une div sur la page indiquant "aucnu résultat trouvé"
-    console.log("display div saying No Result Found");
-
-    // 3) sinon, afficher une page avec les résultats de recherche
-    console.log("display search results");
-  }
+  };
 
   return (
     <Box
@@ -125,18 +121,14 @@ export default function SearchAppBar() {
               ml: { xs: 0 },
             }}
           >
-            <SearchIconWrapper
-              // sx={{
-              //   pl: { xs: '5px' },
-              // }}
-            >
+            <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Rechercher..."
               inputProps={{ 'aria-label': 'search' }}
               onKeyPress={handleChange}
-       
+
             />
           </Search>
           <Link
