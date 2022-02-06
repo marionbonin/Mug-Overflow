@@ -50,6 +50,11 @@
     padding: 60px 0;
 }
 
+.is-active {
+  color: vars.$backgroundGreen!important;
+}
+
+
 //! rapport au dropdown categ? pas acces
 .navBar .col-md-3 {
   z-index: 7;
@@ -57,12 +62,14 @@
 // those ul. can't go inside the navbar container or they break 
 // burger menu
 ul.main-menu {
+  //border: brown 1px solid;
+
   display: flex;
   width: 100vw;
   max-width: 1200px;
   min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
+  padding-right: 44px; // 24px + size of down arrow svg(20px)
+  padding-left: 34px; // to make it match with searchbar padding (mui component impossible to target)
   justify-content: space-between;
   align-items: center;
   list-style: none;
@@ -79,6 +86,9 @@ ul.main-menu {
 // }
 
 .menu-item {
+  //width: 100%;
+  // border: blue 1px solid;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,6 +100,7 @@ ul.main-menu {
     font-family: "brandon-grotesque",sans-serif;
     font-size: 1.3rem;
     font-weight: 600;
+    //line-height: 3rem;
     position: relative;
     display: block;
     color: vars.$lightYellow;
@@ -99,59 +110,14 @@ ul.main-menu {
   }
 }
 
-@media (min-width:900px) { 
-  // Handle the bottom navbar over and links when 
-  // it's not in burger menu
-  .menu-item {
-    // border: 1px solid red;
-    border-radius: 0;
-    color: vars.$lightYellow;
-    text-decoration: none;
-    height: 64px;
-    a {
-      display: flex;
-      // flex-wrap: nowrap;
-      align-items: center;
-      height: 100%;
-      // This padding allows us to have a 8px wider border bottom on hover
-      padding: 0 4px;
-      // use not(.is-active) instead
-      &.is-active {
-        // border: 1px solid blue;
-        border-bottom: 4px solid vars.$orangeYellow;
-      }
-      // put the svg chevron on the same line
-      .chevron {
-        position: relative;
-      }
-    }
-    .menu-item-link:hover:not(.is-active) {
-      border-top: 4px solid rgba(255, 0, 0, 0);
-      border-bottom: 4px solid vars.$lightYellow;
-      transition: none;
-      border-radius: 0;
-    }
-  }
-}
 
-//! rapport au dropdown categ?
-//! sinon à supprimer, car pas utile
-// .header__middle {
-//   display: flex;
-//   width: 100%;
-//   //float: left;
-//   //border-bottom: 1px dashed lavender;
-//   position: relative;
-// }
 
-//! rapport au dropdown categ?
-//! sinon à supprimer, car pas utile
-// .active{
-//   color: vars.$darkGrey!important;
-//   background: none!important;
-//   // text-decoration: underline!important;
-//   // text-underline-offset: 0.2rem;
-// } 
+.active{
+  color: vars.$darkGrey!important;
+  background: none!important;
+  // text-decoration: underline!important;
+  // text-underline-offset: 0.2rem;
+} 
 
 .sub__menus__arrows{
   position: relative;
@@ -164,7 +130,10 @@ ul.main-menu {
   position: absolute;
   top: 3px;
   width: 20px;
+  //right: -30px;
 }
+
+
 
 // dropdown on categories menu item
 .sub__menus {
@@ -233,6 +202,13 @@ ul.main-menu {
 }
 
 // prop à modif si on veut le soulignage jaune au hover
+.menu-item:hover > a{
+  color: vars.$darkGrey !important;
+  
+}
+
+
+// prop à modif si on veut le soulignage jaune au hover
 // .menu-item:hover > a{
 //   color: vars.$orangeYellow !important;
 // }
@@ -243,44 +219,53 @@ ul.main-menu {
 .header__middle__menus {width: 20%;}
 .header__middle__logo img {max-width: 197px;margin: 27px 0 0 0;}
 
-  // hamburger menu icon
-  .main-nav .menubar__button {
-    display: block!important;
-    color: vars.$lightYellow;
-    margin: 0;
-    padding: 0;
-    border-radius: 5px;
-    margin: 14px auto 13px;
-    cursor: pointer;
-    position: relative;
-    z-index: 10037;
+// hamburger menu icon
+.main-nav .menubar__button {
+  display: block!important;
+  color: vars.$lightYellow;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  margin: 14px auto 13px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10037;
 
-    svg {
-      font-size: 33px;
-    }
+  svg {
+    font-size: 33px;
   }
-  .main-nav .menubar__button:hover {
-    color: vars.$darkGrey;
-  }
+}
+.main-nav .menubar__button:hover {
+  color: vars.$darkGrey;
+}
 
-  .main-nav .menu-item:hover > a {
-    color: vars.$backgroundGreen!important;
-  }
+.main-nav .menu-item:hover > a {
+  color: vars.$backgroundGreen!important;
+}
 
-  .main-nav ul.menuq2 {
-    display: block!important;
-    position: absolute;
-    right: 0;
-    z-index: 10007;
-    background-color: vars.$backgroundGrey;
-    padding: 0;
-  }
+.main-nav ul.menuq2 {
+  display: block!important;
+  position: absolute;
+  right: 0;
+  z-index: 10007;
+  background-color: vars.$backgroundGrey;
+  padding: 0;
+}
 
-  .main-nav .menu-item a {
-    margin: auto 0;
-    text-align: center;
-    color: vars.$lightYellow;
-  }
+.main-nav .menu-item a {
+  margin: auto 0;
+  text-align: center;
+  color: vars.$lightYellow;
+}
+
+.main-nav  ul.main-menu {display: none}
+.main-nav .sub__menus__arrows:hover .sub__menus {margin: 0 auto;left: 0;right: 0;}
+.sub__menus__Active{display: block!important;margin: 0 auto;left: 0;right: 0;}
+.sub__menus__Active2{display: block!important;}
+.menus__categorysss{display: none;}
+.menus__categorysss2{display: none;}
+.menu-item .sub__menus__full a {text-align: left;}
+
 
   .main-nav  ul.main-menu {display: none}
   .main-nav .sub__menus__arrows:hover .sub__menus {margin: 0 auto;left: 0;right: 0;}
