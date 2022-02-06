@@ -41,11 +41,12 @@ const registerMiddleware = (store) => (next) => (action) => {
         '/register',
         {
           email: store.getState().user.email,
-          password: store.getState().user.password,
           firstname: store.getState().user.firstname,
           lastname: store.getState().user.lastname,
-          promo: store.getState().user.promo,
+          password: store.getState().user.password,
+          checkPassword: store.getState().user.checkPassword,
           status: store.getState().user.status,
+          promo: store.getState().user.promo,
         },
       )
         .then((response) => {

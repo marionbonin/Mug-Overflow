@@ -4,22 +4,29 @@
     
   padding: 20px;
   display: flex;
-  flex-direction: column
-  ;
+  flex-direction: column;
+  align-items: center;
+
   h1 {
-    font-size: 4rem;
+    font-size: 6rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
   h2 {
-    font-size: 2rem;
+    font-weight: 600;
+    font-size: 3rem;
+    margin-bottom: 30px;
   }
   p {
     font-size: 1.5rem;
     margin: 10px;
     font-style: italic;
   }
-  #mug-to-spill{
-    width: 20%;
-    height: 30%;
+  .spilled-mug {
+    width: 50%;
+    max-width: 300px;
+    height: auto;
+    margin: 20px;
   }
 
   #link-to-home  {
@@ -29,9 +36,14 @@
     font-family: "brandon-grotesque",sans-serif;
     background-color: vars.$orangeYellow;
     color: vars.$darkGrey;
-    font-size: 2rem;
+    font-size: 1.5rem;
     //font-weight: 500;
-    text-transform: none;
+    text-transform: none;  
+    margin-bottom: 50px;
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 }
 

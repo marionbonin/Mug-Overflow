@@ -31,9 +31,6 @@ export default function Category() {
   const categories = useSelector((state) => state.categories.list);
   // console.log(categories);
 
-  const products = useSelector((state) => state.products.list);
-  // console.log(products);
-
   // if the categories array was found (always exists in state, empty by default)
   // but NOT the category matching the slug, return Error.
   if ((categories.length > 0) && !category) {
@@ -47,6 +44,9 @@ export default function Category() {
     dispatch(fetchProductsByCategory());
   }, []);
 
+  const products = useSelector((state) => state.products.list);
+  console.log(products);
+
   const handleChange = ((event) => {
     const slug = event.target.value;
     const base = '/categories/';
@@ -56,7 +56,7 @@ export default function Category() {
     dispatch(fetchProductsByCategory());
   });
 
-  if (categories.length === 0) {
+  if ((categories.length === 0) || (!products)) {
     return (
       <>
         <Header />

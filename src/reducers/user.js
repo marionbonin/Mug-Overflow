@@ -15,6 +15,7 @@ export const initialState = {
   logged: false,
   email: '',
   password: '',
+  checkPassword: '',
   firstname: '',
   lastname: '',
   promo: '',

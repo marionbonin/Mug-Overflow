@@ -58,6 +58,7 @@ export default function AccountCreation() {
   const statusValue = useSelector((state) => state.user.status);
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
+  const checkPasswordValue = useSelector((state) => state.user.checkPassword);
   const isLoading = useSelector((state) => state.user.loadingSupOne);
   const isLoadingSup = useSelector((state) => state.user.loadingSupTwo);
 
@@ -82,7 +83,7 @@ export default function AccountCreation() {
         <Box
           id="main-box"
           sx={{
-            marginTop: 8,
+            // marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -115,7 +116,7 @@ export default function AccountCreation() {
             >
               {lastnameValue}
             </TextField>
-            <FormControl fullWidth>
+            <FormControl className="register-box">
               <InputLabel id="demo-simple-select-label">Promotion</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
@@ -138,27 +139,30 @@ export default function AccountCreation() {
                 ))}
               </Select>
             </FormControl>
-            <Select
-              labelId="demo-multiple-chip-label"
-              className="register-select"
-              id="demo-simple-select"
-              value={statusValue}
-              name="status"
-              label="Statut"
-              placeholder="Statut"
-              input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-              onChange={handleChange}
-            >
-              {statusNames.map((singleStatus) => (
-                <MenuItem
-                  name="status"
-                  key={singleStatus.id}
-                  value={singleStatus.id}
-                >
-                  {singleStatus.name}
-                </MenuItem>
-              ))}
-            </Select>
+
+            <FormControl className="register-box">
+              <InputLabel id="demo-simple-select-label">Statut</InputLabel>
+              <Select
+                className="register-select"
+                id="demo-simple-select"
+                value={statusValue}
+                name="status"
+                label="Statut"
+                placeholder="Statut"
+                onChange={handleChange}
+              >
+                {statusNames.map((singleStatus) => (
+                  <MenuItem
+                    name="status"
+                    key={singleStatus.id}
+                    value={singleStatus.id}
+                  >
+                    {singleStatus.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
             <TextField
               margin="normal"
               required
@@ -168,7 +172,6 @@ export default function AccountCreation() {
               name="email"
               autoComplete="email"
               onChange={handleChange}
-              value={emailValue}
             >
               {emailValue}
             </TextField>
@@ -184,6 +187,19 @@ export default function AccountCreation() {
               onChange={handleChange}
             >
               {passwordValue}
+            </TextField>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="checkPassword"
+              label="Verification du mot de passe"
+              type="checkPassword"
+              id="check-password"
+              autoComplete="new-password"
+              onChange={handleChange}
+            >
+              {checkPasswordValue}
             </TextField>
 
             <Button

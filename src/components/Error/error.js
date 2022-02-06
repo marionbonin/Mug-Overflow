@@ -24,7 +24,7 @@ export default function Error() {
           <p>
             Mais on ne peut pas commander 404 mugs, 404 fois.
           </p>
-          <img src={spilledMug} alt="mug svg" className="svg-concept" />
+          <img src={spilledMug} alt="mug spilled" className="spilled-mug" />
           <Link
             to="/"
             // sx={{ order: { xs: 1, sm: 2 } }}

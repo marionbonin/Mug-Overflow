@@ -1,9 +1,14 @@
 @use 'src/styles/vars';
 
-.register-select{
+.register-box {
   width: 50%;
-  background-color: vars.$lightYellow;
-
+  border: 1px solid red;
+  margin: 16px 0 8px 0!important;
+  .register-select{
+    // border: 1px solid red;
+    width: 100%;
+    background-color: vars.$lightYellow;
+  }
 }
 
 #main-box {
@@ -28,7 +33,6 @@
   font-weight: 400;
   background-color: vars.$lightYellow;
   border-radius: 4px;
-  
 }
 
 #last-name {
@@ -62,7 +66,7 @@
   border-radius: 4px;
 }
 
-#password-verify {
+#check-password {
   font-family: 'brandon-grotesque', sans-serif;
   font-weight: 400;
   background-color: vars.$lightYellow;

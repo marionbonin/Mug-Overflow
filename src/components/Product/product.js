@@ -31,7 +31,7 @@ export default function Product() {
   }, []);
 
   const product = useSelector((state) => state.products.list);
-  console.log(product.assetFront);
+  console.log(product);
 
   const urlBaseImage = 'http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/';
   const urlEndImage = product.assetFront;
