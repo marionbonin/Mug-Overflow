@@ -17,8 +17,8 @@ const profileEditMiddleware = (store) => (next) => (action) => {
           email: store.getState().user.email,
           firstname: store.getState().user.firstname,
           lastname: store.getState().user.lastname,
-          status: store.getState().user.status,
-          promo: store.getState().user.promo,
+          status: store.getState().user.status.id,
+          promo: store.getState().user.promo.id,
         },
       )
         .then((response) => {

@@ -36,6 +36,9 @@ h1 {
   &.answer {
     font-size: 1.2rem;
   }
+  & .bold {
+    font-weight: bold;
+  }
 }
 
 .faq-animate {

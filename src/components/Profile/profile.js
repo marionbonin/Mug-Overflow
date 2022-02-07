@@ -2,14 +2,23 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
-
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel'; 
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { fetchProfileProducts } from '../../actions/products';
-import { saveSlug, saveUserEdit, changeValue, getUserData } from '../../actions/user';
+import {
+  saveSlug,
+  saveUserEdit,
+  changeValue,
+  getUserData,
+  fetchPromoNames,
+  fetchStatusNames,
+} from '../../actions/user';
 
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
@@ -21,21 +30,24 @@ import './style.scss';
 export default function Profile() {
   const userFirstName = useSelector((state) => state.user.firstname);
   const userLastName = useSelector((state) => state.user.lastname);
-  const userPromo = useSelector((state) => state.user.promo);
-  // const userStatus = useSelector((state) => state.user.status.name);
- 
+  const userPromos = useSelector((state) => state.user.promoNames);
+  const userStatus = useSelector((state) => state.user.statusNames);
   const userEmail = useSelector((state) => state.user.email);
   const userPass = useSelector((state) => state.user.password);
-
+  const products = useSelector((state) => state.products.profileProductsList);
+  const currentPromo = useSelector((state) => state.user.promo.name);
+  const currentStatus = useSelector((state) => state.user.status.name);
   const dispatch = useDispatch();
   const parameters = useParams();
   const currentSlug = parameters.slug;
-  // console.log(currentSlug);
 
+  console.log(userPromos);
+
+  // console.log(currentSlug);
   const handleChange = (event) => {
-    // console.log(event.target.name);
-    // console.log(event.target.value);
-    dispatch(changeValue(event.target.name, event.target.value));
+    console.log(event.target.name);
+    console.log(event.target.value);
+    dispatch(changeValue(event.target.name, { id: event.target.id, name: event.target.value }));
   };
 
   const handleSubmit = (event) => {
@@ -48,9 +60,10 @@ export default function Profile() {
   useEffect(() => {
     dispatch(saveSlug(currentSlug));
     dispatch(fetchProfileProducts());
+    dispatch(fetchPromoNames());
+    dispatch(fetchStatusNames());
   }, []);
 
-  const products = useSelector((state) => state.products.profileProductsList);
   // console.log(products);
 
   return (
@@ -80,27 +93,57 @@ export default function Profile() {
                 variant="outlined"
                 onChange={handleChange}
               />
+              <FormControl className="profile-select">
+                <InputLabel id="demo-simple-select-label">Promotion</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  className="register-select"
+                  id="demo-simple-select"
+                  name="promo"
+                  value={currentPromo}
+                  label="Promotion"
+                  placeholder="Statut"
+                  onChange={handleChange}
+                >
+                  {userPromos.map((singlePromo) => (
+                    <MenuItem
+                      name="promo"
+                      id={singlePromo.id}
+                      key={singlePromo.id}
+                      value={singlePromo.name}
+                    >
+                      {singlePromo.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+
+              <FormControl className="profile-select">
+                <InputLabel id="demo-simple-select-label">Statut</InputLabel>
+                <Select
+                  className="register-select"
+                  id="demo-simple-select"
+                  value={currentStatus}
+                  name="status"
+                  label="Statut"
+                  placeholder="Statut"
+                  onChange={handleChange}
+                >
+                  {userStatus.map((singleStatus) => (
+                    <MenuItem
+                      name="status"
+                      id={singleStatus.id}
+                      key={singleStatus.id}
+                      value={singleStatus.name}
+                    >
+                      {singleStatus.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
               <TextField
                 className="profile-input"
-                name="promo"
                 id="pi-3"
-                label="Promo"
-                defaultValue={userPromo}
-                variant="outlined"
-                onChange={handleChange}
-              />
-              <TextField
-                className="profile-input"
-                id="pi-4"
-                label="Statut"
-                name="status"
-                //defaultValue={userStatus}
-                variant="outlined"
-                onChange={handleChange}
-              />
-              <TextField
-                className="profile-input"
-                id="pi-5"
                 defaultValue={userEmail}
                 name="email"
                 label="Email"
@@ -110,7 +153,7 @@ export default function Profile() {
               <TextField
                 className="profile-input"
                 name="password"
-                id="pi-6"
+                id="pi-4"
                 label="Mot de passe"
                 type="password"
                 variant="outlined"

@@ -73,7 +73,7 @@ const reducer = (state = initialState, action = {}) => {
         email: action.email,
         firstname: action.firstname,
         lastname: action.lastname,
-        promo: action.promo.name,
+        promo: action.promo,
         status: action.status,
         role: action.role,
         password: '',

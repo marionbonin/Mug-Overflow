@@ -18,7 +18,7 @@ import { fetchSingleProduct } from '../../actions/products';
 import { saveSlug } from '../../actions/user';
 
 // import ColorRadioButtons from './ColorPick/colorPick';
-
+import feedbacks from './feedback-data';
 import './style.scss';
 
 // return (
@@ -66,13 +66,25 @@ export default function Product() {
     link.click();
   };
 
+  // display random feedbacks from feedback-data array
+  const array = [];
+  while (array.length < 2) {
+    const randomNumber = Math.floor(Math.random() * 6);
+    if (array.indexOf(randomNumber) === -1) array.push(randomNumber);
+  }
+  console.log(array);
+  const randomKeyOne = array[0];
+  const randomKeyTwo = array[1];
+  const randomFeedback1 = feedbacks[randomKeyOne];
+  const randomFeedback2 = feedbacks[randomKeyTwo];
+
   if (isLoading) {
     return (
       <>
         <Header />
-          <Page>
-            <Loading />
-          </Page>
+        <Page>
+          <Loading />
+        </Page>
         <Footer />
       </>
     );
@@ -148,17 +160,17 @@ export default function Product() {
             <div id="feedback-content">
               <h2 className="feedback-title"> Ils ont commandé ce mug (ou pas)... </h2>
               <FaceIcon id="user-feedback-icon" />
-              <p id="feedback-author"> John D'Oeuf </p>
-              <p id="user-promo"> Promo Sion </p>
-              <p id="feedback-message"> "J'adore les mugs, dans 20 ou 30 ans, y'en aura plus." </p>
+              <p id="feedback-author"> {randomFeedback1.author}  </p>
+              <p id="user-promo"> {randomFeedback1.promo} </p>
+              <p id="feedback-message"> {randomFeedback1.message} </p>
             </div>
           </Container>
           <Container id="feedback-container" key="2">
             <div id="feedback-content">
               <FaceIcon id="user-feedback-icon" />
-              <p id="feedback-author"> Anne Anas </p>
-              <p id="user-promo"> Promo Tusse </p>
-              <p id="feedback-message"> " Depuis que j'ai ce mug, je n'ai plus aucun bug. Et j'apprends encore plus vite" </p>
+              <p id="feedback-author"> {randomFeedback2.author}  </p>
+              <p id="user-promo"> {randomFeedback2.promo} </p>
+              <p id="feedback-message"> {randomFeedback2.message} </p>
             </div>
           </Container>
         </div>
