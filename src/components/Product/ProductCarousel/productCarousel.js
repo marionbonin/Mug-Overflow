@@ -9,7 +9,7 @@ export default function ProductCarousel(product) {
   console.log(product);
   const data = [
     {
-      image: `http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.mockupFront}`,
+      image: `${product.mockupFront}`,
       caption: 'Recto',
     },
     {
@@ -17,7 +17,7 @@ export default function ProductCarousel(product) {
       caption: 'Verso',
     },
     {
-      image: `http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.mockupOverview}`,
+      image: `${product.mockupOverview}`,
       caption: 'Recto verso',
     },
   ];

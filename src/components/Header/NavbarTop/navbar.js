@@ -22,7 +22,10 @@ import './style.scss';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  // borderStyle: 'solid',
+  // borderWidth: '0.5px',
+  // borderColor: 'black',
+  backgroundColor: alpha(theme.palette.common.white, 0.2),
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
@@ -45,7 +48,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: '#fffdd8',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -55,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up('sm')]: {
       width: '12ch',
       '&:focus': {
-        width: '20ch',
+        width: '16ch',
       },
     },
   },
@@ -150,7 +153,10 @@ export default function SearchAppBar() {
                 <Avatar
                   alt="Remy Sharp"
                   src=""
-                  sx={{ color: '#1e2124', backgroundColor: 'white' }}
+                  sx={{
+                    color: '#00000060',
+                    backgroundColor: '#0ac3a7',
+                  }}
                 />
               </IconButton>
             </Tooltip>

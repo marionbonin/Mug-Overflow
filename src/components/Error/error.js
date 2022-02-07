@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
+import spilledMug from 'src/assets/images/spilled-mug.svg';
+import errorMug from 'src/assets/images/mug-mockups/404_mugs.png';
 import Page from '../Page/page';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
-import spilledMug from 'src/assets/images/spilled-mug.svg';
-import errorMug from 'src/assets/images/mug-mockups/404_mugs.png';
 import './style.scss';
 
 export default function Error() {

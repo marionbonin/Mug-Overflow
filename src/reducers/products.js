@@ -7,6 +7,8 @@ import {
   SAVE_SINGLE_PRODUCT,
   SAVE_SEARCHED_PRODUCTS,
   FETCH_SEARCHED_PRODUCTS,
+  SAVE_PROFILE_PRODUCTS,
+  FETCH_PROFILE_PRODUCTS,
   CLEAN_LIST_STATE,
 } from '../actions/products';
 
@@ -15,6 +17,8 @@ export const initialState = {
   randomList: [],
   favoriteList: [],
   lastList: [],
+  singleProductList: [],
+  profileProductsList: [],
   loading: false,
 };
 
@@ -54,7 +58,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: false,
-        list: action.product,
+        singleProductList: action.product,
       };
 
     case FETCH_SEARCHED_PRODUCTS:
@@ -75,6 +79,20 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: [],
       };
+
+    case FETCH_PROFILE_PRODUCTS:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case SAVE_PROFILE_PRODUCTS:
+      return {
+        ...state,
+        profileProductsList: action.profileProducts,
+        loading: false,
+      };
+
     default:
       return state;
   }

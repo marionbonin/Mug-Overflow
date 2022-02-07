@@ -36,7 +36,7 @@ export default function ProductCardGallery(product) {
       <CardMedia
         component="img"
         className="cardMugMedia"
-        image={`http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.props.mockupFront}`}
+        image={product.props.mockupFront}
         alt="photo du produit"
       />
       <CardContent>

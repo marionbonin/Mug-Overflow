@@ -5,10 +5,13 @@
   margin: 2rem;
   //min-width: 170px;
   width: 220px;
-  height: 100%; 
+  height: auto; 
   border-radius: 16px;
   align-self: center;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 30px;
@@ -39,6 +42,7 @@
           align-items: flex-start;
 
           .card-mug-name {
+            text-align: left;
             font-size: 1.2rem;
             font-weight: 500;
             margin-bottom: 5px;
@@ -54,11 +58,9 @@
 } 
 
   .MuiCardActions-root {
-    // border: 1px solid blue; 
-    display: flex;
-    justify-content: center;
-    padding: 6%;
-    align-items:center;
+    display: block;
+    margin: 0 auto;
+
     a {
       text-decoration: none;
       #card-button {

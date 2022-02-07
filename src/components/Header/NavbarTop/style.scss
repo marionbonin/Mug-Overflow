@@ -17,10 +17,14 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+
       #link-logo-image {
         order: 1;
+        
         @media (min-width: 600px) { 
           order: 2;
+          position: absolute;
+          left: 40%;;
         }
         #logo-image {
           width: 200px;

@@ -12,6 +12,10 @@
     color: vars.$backgroundGreen;
   }
 
+  h2 {
+    margin-top: 15px;
+  }
+
 
   // SUBTITLE / EASTER EGG
 
@@ -44,6 +48,8 @@
   #info-disclaimer{
     font-family: 'brandon-grotesque', sans-serif;
     font-weight: 400;
+    width: 70vw;
+    max-width: 700px;
     font-size: 1.2rem;
     color: vars.$darkGrey; 
     background-color: vars.$lightYellow;
@@ -67,7 +73,7 @@
 
     h2 {
       //color: vars.$lightYellow;
-      margin-top: 10px;
+      //margin-top: 10px;
     }
 
     #category-cards {

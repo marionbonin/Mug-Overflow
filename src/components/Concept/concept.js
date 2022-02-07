@@ -21,9 +21,9 @@ export default function Product() {
         <Container id="concept-container">
           <h1 className="concept-title">MUG OVERFLOW...</h1>
           <h2 className="concept-subtitle">C'est quoi ? Par qui ? Et pour qui ? A quel prix ?</h2>
-          <h3 className="concept-subsubtitle"> Promis, on vous dit TOUT ! Et c'est parti !</h3>
+          <h3 className="concept-subsubtitle"> Promis, on vous dit TOUT ! Et zé barti !</h3>
           <p className="concept-text">
-            Mug Overflow, c'est la boutique de mug (presque officielle de O'Clock!
+            Mug Overflow, c'est la boutique de mug (presque) officielle de O'Clock!
             Si vous vous dites que vous déjà entendu ça quelque part, c'est normal,
             c'est marqué en grand sur la page d'accueil !
           </p>

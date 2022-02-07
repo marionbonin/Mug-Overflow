@@ -41,6 +41,7 @@ export default function Category() {
   // }
 
   useEffect(() => {
+    dispatch(saveSlug(currentSlug));
     dispatch(fetchProductsByCategory());
   }, []);
 

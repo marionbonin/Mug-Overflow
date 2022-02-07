@@ -39,7 +39,7 @@ export default function Product() {
     dispatch(fetchSingleProduct());
   }, []);
 
-  const product = useSelector((state) => state.products.list);
+  const product = useSelector((state) => state.products.singleProductList);
   const isLoading = useSelector((state) => state.products.loading);
   console.log(product);
 
@@ -75,7 +75,7 @@ export default function Product() {
           </Page>
         <Footer />
       </>
-    )
+    );
   }
 
   return (
@@ -100,16 +100,16 @@ export default function Product() {
                 <div id="buttons-group-warning">
                   <h3>ATTENTION :</h3>
                   <p>
-                    Actuellement, et jusqu'à ce que le front-end et le back-end fasse leur
+                    Actuellement, et jusqu'à ce que le front-end et le back-end fassent leur
                     réunification façon Koh-Lanta, nous ne pouvons pas te proposer de téléchargement
-                    cross-origin (demander à notre bouton de te télécharger l'image de ton mug,
+                    cross-origin ( = demander à notre bouton de te télécharger l'image de ton mug,
                     hébergée ailleurs).
                   </p>
                   <p>
                     Du coup, au clic sur le bouton, l'image recto de ton mug s'ouvrira dans un
                     nouvel onglet. Il ne restera plus qu'à faire un
                     clic droit, puis "enregistrer l'image sous...". Quand on y pense, c'est toi
-                    le bouton téléchargement..
+                    le bouton téléchargement...
                   </p>
                 </div>
                 <Button

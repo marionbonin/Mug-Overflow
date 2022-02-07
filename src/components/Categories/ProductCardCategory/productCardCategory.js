@@ -28,7 +28,7 @@ export default function MediaCard(product) {
       <CardMedia
         component="img"
         className="cardMugMedia"
-        image={`http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.mockupFront}`}
+        image={product.mockupFront}
         alt="photo du produit"
       />
       <CardContent>

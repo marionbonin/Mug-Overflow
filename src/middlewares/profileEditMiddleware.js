@@ -1,50 +1,43 @@
-// import { useNavigate } from 'react-router-dom';
-
 import api from './api';
 
 import {
-  SUBMIT_LOGIN,
+  SAVE_USER_EDIT,
   GET_USER_DATA,
   getUserData,
   saveUserData,
-  displayError,
   cleanState,
 } from '../actions/user';
 
-const loginMiddleware = (store) => (next) => (action) => {
+const profileEditMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case SUBMIT_LOGIN:
-
-      api.post(
-        '/login_check',
+    case SAVE_USER_EDIT:
+      api.put(
+        '/profil/update',
         {
-          username: store.getState().user.email,
-          password: store.getState().user.password,
+          email: store.getState().user.email,
+          firstname: store.getState().user.firstname,
+          lastname: store.getState().user.lastname,
+          status: store.getState().user.status,
+          promo: store.getState().user.promo,
         },
       )
         .then((response) => {
-          // console.log(response);
-          // console.log(response.data.token);
-          // saving user token in store
-          // store.dispatch(saveToken(response.data.token));
+          const tokenStorage = response.data[1];
+          const tokenValue = tokenStorage.token;
           // editing api headers config
-          api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+          localStorage.removeItem('token');
+          api.defaults.headers.common.Authorization = `bearer ${tokenValue}`;
           // getting user info related to token stored in state
-          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('token', tokenValue);
           store.dispatch(getUserData());
         })
 
         .catch((error) => {
-          console.log('mikabuche');
-          store.dispatch(displayError());
+          console.log(error);
         });
       break;
 
     case GET_USER_DATA:
-      if (!localStorage.getItem('token')) {
-        console.log('notoken');
-        break;
-      }
       api.get(
         '/profil',
       )
@@ -64,9 +57,10 @@ const loginMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       break;
+
     default:
   }
   next(action);
 };
 
-export default loginMiddleware;
+export default profileEditMiddleware;

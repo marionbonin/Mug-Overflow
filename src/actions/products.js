@@ -18,6 +18,9 @@ export const SAVE_SEARCHED_PRODUCTS = 'SAVE_SEARCHED_PRODUCTS';
 
 export const CLEAN_LIST_STATE = 'CLEAN_LIST_STATE';
 
+export const FETCH_PROFILE_PRODUCTS = 'FETCH_PROFILE_PRODUCTS';
+export const SAVE_PROFILE_PRODUCTS = 'SAVE_PROFILE_PRODUCTS';
+
 export const fetchProductsByCategory = () => ({
   type: FETCH_PRODUCTS_BY_CATEGORY,
 });
@@ -74,4 +77,13 @@ export const saveSearchedProducts = (searchedProducts) => ({
 
 export const cleanListState = () => ({
   type: CLEAN_LIST_STATE,
+});
+
+export const fetchProfileProducts = () => ({
+  type: FETCH_PROFILE_PRODUCTS,
+});
+
+export const saveProfileProducts = (profileProducts) => ({
+  type: SAVE_PROFILE_PRODUCTS,
+  profileProducts: profileProducts,
 });

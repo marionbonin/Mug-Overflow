@@ -9,10 +9,13 @@ import {
   FETCH_STATUS_NAMES,
   SAVE_STATUS_NAMES,
   FETCH_PROMO_NAMES,
+  SAVE_USER_EDIT,
+  DISPLAY_ERROR,
 } from '../actions/user';
 
 export const initialState = {
   logged: false,
+  loginError: false,
   email: '',
   password: '',
   checkPassword: '',
@@ -57,6 +60,7 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
           loading: true,
+          displayError: false,
         };
       }
       return {
@@ -95,6 +99,12 @@ const reducer = (state = initialState, action = {}) => {
         slug: action.slug,
       };
 
+    case DISPLAY_ERROR:
+      return {
+        ...state,
+        loginError: true,
+      };
+
     case FETCH_PROMO_NAMES:
       return {
         ...state,
@@ -122,6 +132,17 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case CREATE_USER_ACCOUNT:
+      return {
+        ...state,
+        email: action.email,
+        firstname: action.firstname,
+        lastname: action.lastname,
+        promo: action.promo,
+        status: action.status,
+        password: '',
+      };
+
+    case SAVE_USER_EDIT:
       return {
         ...state,
         email: action.email,

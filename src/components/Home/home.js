@@ -117,7 +117,7 @@ export default function Home() {
               {categories.map(({
                 id, name, slug, image,
               }) => {
-                const imageUrl = `http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images_categories/${image}`;
+                const imageUrl = `${image}`;
                 return (
                   <Link
                     key={id}

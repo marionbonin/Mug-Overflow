@@ -13,6 +13,8 @@ export const FETCH_PROMO_NAMES = 'FETCH_PROMO_NAMES';
 export const SAVE_PROMO_NAMES = 'SAVE_PROMO_NAMES';
 export const FETCH_STATUS_NAMES = 'FETCH_STATUS_NAMES';
 export const SAVE_STATUS_NAMES = 'SAVE_STATUS_NAMES';
+export const SAVE_USER_EDIT = 'SAVE_USER_EDIT';
+export const DISPLAY_ERROR = 'DISPLAY_ERROR';
 
 export const changeValue = (identifier, value) => ({
   type: CHANGE_VALUE,
@@ -80,4 +82,18 @@ export const fetchStatusNames = () => ({
 export const saveStatusNames = (statusNames) => ({
   type: SAVE_STATUS_NAMES,
   statusNames: statusNames,
+});
+
+export const saveUserEdit = (firstname, lastname, promo, status, email, password) => ({
+  type: SAVE_USER_EDIT,
+  firstname: firstname,
+  lastname: lastname,
+  promo: promo,
+  status: status,
+  email: email,
+  password: password,
+});
+
+export const displayError = () => ({
+  type: DISPLAY_ERROR,
 });

@@ -52,12 +52,10 @@
     flex-direction: row;
     align-items: center; 
     justify-content: space-around;
-    //border: 1px red solid;
+    padding-bottom: 30px;
     max-width: 100%;
-    // border: 1px solid green;
 
     #buttons-group {
-      // border: 1px solid red;
       display: flex;
       flex-direction: column;
       min-width: 40%;

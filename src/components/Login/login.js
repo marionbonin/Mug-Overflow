@@ -23,6 +23,7 @@ export default function Login() {
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
   const isLogged = useSelector((state) => state.user.logged);
+  const displayError = useSelector((state) => state.user.loginError);
 
   const dispatch = useDispatch();
 
@@ -83,6 +84,7 @@ export default function Login() {
           </Typography>
           <Box id="box" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
+              error={displayError}
               margin="normal"
               required
               fullWidth
@@ -97,6 +99,8 @@ export default function Login() {
               margin="normal"
               required
               fullWidth
+              error={displayError}
+              helperText={displayError ? 'Login ou mot de passe incorrect' : ''}
               name="password"
               label="Mot de passe"
               type="password"

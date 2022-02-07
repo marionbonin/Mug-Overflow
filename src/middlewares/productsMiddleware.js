@@ -6,6 +6,8 @@ import {
   FETCH_LATEST_PRODUCTS,
   FETCH_RANDOM_PRODUCTS,
   FETCH_SINGLE_PRODUCT,
+  FETCH_PROFILE_PRODUCTS,
+  saveProfileProducts,
   saveSingleProduct,
   saveRandomProducts,
   saveLatestProducts,
@@ -103,6 +105,19 @@ const productsMiddleware = (store) => (next) => (action) => {
           const searchedProducts = response.data;
           console.log(searchedProducts);
           store.dispatch(saveSearchedProducts(searchedProducts));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
+    case FETCH_PROFILE_PRODUCTS:
+    // API call to get a list of products resulting from a research
+      api.get('/products?type=favoriteProduct')
+        .then((response) => {
+          const profileProducts = response.data;
+          // console.log(profileProducts);
+          store.dispatch(saveProfileProducts(profileProducts));
         })
         .catch((error) => {
           console.log(error);

@@ -47,7 +47,7 @@
   font-family: 'brandon-grotesque', sans-serif;
   font-size: 1em;
   color: vars.$lightYellow!important;
-  width: 30%;
+  min-width: 30%;
   height: 2.5em;
   margin: 1.5em;
   background-color: vars.$darkBlue ;
@@ -55,9 +55,10 @@
   border-radius : 3px;
 }
 
-#favorite-card{
+#favorite-cards{
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: 50px;
 }
 

@@ -194,7 +194,7 @@ export default function AccountCreation() {
               fullWidth
               name="checkPassword"
               label="Verification du mot de passe"
-              type="checkPassword"
+              type="password"
               id="check-password"
               autoComplete="new-password"
               onChange={handleChange}
