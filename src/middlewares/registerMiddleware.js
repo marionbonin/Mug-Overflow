@@ -4,8 +4,12 @@ import {
   CREATE_USER_ACCOUNT,
   FETCH_PROMO_NAMES,
   FETCH_STATUS_NAMES,
+  GET_USER_DATA,
+  getUserData,
+  saveUserData,
   savePromoNames,
   saveStatusNames,
+  cleanState,
 } from '../actions/user';
 
 const registerMiddleware = (store) => (next) => (action) => {
@@ -15,6 +19,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         '/promos',
       )
         .then((response) => {
+          console.log(response.data);
           const promoNames = (response.data);
           store.dispatch(savePromoNames(promoNames));
         })
@@ -51,8 +56,34 @@ const registerMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
+          // editing api headers config
+          api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+          // getting user info related to token stored in state
+          localStorage.setItem('token', response.data.token);
+          store.dispatch(getUserData());
         })
 
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
+    case GET_USER_DATA:
+      api.get(
+        '/profil',
+      )
+        .then((response) => {
+          console.log(response);
+          console.log(response.data.email);
+          store.dispatch(saveUserData(
+            response.data.email,
+            response.data.firstname,
+            response.data.lastname,
+            response.data.promo,
+            response.data.status,
+            response.data.role,
+          ));
+        })
         .catch((error) => {
           console.log(error);
         });

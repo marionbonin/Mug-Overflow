@@ -56,7 +56,6 @@ const reducer = (state = initialState, action = {}) => {
       if (tokenStored) {
         return {
           ...state,
-          logged: true,
           loading: true,
         };
       }
@@ -75,6 +74,7 @@ const reducer = (state = initialState, action = {}) => {
         role: action.role,
         password: '',
         loading: false,
+        logged: true,
       };
 
     case CLEAN_STATE:

@@ -5,6 +5,7 @@ import Page from '../Page/page';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import spilledMug from 'src/assets/images/spilled-mug.svg';
+import errorMug from 'src/assets/images/mug-mockups/404_mugs.png';
 import './style.scss';
 
 export default function Error() {
@@ -13,8 +14,8 @@ export default function Error() {
       <Header />
       <Page>
         <Box className="box-error-page">
-          <h1> 404 </h1>
-          <h2> Mug not found </h2>
+          <img src={errorMug} alt="mug spilled" className="error-mug" />
+          <h2 className="error-title"> Mug not found </h2>
           <p>
             On peut commander un mug  404 fois.
           </p>

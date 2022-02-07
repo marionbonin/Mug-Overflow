@@ -12,15 +12,23 @@
     margin-bottom: 0;
     padding-bottom: 0;
   }
-  h2 {
+  // H2
+  .error-title {
     font-weight: 600;
     font-size: 3rem;
     margin-bottom: 30px;
+    padding-top: 0;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
   }
   p {
     font-size: 1.5rem;
     margin: 10px;
     font-style: italic;
+  }
+  .error-mug {
+    width: 50%;
+    max-width: 500px;
   }
   .spilled-mug {
     width: 50%;

@@ -3,6 +3,7 @@ import {
   SAVE_RANDOM_PRODUCTS,
   SAVE_FAVORITE_PRODUCTS,
   SAVE_LATEST_PRODUCTS,
+  FETCH_SINGLE_PRODUCT,
   SAVE_SINGLE_PRODUCT,
   SAVE_SEARCHED_PRODUCTS,
   FETCH_SEARCHED_PRODUCTS,
@@ -43,9 +44,16 @@ const reducer = (state = initialState, action = {}) => {
         lastList: action.latestProducts,
       };
 
+    case FETCH_SINGLE_PRODUCT:
+      return {
+        ...state,
+        loading: true,
+      };
+
     case SAVE_SINGLE_PRODUCT:
       return {
         ...state,
+        loading: false,
         list: action.product,
       };
 

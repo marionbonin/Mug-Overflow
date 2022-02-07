@@ -7,6 +7,7 @@ import {
   GET_USER_DATA,
   getUserData,
   saveUserData,
+  cleanState,
 } from '../actions/user';
 
 const loginMiddleware = (store) => (next) => (action) => {
@@ -46,8 +47,8 @@ const loginMiddleware = (store) => (next) => (action) => {
         '/profil',
       )
         .then((response) => {
-          // console.log(response);
-          // console.log(response.data.email);
+          console.log(response);
+          console.log(response.data.email);
           store.dispatch(saveUserData(
             response.data.email,
             response.data.firstname,

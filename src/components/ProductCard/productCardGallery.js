@@ -59,7 +59,7 @@ export default function ProductCardGallery(product) {
       </CardContent>
       <CardActions disableSpacing>
         <Link
-          to=""
+          to={base}
         >
           <Button
             id="card-button"

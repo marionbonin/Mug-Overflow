@@ -5,13 +5,18 @@ import FaceIcon from '@mui/icons-material/Face';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
 import logoOclockBackMug from 'src/assets/images/mug-mockups/logo_oclock_back_mug.png';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import Page from '../Page/page';
+import Loading from '../App/Loading';
 import ActiveLastBreadcrumb from '../Breadcrumb/breadcrumb';
 import ProductCarousel from './ProductCarousel/productCarousel';
 import { fetchSingleProduct } from '../../actions/products';
+import { saveSlug } from '../../actions/user';
+
 // import ColorRadioButtons from './ColorPick/colorPick';
 
 import './style.scss';
@@ -25,12 +30,17 @@ import './style.scss';
 
 export default function Product() {
   const dispatch = useDispatch();
+  const parameters = useParams();
+  const currentSlug = parameters.slug;
+  // console.log(currentSlug);
 
   useEffect(() => {
+    dispatch(saveSlug(currentSlug));
     dispatch(fetchSingleProduct());
   }, []);
 
   const product = useSelector((state) => state.products.list);
+  const isLoading = useSelector((state) => state.products.loading);
   console.log(product);
 
   const urlBaseImage = 'http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/';
@@ -56,11 +66,22 @@ export default function Product() {
     link.click();
   };
 
+  if (isLoading) {
+    return (
+      <>
+        <Header />
+          <Page>
+            <Loading />
+          </Page>
+        <Footer />
+      </>
+    )
+  }
+
   return (
     <>
       <Header />
       <Page>
-        <ActiveLastBreadcrumb />
         <div id="product-container">
           <div id="product-details">
             <div className="product-title-box">
