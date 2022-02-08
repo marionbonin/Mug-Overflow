@@ -41,17 +41,17 @@ export default function Product() {
   const isLoading = useSelector((state) => state.products.loading);
   console.log(product);
 
-  const urlBaseImage = 'http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/';
-  const urlEndImage = product.assetFront;
-  const fullUrlImage = urlBaseImage + urlEndImage;
+  // const urlBaseImage = 'http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/';
+  // const urlEndImage = product.assetFront;
+  // const fullUrlImage = urlBaseImage + urlEndImage;
   const pngExtension = '.jpg';
   const fileName = product.name + pngExtension;
 
   const onDownloadRecto = () => {
     const link = document.createElement('a');
     console.log(fileName);
-    console.log(fullUrlImage);
-    link.href = fullUrlImage;
+    console.log(product.assetFront);
+    link.href = product.assetFront;
     link.setAttribute('download', fileName);
     link.setAttribute('target', '_blank');
     link.click();

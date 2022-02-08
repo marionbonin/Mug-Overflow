@@ -1,5 +1,5 @@
 import {
-  Routes, Route, Navigate
+  Routes, Route, Navigate,
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -23,7 +23,6 @@ import { getUserData } from '../../actions/user';
 import Loading from './Loading';
 
 import './styles.scss';
-
 
 function App() {
   const dispatch = useDispatch();

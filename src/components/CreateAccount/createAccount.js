@@ -1,9 +1,7 @@
-import * as React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '@mui/material/Button';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
@@ -63,8 +61,6 @@ export default function AccountCreation() {
   const isLoadingSup = useSelector((state) => state.user.loadingSupTwo);
 
   const handleChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.value);
     dispatch(changeValue(event.target.name, event.target.value));
   };
 
