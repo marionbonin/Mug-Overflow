@@ -5,10 +5,12 @@ import Button from '@mui/material/Button';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Loading from '../App/Loading';
 
 import { fetchProfileProducts } from '../../actions/products';
@@ -20,6 +22,7 @@ import {
   fetchPromoNames,
   fetchStatusNames,
   updatePassword,
+  deleteAccount,
 } from '../../actions/user';
 
 import Header from '../Header/header';
@@ -30,21 +33,25 @@ import FavoriteCard from './FavoriteCard/favoriteCard';
 import './style.scss';
 
 export default function Profile() {
+  // handle user states
+  const userEmail = useSelector((state) => state.user.email);
+  const newPassword = useSelector((state) => state.user.password);
+  const checkPassword = useSelector((state) => state.user.checkPassword);
   const userFirstName = useSelector((state) => state.user.firstname);
   const userLastName = useSelector((state) => state.user.lastname);
-  const userPromos = useSelector((state) => state.user.promoNames);
-  const userStatus = useSelector((state) => state.user.statusNames);
-  const userEmail = useSelector((state) => state.user.email);
-  const currentPassword = useSelector((state) => state.user.password);
-  const checkPassword = useSelector((state) => state.user.checkPassword);
-  const newPassword = useSelector((state) => state.user.newPassword);
-
-  const products = useSelector((state) => state.products.profileProductsList);
   const currentPromo = useSelector((state) => state.user.promo.name);
   const currentStatus = useSelector((state) => state.user.status.name);
   const promoLoader = useSelector((state) => state.user.loadingSupOne);
   const statusLoader = useSelector((state) => state.user.loadingSupTwo);
+  const allPromos = useSelector((state) => state.user.promoNames);
+  const allStatus = useSelector((state) => state.user.statusNames);
+  const currentPassword = useSelector((state) => state.user.currentPassword);
 
+  // handle products state
+  
+  const displayError = useSelector((state) => state.user.loginError);
+  const products = useSelector((state) => state.products.profileProductsList);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const parameters = useParams();
   const currentSlug = parameters.slug;
@@ -54,12 +61,12 @@ export default function Profile() {
   };
 
   const handleChangePromo = (event) => {
-    const currentPromoObject = userPromos.find((promo) => promo.name === event.target.value);
+    const currentPromoObject = allPromos.find((promo) => promo.name === event.target.value);
     dispatch(changeValue(event.target.name, currentPromoObject));
   };
 
   const handleChangeStatus = (event) => {
-    const currentStatusObject = userStatus.find(
+    const currentStatusObject = allStatus.find(
       (singleStatus) => singleStatus.name === event.target.value,
     );
     dispatch(changeValue(event.target.name, currentStatusObject));
@@ -69,8 +76,15 @@ export default function Profile() {
     event.preventDefault();
     dispatch(saveUserEdit());
     dispatch(getUserData());
-    dispatch(updatePassword());
+    if (currentPassword && newPassword && (newPassword === checkPassword)) {
+      dispatch(updatePassword());
+    }
   };
+
+  // handling opening/closingthe modal for account deletion
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     dispatch(saveSlug(currentSlug));
@@ -79,7 +93,11 @@ export default function Profile() {
     dispatch(fetchStatusNames());
   }, []);
 
-  console.log(currentPassword);
+  const handleSubmitModal = (event) => {
+    event.preventDefault();
+    dispatch(deleteAccount());
+    // navigate('/inscription');
+  };
 
   if (promoLoader || statusLoader) {
     return (
@@ -134,7 +152,7 @@ export default function Profile() {
                   placeholder="Statut"
                   onChange={handleChangePromo}
                 >
-                  {userPromos.map((singlePromo) => (
+                  {allPromos.map((singlePromo) => (
                     <MenuItem
                       name={singlePromo.id}
                       id={singlePromo.id}
@@ -160,7 +178,7 @@ export default function Profile() {
                   placeholder="Statut"
                   onChange={handleChangeStatus}
                 >
-                  {userStatus.map((singleStatus) => (
+                  {allStatus.map((singleStatus) => (
                     <MenuItem
                       name="status"
                       id={singleStatus.id}
@@ -196,7 +214,7 @@ export default function Profile() {
               </TextField>
               <TextField
                 className="profile-input"
-                name="newPassword"
+                name="password"
                 id="pi-5"
                 autoComplete="new-password"
                 label="Nouveau mot de passe"
@@ -228,6 +246,15 @@ export default function Profile() {
               </Button>
             </form>
           </div>
+          <Button
+            onClick={handleOpen}
+            id="button-delete"
+            type="click"
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Supprimer le compte
+          </Button>
           <h2> Tes mugs favoris </h2>
           <div id="favorite-cards">
             {products.map((product) => (
@@ -240,6 +267,50 @@ export default function Profile() {
         </Container>
       </Page>
       <Footer />
+      <Modal
+        id="delete-modal"
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box>
+          <form id="modal-form" onSubmit={handleSubmitModal} noValidate>
+            <div id="modal-textfield">
+              <p className="modal-text-content">
+                Tu auras besoin de ton mot de passe pour pouvoir supprimer
+                ton compte.
+              </p>
+              <p className="modal-text-content">
+                Juste là...
+              </p>
+              <TextField
+                className="delete-input"
+                name="currentPassword"
+                // id="delete-input"
+                autoComplete="current-password"
+                label="Mot de passe"
+                type="password"
+                variant="outlined"
+                error={displayError}
+                helperText={displayError ? 'Mot de passe incorrect' : ''}
+                onChange={handleChange}
+              >
+                {currentPassword}
+              </TextField>
+            </div>
+            <Button
+              id="button-modal"
+              type="submit"
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+
+            >
+              Confirmer la suppression
+            </Button>
+          </form>
+        </Box>
+      </Modal>
     </>
   );
 }

@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: center;
     width: 50%;
-    max-width: 500px;
+    max-width: 400px;
   
     label {
       font-family: 'brandon-grotesque', sans-serif;
@@ -30,32 +30,44 @@
     
 
 
-#text-area{
-  font-family: 'brandon-grotesque', sans-serif;
-  font-size: 1rem;
-  height: 8em;
-  width: 100%;
-  align-items: center;
-  background-color: vars.$lightYellow ;
-  margin: 1em;
-  border: 1px solid vars.$lightYellow;
-  border-radius: 3px;
+    #text-area{
+      font-family: 'brandon-grotesque', sans-serif;
+      font-size: 1rem;
+      height: 8em;
+      width: 100%;
+      align-items: center;
+      background-color: vars.$lightYellow ;
+      margin: 1em;
+      border: 1px solid vars.$lightYellow;
+      border-radius: 3px;
+    } 
+
+    #button-profile {
+      font-family: 'brandon-grotesque', sans-serif;
+      font-size: 1em;
+      color: vars.$lightYellow!important;
+      width: 100%;
+      max-width: 400px;
+      height: 2.5em;
+      margin: 1.5em;
+      background-color: vars.$darkBlue ;
+      border: 1px solid vars.$darkBlue;
+      border-radius : 3px;
+    }
 }
 
-#button-profile {
+}
+#button-delete {
   font-family: 'brandon-grotesque', sans-serif;
   font-size: 1em;
   color: vars.$lightYellow!important;
-  min-width: 30%;
-  height: 2.5em;
-  margin: 1.5em;
-  background-color: vars.$darkBlue ;
-  border: 1px solid vars.$darkBlue;
+  width: 50%;
+  max-width: 400px;
+  background-color: vars.$darkRed ;
+  border: 1px solid vars.$darkRed;
   border-radius : 3px;
+  margin-bottom: 50px;
 }
-  }
-}
-
 .profile-input{
   font-family: 'brandon-grotesque', sans-serif!important;
   width: 100%;
@@ -65,7 +77,7 @@
   margin: 16px!important; 
   display: none;
 
-  #pi-1, #pi-2, #pi-3, #pi-4 {
+  #pi-1, #pi-2, #pi-3, #pi-4 #pi-5, #pi-6 {
     font-family: 'brandon-grotesque', sans-serif!important;
     font-size: 1.2rem!important;
   }
@@ -93,5 +105,83 @@
   flex-wrap: wrap;
   justify-content: center;
   padding-bottom: 50px;
+}
+
+#delete-modal {
+  // width: 400;
+  // border: 2px solid #000;
+  
+  
+  #modal-form {
+    background-color: white;
+    // border: 2px solid red;
+    width: 350px;
+    height: 350px;
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    margin-left: -175px;
+    margin-top: -300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 40px;
+
+    @media (min-width: 650px){ 
+      padding: 50px;
+      width: 650px;
+      height: 325px;
+      margin-left: -325px;
+      margin-top: -325px;
+    }
+    
+    :focus {
+      border: none;
+    }
+
+    #modal-textfield {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .modal-text-content {
+        font-weight: 500;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 20px;
+        
+        & + div { 
+          // targets input's parent div
+          // many div layers in the MUI component
+          // border: 2px purple solid;
+          padding: 0;
+          // margin: 0!important;
+          width: 100%;
+          label {
+            & + div {
+              background-color: vars.$lightYellow!important;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    #delete-input {
+      display: block;
+      align-self: center;
+      width: 100%!important;
+      overflow: hidden;
+    }
+    
+
+    #button-modal {
+      width: 100%;
+      margin: 0;
+      background-color: vars.$darkRed;
+    }
+  }
 }
 

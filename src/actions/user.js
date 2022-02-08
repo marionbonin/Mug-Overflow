@@ -13,6 +13,7 @@ export const SAVE_STATUS_NAMES = 'SAVE_STATUS_NAMES';
 export const SAVE_USER_EDIT = 'SAVE_USER_EDIT';
 export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
 export const DISPLAY_ERROR = 'DISPLAY_ERROR';
+export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 
 export const changeValue = (identifier, value) => ({
   type: CHANGE_VALUE,
@@ -82,21 +83,23 @@ export const saveStatusNames = (statusNames) => ({
   statusNames: statusNames,
 });
 
-export const saveUserEdit = (firstname, lastname, promo, status, email, password) => ({
+export const saveUserEdit = (firstname, lastname, promo, status, email) => ({
   type: SAVE_USER_EDIT,
   firstname: firstname,
   lastname: lastname,
   promo: promo,
   status: status,
   email: email,
-  password: password,
 });
 
-export const updatePassword = (password) => ({
+export const updatePassword = () => ({
   type: UPDATE_PASSWORD,
-  password: password,
 });
 
 export const displayError = () => ({
   type: DISPLAY_ERROR,
+});
+
+export const deleteAccount = () => ({
+  type: DELETE_ACCOUNT,
 });

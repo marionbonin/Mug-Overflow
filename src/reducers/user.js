@@ -12,11 +12,15 @@ import {
   SAVE_USER_EDIT,
   UPDATE_PASSWORD,
   DISPLAY_ERROR,
+  DELETE_ACCOUNT,
 } from '../actions/user';
 
 export const initialState = {
   logged: false,
   loginError: false,
+  loading: false,
+  loadingSupOne: false,
+  loadingSupTwo: false,
   email: '',
   password: '',
   checkPassword: '',
@@ -25,13 +29,10 @@ export const initialState = {
   promo: '',
   status: '',
   role: '',
-  loading: false,
-  loadingSupOne: false,
-  loadingSupTwo: false,
   slug: '',
+  searchValue: '',
   promoNames: [],
   statusNames: [],
-  searchValue: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -78,6 +79,8 @@ const reducer = (state = initialState, action = {}) => {
         status: action.status,
         role: action.role,
         password: '',
+        checkPassword: '',
+        currentPassword: '',
         loading: false,
         logged: true,
       };
@@ -151,13 +154,17 @@ const reducer = (state = initialState, action = {}) => {
         lastname: action.lastname,
         promo: action.promo,
         status: action.status,
-        password: '',
       };
 
     case UPDATE_PASSWORD:
       return {
         ...state,
-        password: '',
+      };
+
+    case DELETE_ACCOUNT:
+      return {
+        ...state,
+        loginError: false,
       };
 
     default:
