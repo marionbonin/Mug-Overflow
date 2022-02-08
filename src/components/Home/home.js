@@ -5,6 +5,7 @@ import { HashLink } from 'react-router-hash-link';
 import Box from '@mui/material/Box';
 import Page from '../Page/page';
 import homeCarouselsData from './homeCarouselsData';
+import ScrollToTop from '../ScrollToTop/scrollToTop';
 
 import { fetchRandomProducts, fetchFavoriteProducts, fetchLatestProducts } from '../../actions/products';
 
@@ -42,6 +43,7 @@ export default function Home() {
   ];
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Page>
         <div id="page-container">

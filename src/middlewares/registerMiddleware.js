@@ -19,7 +19,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         '/promos',
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           const promoNames = (response.data);
           store.dispatch(savePromoNames(promoNames));
         })
@@ -33,7 +33,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         '/status',
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           store.dispatch(saveStatusNames(response.data));
         })
         .catch((error) => {
@@ -55,7 +55,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           // editing api headers config
           api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
           // getting user info related to token stored in state

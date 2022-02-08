@@ -2,13 +2,15 @@ import Container from '@mui/material/Container';
 
 import Page from '../Page/page';
 import Header from '../Header/header';
-import Footer from '../Footer/footer';
+import Footer from '../Footer/footer'
+import ScrollToTop from '../ScrollToTop/scrollToTop';
 
 import './style.scss';
 
 export default function GeneralConditions() {
   return (
     <>
+      {/* <ScrollToTop /> */}
       <Header />
       <Page>
         <Container id="cgu-container">

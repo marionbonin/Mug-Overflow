@@ -12,12 +12,10 @@ import Footer from '../Footer/footer';
 import './style.scss';
 
 export default function Contact() {
-
   // getting user info from state to prefill fields
   const firstName = useSelector((state) => state.user.firstname);
   const email = useSelector((state) => state.user.email);
-  console.log(firstName, email);
-
+  // console.log(firstName, email);
 
   const form = useRef();
 

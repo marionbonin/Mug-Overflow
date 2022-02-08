@@ -48,7 +48,7 @@ const productsMiddleware = (store) => (next) => (action) => {
       api.get('/products?type=random')
         .then((response) => {
           const randomProducts = response.data;
-          console.log(randomProducts);
+          // console.log(randomProducts);
           store.dispatch(saveRandomProducts(randomProducts));
         })
         .catch((error) => {
@@ -62,7 +62,7 @@ const productsMiddleware = (store) => (next) => (action) => {
       api.get('/products?type=favoritePromo')
         .then((response) => {
           const favoriteProducts = response.data;
-          console.log(favoriteProducts);
+          // console.log(favoriteProducts);
           store.dispatch(saveFavoriteProducts(favoriteProducts));
         })
         .catch((error) => {
@@ -76,7 +76,7 @@ const productsMiddleware = (store) => (next) => (action) => {
       api.get('/products?type=latest')
         .then((response) => {
           const latestProducts = response.data;
-          console.log(latestProducts);
+          // console.log(latestProducts);
           store.dispatch(saveLatestProducts(latestProducts));
         })
         .catch((error) => {

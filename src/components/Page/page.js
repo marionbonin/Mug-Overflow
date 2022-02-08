@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
+import ScrollToTop from '../ScrollToTop/scrollToTop';
 
 import './style.scss';
 
 const Page = ({ children }) => (
-  <main className="main-wrapper">
-    <div className="page">
-      {children}
-    </div>
-  </main>
+  <>
+    <ScrollToTop />
+    <main className="main-wrapper">
+      <div className="page">
+        {children}
+      </div>
+    </main>
+  </>
 );
 
 Page.propTypes = {

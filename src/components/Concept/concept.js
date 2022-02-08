@@ -11,11 +11,13 @@ import Page from '../Page/page';
 import Footer from '../Footer/footer';
 
 import './style.scss';
+import ScrollToTop from '../ScrollToTop/scrollToTop';
 // import { Link } from '@mui/material';
 
 export default function Product() {
   return (
     <>
+      {/* <ScrollToTop /> */}
       <Header />
       <Page>
         <Container id="concept-container">

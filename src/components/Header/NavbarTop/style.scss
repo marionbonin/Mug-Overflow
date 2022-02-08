@@ -4,7 +4,7 @@
     @media (max-width: 600px){ 
       padding-top: 10px;
     }
-    background-color: vars.$blackOpacitySixty;
+    background-color: vars.$blackOpacitySeventy;
     
     #top-menu-appbar {
     background-color: vars.$blackOpacityZero;
@@ -37,7 +37,11 @@
       }
     }
 
-    
+    #avatar-img {
+      stroke: black;
+      color: vars.$backgroundGreen;
+      background-color: vars.$lightYellow;
+    }
   }
 }
 #menu-typo{

@@ -152,11 +152,7 @@ export default function SearchAppBar() {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
-                  src=""
-                  sx={{
-                    color: '#00000060',
-                    backgroundColor: '#0ac3a7',
-                  }}
+                  id="avatar-img"
                 />
               </IconButton>
             </Tooltip>

@@ -4,11 +4,12 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import InputLabel from '@mui/material/InputLabel'; 
+import InputLabel from '@mui/material/InputLabel';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import Loading from '../App/Loading';
 
 import { fetchProfileProducts } from '../../actions/products';
 import {
@@ -33,28 +34,36 @@ export default function Profile() {
   const userPromos = useSelector((state) => state.user.promoNames);
   const userStatus = useSelector((state) => state.user.statusNames);
   const userEmail = useSelector((state) => state.user.email);
-  const userPass = useSelector((state) => state.user.password);
   const products = useSelector((state) => state.products.profileProductsList);
   const currentPromo = useSelector((state) => state.user.promo.name);
   const currentStatus = useSelector((state) => state.user.status.name);
+  const promoLoader = useSelector((state) => state.user.loadingSupOne);
+  const statusLoader = useSelector((state) => state.user.loadingSupTwo);
+
   const dispatch = useDispatch();
   const parameters = useParams();
   const currentSlug = parameters.slug;
 
-  console.log(userPromos);
-
-  // console.log(currentSlug);
   const handleChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.value);
-    dispatch(changeValue(event.target.name, { id: event.target.id, name: event.target.value }));
+    dispatch(changeValue(event.target.name, event.target.value));
+  };
+
+  const handleChangePromo = (event) => {
+    const currentPromoObject = userPromos.find((promo) => promo.name === event.target.value);
+    dispatch(changeValue(event.target.name, currentPromoObject));
+  };
+
+  const handleChangeStatus = (event) => {
+    const currentStatusObject = userStatus.find(
+      (singleStatus) => singleStatus.name === event.target.value,
+    );
+    dispatch(changeValue(event.target.name, currentStatusObject));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(saveUserEdit());
     dispatch(getUserData());
-    // console.log('o');
   };
 
   useEffect(() => {
@@ -64,14 +73,24 @@ export default function Profile() {
     dispatch(fetchStatusNames());
   }, []);
 
-  // console.log(products);
-
+  if (promoLoader || statusLoader) {
+    return (
+      <>
+        <Header />
+        <Page>
+          <Loading />
+        </Page>
+        <Footer />
+      </>
+    );
+  }
   return (
     <>
       <Header />
       <Page>
         <Container>
-          <h1> Bonjour {userFirstName} </h1>
+          <h1 className="profil-title"> Bonjour {userFirstName} </h1>
+          <h2 className="profil-subtitle">Ici ton profil tu éditeras</h2>
 
           <div id="favorite-form">
             <form id="profile-form" onSubmit={handleSubmit}>
@@ -99,17 +118,20 @@ export default function Profile() {
                   labelId="demo-simple-select-label"
                   className="register-select"
                   id="demo-simple-select"
+                  // event.target.name here
                   name="promo"
-                  value={currentPromo}
+                  value={!currentPromo ? '' : currentPromo}
+                  defaultValue=""
                   label="Promotion"
                   placeholder="Statut"
-                  onChange={handleChange}
+                  onChange={handleChangePromo}
                 >
                   {userPromos.map((singlePromo) => (
                     <MenuItem
-                      name="promo"
+                      name={singlePromo.id}
                       id={singlePromo.id}
                       key={singlePromo.id}
+                      // event.target.value here
                       value={singlePromo.name}
                     >
                       {singlePromo.name}
@@ -123,11 +145,12 @@ export default function Profile() {
                 <Select
                   className="register-select"
                   id="demo-simple-select"
-                  value={currentStatus}
+                  value={!currentStatus ? '' : currentStatus}
+                  defaultValue=""
                   name="status"
                   label="Statut"
                   placeholder="Statut"
-                  onChange={handleChange}
+                  onChange={handleChangeStatus}
                 >
                   {userStatus.map((singleStatus) => (
                     <MenuItem
@@ -145,6 +168,7 @@ export default function Profile() {
                 className="profile-input"
                 id="pi-3"
                 defaultValue={userEmail}
+                autoComplete="email"
                 name="email"
                 label="Email"
                 variant="outlined"
@@ -154,7 +178,8 @@ export default function Profile() {
                 className="profile-input"
                 name="password"
                 id="pi-4"
-                label="Mot de passe"
+                autoComplete="current-password"
+                label="Nouveau mot de passe"
                 type="password"
                 variant="outlined"
                 onChange={handleChange}

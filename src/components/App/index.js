@@ -39,8 +39,6 @@ function App() {
     }
   }, []);
 
-  // Desactivation pour travailler sur des bases
-
   if (loading) {
     return <Loading />;
   }

@@ -20,7 +20,6 @@ export default function FavoriteCard(product) {
   const navigate = useNavigate();
   const base = `/produit/${product.slug}`;
 
-
   const handleClick = (() => {
     dispatch(cleanListState());
     navigate(base);

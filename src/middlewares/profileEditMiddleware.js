@@ -5,7 +5,7 @@ import {
   GET_USER_DATA,
   getUserData,
   saveUserData,
-  cleanState,
+  //cleanState,
 } from '../actions/user';
 
 const profileEditMiddleware = (store) => (next) => (action) => {

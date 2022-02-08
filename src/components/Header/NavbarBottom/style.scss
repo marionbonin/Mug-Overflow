@@ -194,6 +194,10 @@ ul.main-menu {
 
     &:hover {
       background-color: vars.$backgroundGreen;
+
+      a {
+        color: vars.$lightYellow!important;
+      }
     }    
   }
 }
@@ -227,7 +231,7 @@ ul.main-menu {
   padding: 0;
   color: vars.$backgroundGrey!important;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 3rem;
   width: 100%;
 }

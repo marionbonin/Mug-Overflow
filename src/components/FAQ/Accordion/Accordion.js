@@ -50,13 +50,8 @@ export default function ControlledAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography className="faq-accordion-text answer">
-            <p>
-              Le concept est déjà dans les cartons ! Et qué s'appélério...
-            </p>
-            <p>
-              <span className="bold">"Pull-Over Flow" !</span>
-            </p>
-
+            Le concept est déjà dans les cartons ! Et qué s'appélério...
+            <span className="bold">"Pull-Over Flow" !</span>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -74,13 +69,10 @@ export default function ControlledAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography className="faq-accordion-text answer">
-            <p>
-              En tant que grossiste imprimeur de mug ? Certainement.
-            </p>
-            <p>
-              En tant que développeur.se ? On espère, ne lache rien! Et ne fais 
-              jamais confiance à Ben...
-            </p>
+            En tant que grossiste imprimeur de mug ? Certainement.
+            <br />
+            En tant que développeur.se ? On espère, ne lâche rien ! Et ne fais
+            jamais confiance à Ben...
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -116,16 +108,12 @@ export default function ControlledAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography className="faq-accordion-text answer">
-            <p>
-              Aliquid, ab laudantium aut quasi quas deserunt quibusdam quos, minus
-              quisquam corporis quae unde ratione necessitatibus facere voluptas ad
-              recusandae laborum qui magnam voluptatum optio voluptatibus? Impedit sequi,
-              ratione omnis quod nam, voluptatibus dolorem esse sed dolore, veritatis voluptate!
-            </p>
+            Aliquid, ab laudantium aut quasi quas deserunt quibusdam quos, minus
+            quisquam corporis quae unde ratione necessitatibus facere voluptas ad
+            recusandae laborum qui magnam voluptatum optio voluptatibus? Impedit sequi,
+            ratione omnis quod nam, voluptatibus dolorem esse sed dolore, veritatis voluptate!
             <br />
-            <p>
-              Ca veut dire <span className="bold">non</span>, en latin. Donc prends-en soin!
-            </p>
+            Ca veut dire <span className="bold">non</span>, en latin. Donc prends-en soin !
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -143,14 +131,11 @@ export default function ControlledAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography className="faq-accordion-text answer">
-            <p>
-              Il doit y avoir un sacré nombre d'issues sur Stack Overflow à ce sujet, Donc RTFM !
-            </p>
-            <p>
-              Mais bon, on te l'accorde, boire au mug,
-              c'est tout un art! Au bout d'un moment, tu tiendras 2 mugs dans une main
-              tout en codant de l'autre!
-            </p>
+            Il doit y avoir un sacré nombre d'issues sur Stack Overflow à ce sujet, Donc RTFM !
+            <br />
+            Mais bon, on te l'accorde, boire au mug,
+            c'est tout un art. Au bout d'un moment, tu tiendras 2 mugs dans une main
+            tout en codant de l'autre !
           </Typography>
         </AccordionDetails>
       </Accordion>

@@ -35,21 +35,21 @@ const loginMiddleware = (store) => (next) => (action) => {
         })
 
         .catch((error) => {
-          console.log('mikabuche');
+          console.log(error);
           store.dispatch(displayError());
         });
       break;
 
     case GET_USER_DATA:
-      if (!localStorage.getItem('token')) {
-        console.log('notoken');
-        break;
-      }
+      // if (!localStorage.getItem('token')) {
+      //   console.log('notoken');
+      //   break;
+      // }
       api.get(
         '/profil',
       )
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           // console.log(response.data.email);
           store.dispatch(saveUserData(
             response.data.email,

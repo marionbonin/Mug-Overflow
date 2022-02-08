@@ -17,6 +17,7 @@ import Loading from '../App/Loading';
 import { findCategory } from '../../selectors/categories';
 import { fetchProductsByCategory } from '../../actions/products';
 import { saveSlug } from '../../actions/user';
+import ScrollToTop from '../ScrollToTop/scrollToTop';
 import './style.scss';
 
 export default function Category() {
@@ -70,6 +71,7 @@ export default function Category() {
   }
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Page>
         <h1> {category.name} </h1>
