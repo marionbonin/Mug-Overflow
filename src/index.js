@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 
 // == Import : local
 import store from 'src/store';
-// Composants
+
+// Components
 import App from 'src/components/App';
 
 // == Render
-
 const rootReactElement = (
   <BrowserRouter basename="/">
     <Provider store={store}>

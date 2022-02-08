@@ -4,7 +4,7 @@ import Page from '../Page/page';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import Loading from '../App/Loading';
-import Card from '../Categories/ProductCardCategory/productCardCategory';
+import Card from '../ProductCard/ProductCardCategory/productCardCategory';
 import { changeValue } from '../../actions/user';
 
 import './style.scss';

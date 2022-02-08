@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Header from '../Header/header';
 import Page from '../Page/page';
 import Footer from '../Footer/footer';
-import Card from './ProductCardCategory/productCardCategory';
+import Card from '../ProductCard/ProductCardCategory/productCardCategory';
 import Loading from '../App/Loading';
 import { findCategory } from '../../selectors/categories';
 import { fetchProductsByCategory } from '../../actions/products';

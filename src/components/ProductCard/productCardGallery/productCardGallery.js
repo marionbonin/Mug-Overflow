@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,11 +10,41 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Link from '@mui/material/Link';
+import { cleanListState } from '../../../actions/products';
+import loadingMugSvg from '../../../assets/images/mug-to-spill.svg';
 
 import './style.scss';
 
-export default function MediaCard(product) {
-  console.log(product);
+export default function ProductCardGallery(product) {
+  const base = `/produit/${product.props.slug}`;
+  const thumbnail = product.props.mockupFront;
+
+  // const handleClick = (() => {
+  //   const navigate = useNavigate();
+  //   navigate(base);
+  // });
+
+  // si on veut précharger les images
+  // on gère un state pour représenter si l'image est chargée ou non
+  const [isLoaded, setIsLoaded] = useState(false);
+  // on pose un effet chaque fois que l'image change
+  useEffect(() => {
+    if (thumbnail) {
+      // on la considère comme non chargé
+      setIsLoaded(false);
+      // on crée une image sans l'afficher
+      const image = new Image();
+      // à la bonne adresse
+      image.src = thumbnail;
+      // et on dit quoi faire quand elle sera chargée
+      image.onload = function () {
+        // on change d'état
+        setIsLoaded(true);
+      };
+    }
+  }, [thumbnail]);
+  // console.log(product.props);
+
   return (
     <Card
       // sx={{ borderRadius: 4 }}
@@ -20,17 +53,18 @@ export default function MediaCard(product) {
       <CardMedia
         component="img"
         className="cardMugMedia"
-        image={`http://nicolaslenne-server.eddi.cloud/projet-Mug-Overflow-back/public/uploads/images/${product.mockupFront}`}
+        id={!isLoaded ? 'svg' : ''}
+        src={isLoaded ? thumbnail : loadingMugSvg}
         alt="photo du produit"
       />
       <CardContent>
         <Box className="card-content">
           <div className="card-mug-props">
             <div className="card-mug-name">
-              {product.name}
+              {product.props.name}
             </div>
             <div className="card-mug-categ">
-              {product.category[0].name}
+              {product.props.category[0].name}
             </div>
           </div>
           <IconButton
@@ -43,7 +77,7 @@ export default function MediaCard(product) {
       </CardContent>
       <CardActions disableSpacing>
         <Link
-          to=""
+          to={base}
         >
           <Button
             id="card-button"
@@ -53,7 +87,7 @@ export default function MediaCard(product) {
             sx={{ mt: 3, mb: 2 }}
             onClick={handleClick}
           >
-            Détailss
+            Détails PCG
           </Button>
         </Link>
       </CardActions>

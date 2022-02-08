@@ -1,6 +1,3 @@
-/* ici nos propres actions pour tout reprendre au fur et à mesure
-*/
-
 export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 // export const SAVE_TOKEN = 'SAVE_TOKEN';
@@ -14,6 +11,7 @@ export const SAVE_PROMO_NAMES = 'SAVE_PROMO_NAMES';
 export const FETCH_STATUS_NAMES = 'FETCH_STATUS_NAMES';
 export const SAVE_STATUS_NAMES = 'SAVE_STATUS_NAMES';
 export const SAVE_USER_EDIT = 'SAVE_USER_EDIT';
+export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
 export const DISPLAY_ERROR = 'DISPLAY_ERROR';
 
 export const changeValue = (identifier, value) => ({
@@ -91,6 +89,11 @@ export const saveUserEdit = (firstname, lastname, promo, status, email, password
   promo: promo,
   status: status,
   email: email,
+  password: password,
+});
+
+export const updatePassword = (password) => ({
+  type: UPDATE_PASSWORD,
   password: password,
 });
 

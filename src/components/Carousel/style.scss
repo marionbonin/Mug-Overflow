@@ -2,13 +2,11 @@
 
 // carousel wrappers
 .carousel-box {
-  //border: 1px vars.$backgroundGreen solid;
-  //margin-top: 50px;
   width: 100%;
   padding-bottom: 30px;
 }
 
-// middle carousel (with a different bg color?)
+// middle carousel (with a different bg color)
 #carousel-color {
   background-color: vars.$backgroundGreen;
 
@@ -51,9 +49,6 @@
     background-color: white;
     padding: 30px 14px!important;
     border-radius: 50px;
-    // J'ai retiré la position relative pour laisser la "absolute" par défaut
-    // J'ai juste mis un top à 25% sachant qu'il était à 0% 
-    //height: 0%!important;
     position: relative!important;
     top: 25%!important;
     bottom: 50%!important;

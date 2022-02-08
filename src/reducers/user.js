@@ -10,6 +10,7 @@ import {
   SAVE_STATUS_NAMES,
   FETCH_PROMO_NAMES,
   SAVE_USER_EDIT,
+  UPDATE_PASSWORD,
   DISPLAY_ERROR,
 } from '../actions/user';
 
@@ -150,6 +151,12 @@ const reducer = (state = initialState, action = {}) => {
         lastname: action.lastname,
         promo: action.promo,
         status: action.status,
+        password: '',
+      };
+
+    case UPDATE_PASSWORD:
+      return {
+        ...state,
         password: '',
       };
 

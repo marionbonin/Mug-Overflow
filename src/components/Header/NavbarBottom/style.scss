@@ -15,7 +15,7 @@
         text-align: right;
     }
 
-    // Push the "catégories" navlink in 2nd pos when navbar is on.
+    // Pushes the "catégories" navlink in 2nd position when navbar is in full-width.
     #accueil {
       order: 1;
     }
@@ -41,20 +41,8 @@
   }
 }
 
-//! rapport au dropdown categ? pas acces
-.sec__one {
-  border: 1px solid red;
-    position: relative;
-    width: 100%;
-    display: flex;
-    padding: 60px 0;
-}
 
-//! rapport au dropdown categ? pas acces
-.navBar .col-md-3 {
-  z-index: 7;
-}
-// those ul. can't go inside the navbar container or they break 
+// those ul classes can't go inside the navbar container or they break 
 // burger menu
 ul.main-menu {
   display: flex;
@@ -69,14 +57,6 @@ ul.main-menu {
   margin: 0;
   z-index: 7;
 }
-
-//! rapport au dropdown categ?
-//! sinon à supprimer, car pas utile
-// ul.main-menu>li.menu-item:first-child {
-//   border: 1px solid red;
-//   padding-left: 0;
-//   margin-left: 0;
-// }
 
 .menu-item {
   display: flex;
@@ -103,24 +83,21 @@ ul.main-menu {
   // Handle the bottom navbar over and links when 
   // it's not in burger menu
   .menu-item {
-    // border: 1px solid red;
     border-radius: 0;
     color: vars.$lightYellow;
     text-decoration: none;
     height: 64px;
     a {
       display: flex;
-      // flex-wrap: nowrap;
       align-items: center;
       height: 100%;
       // This padding allows us to have a 8px wider border bottom on hover
       padding: 0 4px;
       // use not(.is-active) instead
       &.is-active {
-        // border: 1px solid blue;
         border-bottom: 4px solid vars.$orangeYellow;
       }
-      // put the svg chevron on the same line
+      // puts the svg chevron on the same line
       .chevron {
         position: relative;
       }
@@ -134,31 +111,12 @@ ul.main-menu {
   }
 }
 
-//! rapport au dropdown categ?
-//! sinon à supprimer, car pas utile
-// .header__middle {
-//   display: flex;
-//   width: 100%;
-//   //float: left;
-//   //border-bottom: 1px dashed lavender;
-//   position: relative;
-// }
-
-//! rapport au dropdown categ?
-//! sinon à supprimer, car pas utile
-// .active{
-//   color: vars.$darkGrey!important;
-//   background: none!important;
-//   // text-decoration: underline!important;
-//   // text-underline-offset: 0.2rem;
-// } 
-
 .sub__menus__arrows{
   position: relative;
 }
 
-// oddly, this manage the svg chevron on burger menu, but 
-// is not override by the other position and so from above.
+// oddly, this manages the svg chevron on burger menu, but 
+// is not overridden by any other position from above elements.
 .sub__menus__arrows svg, .sub__menus__arrows__full svg{
   padding-top: 0px;
   position: absolute;
@@ -207,8 +165,6 @@ ul.main-menu {
   .header__middle .active {
     color: vars.$backgroundGreen!important;
     background: none;
-    // text-decoration: underline;
-    // text-underline-offset: 0.2rem;
   }
 }
 
@@ -225,8 +181,6 @@ ul.main-menu {
 
 
 .menu-item .sub__menus  a {
-  //padding: 7px 0 0px 0;
-  //margin: 7px 27px;
   margin: 0;
   padding: 0;
   color: vars.$backgroundGrey!important;
@@ -235,11 +189,6 @@ ul.main-menu {
   line-height: 3rem;
   width: 100%;
 }
-
-// prop à modif si on veut le soulignage jaune au hover
-// .menu-item:hover > a{
-//   color: vars.$orangeYellow !important;
-// }
 
 // burger menu management
 @media(max-width:900px){
@@ -264,7 +213,7 @@ ul.main-menu {
     }
   }
   .main-nav .menubar__button:hover {
-    color: vars.$darkGrey;
+    color: vars.$orangeYellow;
   }
 
   .main-nav .menu-item:hover > a {

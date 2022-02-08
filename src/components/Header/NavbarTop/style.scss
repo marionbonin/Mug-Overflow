@@ -38,9 +38,15 @@
     }
 
     #avatar-img {
-      stroke: black;
-      color: vars.$backgroundGreen;
-      background-color: vars.$lightYellow;
+      border: 3px vars.$lightYellow solid;
+      border-radius: 200px;
+      color: vars.$lightYellow;
+      background-color: inherit;
+
+      &:hover {
+        color: vars.$orangeYellow;
+        border-color: vars.$orangeYellow;
+      }
     }
   }
 }

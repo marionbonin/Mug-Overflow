@@ -34,4 +34,9 @@ export default [
     promo: 'Promo Jito',
     message: '"Plus qu\'un mug, une famille"',
   },
+  {
+    author: 'Gandalf le Gris',
+    promo: 'Promo Rdor',
+    message: '"Tu es un sorcier, Harry !"',
+  },
 ];

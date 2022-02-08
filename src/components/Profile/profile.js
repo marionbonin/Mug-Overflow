@@ -19,6 +19,7 @@ import {
   getUserData,
   fetchPromoNames,
   fetchStatusNames,
+  updatePassword,
 } from '../../actions/user';
 
 import Header from '../Header/header';
@@ -34,6 +35,10 @@ export default function Profile() {
   const userPromos = useSelector((state) => state.user.promoNames);
   const userStatus = useSelector((state) => state.user.statusNames);
   const userEmail = useSelector((state) => state.user.email);
+  const currentPassword = useSelector((state) => state.user.password);
+  const checkPassword = useSelector((state) => state.user.checkPassword);
+  const newPassword = useSelector((state) => state.user.newPassword);
+
   const products = useSelector((state) => state.products.profileProductsList);
   const currentPromo = useSelector((state) => state.user.promo.name);
   const currentStatus = useSelector((state) => state.user.status.name);
@@ -64,6 +69,7 @@ export default function Profile() {
     event.preventDefault();
     dispatch(saveUserEdit());
     dispatch(getUserData());
+    dispatch(updatePassword());
   };
 
   useEffect(() => {
@@ -72,6 +78,8 @@ export default function Profile() {
     dispatch(fetchPromoNames());
     dispatch(fetchStatusNames());
   }, []);
+
+  console.log(currentPassword);
 
   if (promoLoader || statusLoader) {
     return (
@@ -176,14 +184,40 @@ export default function Profile() {
               />
               <TextField
                 className="profile-input"
-                name="password"
+                name="currentPassword"
                 id="pi-4"
                 autoComplete="current-password"
+                label="Mot de passe"
+                type="password"
+                variant="outlined"
+                onChange={handleChange}
+              >
+                {currentPassword}
+              </TextField>
+              <TextField
+                className="profile-input"
+                name="newPassword"
+                id="pi-5"
+                autoComplete="new-password"
                 label="Nouveau mot de passe"
                 type="password"
                 variant="outlined"
                 onChange={handleChange}
-              />
+              >
+                {newPassword}
+              </TextField>
+              <TextField
+                className="profile-input"
+                name="checkPassword"
+                id="pi-6"
+                autoComplete="new-password"
+                label="Confirmer nouveau mot de passe"
+                type="password"
+                variant="outlined"
+                onChange={handleChange}
+              >
+                {checkPassword}
+              </TextField>
               <Button
                 id="button-profile"
                 type="submit"
@@ -194,7 +228,7 @@ export default function Profile() {
               </Button>
             </form>
           </div>
-          <h2> Tes Mugs Favoris </h2>
+          <h2> Tes mugs favoris </h2>
           <div id="favorite-cards">
             {products.map((product) => (
               <FavoriteCard

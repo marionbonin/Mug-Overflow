@@ -21,7 +21,7 @@
 
   img {
     height: 60%;
-    padding: 2px;
+    // padding: 2px;
   }
 
   .MuiCardContent-root  {
@@ -77,3 +77,10 @@
   }
 }
 
+#svg {
+  max-width: 50%;
+  height: 100%;
+  margin: 2rem 0;
+  display: flex;
+  align-self: center;
+}

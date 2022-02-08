@@ -3,6 +3,7 @@ import api from './api';
 import {
   SAVE_USER_EDIT,
   GET_USER_DATA,
+  UPDATE_PASSWORD,
   getUserData,
   saveUserData,
   //cleanState,
@@ -19,6 +20,31 @@ const profileEditMiddleware = (store) => (next) => (action) => {
           lastname: store.getState().user.lastname,
           status: store.getState().user.status.id,
           promo: store.getState().user.promo.id,
+        },
+      )
+        .then((response) => {
+          const tokenStorage = response.data[1];
+          const tokenValue = tokenStorage.token;
+          // editing api headers config
+          localStorage.removeItem('token');
+          api.defaults.headers.common.Authorization = `bearer ${tokenValue}`;
+          // getting user info related to token stored in state
+          localStorage.setItem('token', tokenValue);
+          store.dispatch(getUserData());
+        })
+
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
+    case UPDATE_PASSWORD:
+      api.put(
+        '/profil/password',
+        {
+          currentPassword: store.getState().user.password,
+          newPassword: store.getState().user.newPassword,
+          checkPassword: store.getState().user.checkPassword,
         },
       )
         .then((response) => {

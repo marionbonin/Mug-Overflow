@@ -1,4 +1,3 @@
-// == Import
 import {
   Routes, Route, Navigate
 } from 'react-router-dom';
@@ -25,7 +24,7 @@ import Loading from './Loading';
 
 import './styles.scss';
 
-// == Composant
+
 function App() {
   const dispatch = useDispatch();
   const isLogged = useSelector((state) => state.user.logged);

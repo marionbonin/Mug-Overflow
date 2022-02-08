@@ -22,9 +22,7 @@ import './style.scss';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  // borderStyle: 'solid',
-  // borderWidth: '0.5px',
-  // borderColor: 'black',
+
   backgroundColor: alpha(theme.palette.common.white, 0.2),
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),

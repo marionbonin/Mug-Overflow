@@ -41,6 +41,7 @@ export default function Home() {
     favoriteProducts,
     randomProducts,
   ];
+
   return (
     <>
       <ScrollToTop />
@@ -82,36 +83,6 @@ export default function Home() {
               />
             </Box>
           ))}
-
-          {/* ICI NOUVEAU MAP DES 3 CAROUSELS
-          {HomeCarouselsData.map(({ key, id, title }) => (
-            <Box
-              className="carousel-box"
-              id={id}
-              key={key}
-            >
-              <AliceCarousel
-                key={key}
-                title={title}
-              />
-            </Box>
-          ))}
-          */}
-
-          {/* ICI ANCIEN MAP DES 3 CAROUSELS
-          {HomeCarouselsData.map(({ key, id, title }) => (
-            <Box
-              className="carousel-box"
-              id={id}
-              key={key}
-            >
-              <CarouselElement
-                key={key}
-                title={title}
-              />
-            </Box>
-          ))}
-          */}
 
           <Box id="categories-box">
             <h2>Retrouvez tous nos mugs par catégorie</h2>

@@ -26,13 +26,6 @@ import { saveSlug } from '../../actions/user';
 import feedbacks from './feedback-data';
 import './style.scss';
 
-// return (
-//   <Button onClick={onDownload} variant="contained" color="primary">
-//     Download
-//   </Button>
-// );
-// }
-
 export default function Product() {
   const dispatch = useDispatch();
   const parameters = useParams();

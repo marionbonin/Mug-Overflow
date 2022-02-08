@@ -6,6 +6,7 @@ import Container from '@mui/material/Container';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Loading from '../App/Loading';
 import { fetchRandomProducts, fetchFavoriteProducts, fetchLatestProducts } from '../../actions/products';
 
 import Card from '../ProductCard/productCard';
@@ -43,7 +44,12 @@ export default function CarouselElement({ title }) {
 
   // console.log(smallerThanSm);
   // console.log(centerSlidePercentageRatio);
-
+  if (!latestProducts) {
+    console.log('latest products en chargement');
+    return (
+      <Loading />
+    );
+  }
   return (
     <Container>
       <h2 id="category-title">{title}</h2>

@@ -30,7 +30,6 @@ const productsMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case FETCH_PRODUCTS_BY_CATEGORY:
-      // console.log('appel à fetch products by category');
       // API call to get the products
       api.get(`/categories/${slugURL}/products`)
         .then((response) => {

@@ -2,7 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import ProductCardGallery from '../ProductCard/productCardGallery';
+import Loading from '../App/Loading';
+
+import ProductCardGallery from '../ProductCard/ProductCardGallery/productCardGallery';
 
 import './styleAlice.scss';
 
@@ -29,7 +31,11 @@ export default function Gallery({ id, title, ...homepageProducts }) {
   if (title === 'Pas d\'inspiration ?') {
     productsToDisplay = randomProducts;
   }
-
+  if (!homepageProducts) {
+    return (
+      <Loading />
+    );
+  }
   return (
     <>
       <h2 id="category-title">{title}</h2>
