@@ -1,6 +1,6 @@
 # Mug Overflow
 
-Mug Overflow is the (un)official merch mug e-shop for O'Clock, a web development school. This repo contains the front-end code of the project.  
+Mug Overflow is the (un)official merch mug e-shop for O'Clock, a web development school! This repo contains the front-end code of the project.  
 Check out the [live demo on Youtube](https://www.youtube.com/watch?v=54LjxWlOihU&t=1437s) (15 min - in French)
 
 ## Table of contents
