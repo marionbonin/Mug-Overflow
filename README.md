@@ -46,10 +46,10 @@ The back-end is created with PHP / Symfony.
 	
   
 ## Setup
-To run this project, install it locally using yarn:
+To run this project, install it locally using yarn or npm:
 
 ```
-$ cd ../Mug-Overflow
+$ cd Mug-Overflow
 $ yarn install
 $ yarn start
 ```
